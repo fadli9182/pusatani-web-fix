@@ -4,7 +4,6 @@ import "./index.css";
 import App from "./App";
 import TypewriterComponent from "typewriter-effect";
 import "bootstrap/dist/css/bootstrap.css";
-import "bootstrap-icons";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 
