@@ -1,31 +1,49 @@
 import React from "react";
 import Logo from "../asset/image/Logo.png";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { Button } from "react-bootstrap";
 
 function Header() {
   return (
-    <div>
-      <nav class="navbar bg-transparent">
+    <>
+      <nav class="navbar  nav--bg">
         <div class="container-fluid d-flex align-content-center px-5">
-          <img className="img-fluid" src={Logo} alt="" width={"80px"} />
-          <div class="d-flex align-content-center my-2 ms-auto">
+          <img
+            className="img-fluid"
+            src={Logo}
+            alt=""
+            width={"80px"}
+            style={{ background: "white", padding: "5px", borderRadius: "20%" }}
+          />
+          <div class="d-flex align-content-center my-2 ms-auto nav--item">
             <ul className="m-0">
-              <Link className="nav--link">Home</Link>
-              <Link className="nav--link">Tentang Kami</Link>
-              <Link className="nav--link">Tani Info</Link>
-              <Link className="nav--link">Tani Shop</Link>
-              <Button className="me-2" style={{ fontSize: "12px" }}>
+              <NavLink to={"/"} className="nav--link">
+                Home
+              </NavLink>
+              <NavLink to={"/about"} className="nav--link">
+                Tentang Kami
+              </NavLink>
+              <NavLink className="nav--link">Tani Info</NavLink>
+              <NavLink className="nav--link">Tani Shop</NavLink>
+              <Link
+                to={"/login"}
+                className="btn btn-success me-2"
+                style={{ fontSize: "12px" }}
+              >
                 Login
-              </Button>
-              <Button className="btn-danger" style={{ fontSize: "12px" }}>
+              </Link>
+              <Link
+                to={"/register"}
+                className="btn btn-danger"
+                style={{ fontSize: "12px" }}
+              >
                 Register
-              </Button>
+              </Link>
             </ul>
           </div>
         </div>
       </nav>
-    </div>
+    </>
   );
 }
 

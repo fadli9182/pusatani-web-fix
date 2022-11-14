@@ -9,7 +9,7 @@ const Login = () => {
         <div className="col-md-5 login--page-left">
           <div className="row">
             <div className="col-md-4">
-              <img className="p-4 pb-0 img-fluid" src={Logo} alt="Logo" width={"160px"} height={"150px"} />
+              <Link to={'/'}><img className="p-4 pb-0 img-fluid" src={Logo} alt="Logo" width={"160px"} height={"150px"} /></Link>
             </div>
             <div className="col-md-8 col-sm-12 pt-3 text--green">
               <h1 style={{ fontSize: "30px" }}>Pusat Informasi Petani</h1>
