@@ -8,7 +8,7 @@ function Header() {
     <div>
       <nav class="navbar bg-transparent">
         <div class="container-fluid d-flex align-content-center px-5">
-          <img className="img-fluid" src={Logo} alt="" width={"66px"} />
+          <img className="img-fluid" src={Logo} alt="" width={"80px"} />
           <div class="d-flex align-content-center my-2 ms-auto">
             <ul className="m-0">
               <Link className="nav--link">Home</Link>
