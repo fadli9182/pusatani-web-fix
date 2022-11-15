@@ -1,31 +1,25 @@
 :root {
   --primary-green: #2c774b;
-  --linear-color: linear-gradient(
-    to right top,
-    #2c774b,
-    #1c7f60,
-    #038674,
-    #008d88,
-    #00939a,
-    #0d9ea0,
-    #1ba8a5,
-    #29b3aa,
-    #5cc39c,
-    #90d18c,
-    #c5db81,
-    #fce181
-  );
+  --linear-color: linear-gradient(to right top, #2c774b, #1c7f60, #038674, #008d88, #00939a, #0d9ea0, #1ba8a5, #29b3aa, #5cc39c, #90d18c, #c5db81, #fce181);
 }
 
 .about--bg {
   height: 500px;
   background: url("../image/aboutBg.png");
+  background-attachment: fixed;
   text-align: center;
   color: var(--primary-green);
+}
+
+.judul--tentang {
+  margin-top: 100px;
   text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
 }
 
-.about--bg h1 {
-  margin-top: 100px;
+.badan {
+  color: var(--primary-green);
+}
 
+.card--about {
+  margin-bottom: 50px !important;
 }

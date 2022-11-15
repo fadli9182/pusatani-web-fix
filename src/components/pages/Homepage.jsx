@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Footer from "../partials/Footer";
 import Header from "../partials/Header";
 import homeBg from "../asset/image/homeBg.png";
@@ -38,7 +38,7 @@ function Homepage() {
                     autoStart: true,
                     loop: true,
                     delay: 40,
-                    strings: ["Petani?", "Toko Pupuk?", "Pabrik?"],
+                    strings: ["Toko Pupuk?", "Pabrik?"],
                   }}
                 />
               </div>

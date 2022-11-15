@@ -16,18 +16,18 @@ function Contact() {
         <div className="row">
           <div className="col-md-4">
             <AiOutlinePhone className="contact--icon" />
-            <p>Hubungi Kami</p>
-            <Link>+6282828282</Link>
+            <p className="m-0">Hubungi Kami</p>
+            <Link style={{ textDecoration: "none", color: "GrayText" }}>+6282828282</Link>
           </div>
           <div className="col-md-4">
             <AiOutlineMail className="contact--icon" />
-            <p>Pesan Kami</p>
-            <Link>pusatani@gmail.com</Link>
+            <p className="m-0">Pesan Kami</p>
+            <Link style={{ textDecoration: "none", color: "GrayText" }}>pusatani@gmail.com</Link>
           </div>
           <div className="col-md-4">
             <CiLocationOn className="contact--icon" />
-            <p>Lokasi Kami</p>
-            <Link>+6282828282</Link>
+            <p className="m-0">Lokasi Kami</p>
+            <Link style={{ textDecoration: "none", color: "GrayText" }}>Jalan Sana-Sini No.32 Indramayu, Jawa Barat</Link>
           </div>
 
           <div className="col-md-12 form--contact my-5">
@@ -49,11 +49,12 @@ function Contact() {
           </div>
         </div>
       </div>
-      <div class="mapouter">
-        <div class="gmap_canvas">
+      <div className="mapouter">
+        <div className="gmap_canvas">
           <iframe title="map" width="1440px" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=indramayu&t=&z=13&ie=UTF8&iwloc=&output=embed" frameBorder="0" scrolling="no" marginHeight="0" marginWidth="0"></iframe>
         </div>
       </div>
+      <hr />
       <Footer />
     </>
   );

@@ -9,7 +9,7 @@ const Footer = () => {
       <div className="footer--bg">
         <div className="container">
           <div className="row pt-5">
-            <div className="col-md-3 col-4 text-center" >
+            <div className="col-md-3 col-4 text-center">
               <img className="img-fluid" src={Logo} alt="Logo" />
             </div>
             <div className="col-md-2 col-4">
@@ -85,7 +85,7 @@ const Footer = () => {
             </div>
           </div>
           <hr />
-          <p style={{ paddingBottom: "50px" }} className="text-center">
+          <p style={{ paddingBottom: "50px", textShadow: "none" }} className="text-center">
             &copy;2022 PusaTani | All Rights Reserved
           </p>
         </div>

@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
@@ -8,6 +7,7 @@ import Contact from "./components/pages/Contact";
 import Homepage from "./components/pages/Homepage";
 import Login from "./components/pages/Login";
 import Register from "./components/pages/Register";
+import Taniinfo from "./components/pages/Taniinfo";
 import Tentang from "./components/pages/Tentang";
 
 function App() {
@@ -19,6 +19,7 @@ function App() {
         <Route path="/admin" element={<AdminLogin />} />
         <Route path="/admdashoard" element={<Admin />} />
         <Route path="/about" element={<Tentang />} />
+        <Route path="/info" element={<Taniinfo />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
       </Routes>

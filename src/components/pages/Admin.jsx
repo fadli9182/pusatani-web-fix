@@ -10,16 +10,9 @@ const Admin = () => {
   const [modalShow, setModalShow] = React.useState(false);
   function FormModal(props) {
     return (
-      <Modal
-        {...props}
-        size="lg"
-        aria-labelledby="contained-modal-title-vcenter"
-        centered
-      >
+      <Modal {...props} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
         <Modal.Header closeButton>
-          <Modal.Title id="contained-modal-title-vcenter">
-            Tambah Artikel
-          </Modal.Title>
+          <Modal.Title id="contained-modal-title-vcenter">Tambah Artikel</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <form action="">
@@ -27,34 +20,19 @@ const Admin = () => {
               <label className="form-label d-flex" htmlFor="judul-artikel">
                 Judul
               </label>
-              <input
-                type="text"
-                id="judul-artikel"
-                className="form-control form-control-lg"
-                placeholder="Judul Artikel"
-              />
+              <input type="text" id="judul-artikel" className="form-control form-control-lg" placeholder="Judul Artikel" />
             </div>
             <div className="form-outline mb-4">
               <label className="form-label d-flex" htmlFor="nomer-login">
                 Isi Artikel
               </label>
-              <input
-                type="email"
-                id="nomer-login"
-                className="form-control form-control-lg"
-                placeholder="Masukan isi Artikel"
-              />
+              <input type="email" id="nomer-login" className="form-control form-control-lg" placeholder="Masukan isi Artikel" />
             </div>
             <div className="form-outline mb-4">
               <label className="form-label d-flex" for="password-login">
                 Kategori
               </label>
-              <select
-                className="form-select"
-                name="category"
-                id="category"
-                defaultValue={"default"}
-              >
+              <select className="form-select" name="category" id="category" defaultValue={"default"}>
                 <option disabled value="default">
                   Pilih Kategori
                 </option>
@@ -83,20 +61,12 @@ const Admin = () => {
         <Link to={"/"}>
           <img className="m-2 ms-4" src={Logo} alt="logo" width={"50px"} />
         </Link>
-        <button
-          class="navbar-toggler d-md-none collapsed"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#sidebarMenu"
-          aria-controls="sidebarMenu"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
+        <button class="navbar-toggler d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="navbar-nav">
           <div class="nav-item me-3">
-            <a class="btn btn-danger nav-link px-3" href="/" style={{color: 'white'}}>
+            <a class="btn btn-danger nav-link px-3" href="/" style={{ color: "white" }}>
               Sign out
             </a>
           </div>
@@ -105,10 +75,7 @@ const Admin = () => {
 
       <div class="container-fluid">
         <div class="row">
-          <nav
-            id="sidebarMenu"
-            class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse"
-          >
+          <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
             <div class="position-sticky pt-3 sidebar-sticky">
               <ul class="nav flex-column">
                 <li class="nav-item mt-3">
@@ -117,12 +84,12 @@ const Admin = () => {
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="/">
+                  <a class="nav-link" href="#tabel-artikel">
                     List Artikel
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="/">
+                  <a class="nav-link" href="#tabel-toko">
                     List Toko
                   </a>
                 </li>
@@ -137,30 +104,20 @@ const Admin = () => {
               <h1 class="h2">Dashboard</h1>
               <div class="btn-toolbar mb-2 mb-md-0">
                 <div class="btn-group me-2">
-                  <button
-                    type="button"
-                    class="btn btn-sm btn-outline-secondary"
-                  >
+                  <button type="button" class="btn btn-sm btn-outline-secondary">
                     Share
                   </button>
-                  <button
-                    type="button"
-                    class="btn btn-sm btn-outline-secondary"
-                  >
+                  <button type="button" class="btn btn-sm btn-outline-secondary">
                     Export
                   </button>
                 </div>
               </div>
             </div>
             <h2>List Artikel</h2>
-            <button
-              className="btn btn-info"
-              variant="primary"
-              onClick={() => setModalShow(true)}
-            >
+            <button className="btn btn-info" variant="primary" onClick={() => setModalShow(true)}>
               Tambah Artikel
             </button>
-            <div class="table-responsive">
+            <div class="table-responsive" id="tabel-artikel">
               <table class="table table-striped table-sm">
                 <thead>
                   <tr>
@@ -177,25 +134,21 @@ const Admin = () => {
                     <td>1</td>
                     <td>"......."</td>
                     <td>Petani Padi padi</td>
-                    <td>
-                      Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                      Nostrum libero voluptatem expedita dolores, vero minima
-                      quam voluptas quae necessitatibus ab?
-                    </td>
+                    <td>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum libero voluptatem expedita dolores, vero minima quam voluptas quae necessitatibus ab?</td>
                     <td>Berita</td>
                     <td>
                       <div className="d-flex gap-2">
                         <button className="btn btn-danger">Delete</button>
-                        <button className="btn btn-warning" >Edit</button>
+                        <button className="btn btn-warning">Edit</button>
                       </div>
                     </td>
                   </tr>
                 </tbody>
               </table>
             </div>
-            <hr/>
+            <hr />
             <h2>List Toko</h2>
-            <div class="table-responsive">
+            <div class="table-responsive" id="tabel-toko">
               <table class="table table-striped table-sm">
                 <thead>
                   <tr>
@@ -212,11 +165,7 @@ const Admin = () => {
                     <td>1</td>
                     <td>"......."</td>
                     <td>Petani Padi padi</td>
-                    <td>
-                      Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                      Nostrum libero voluptatem expedita dolores, vero minima
-                      quam voluptas quae necessitatibus ab?
-                    </td>
+                    <td>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum libero voluptatem expedita dolores, vero minima quam voluptas quae necessitatibus ab?</td>
                     <td>Berita</td>
                     <td>
                       <div className="d-flex gap-2">
@@ -232,11 +181,7 @@ const Admin = () => {
           <Modal>
             <h1>Hello</h1>
           </Modal>
-          <FormModal
-            backdrop="static"
-            show={modalShow}
-            onHide={() => setModalShow(false)}
-          />
+          <FormModal backdrop="static" show={modalShow} onHide={() => setModalShow(false)} />
         </div>
       </div>
     </div>
