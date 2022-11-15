@@ -27,7 +27,7 @@ function Homepage() {
           <button className="btn--login btn--home">Unduh Aplikasi</button>
         </div>
       </div>
-      <div className="container">
+      <div className="container mt-5 intro">
         <div className="Home-intro text--center">
           <h4>
             <div className="title">
@@ -43,11 +43,22 @@ function Homepage() {
                 />
               </div>
             </div>
+            <br />
             <div className="titletwo">{state.titletwo}</div>
+            <br />
             <div className="titlethree">{state.titlethree}</div>
           </h4>
         </div>
       </div>
+      {/* testi */}
+      <div className="container mt-5 text">
+        <div>
+          <h1 className="">Solusi Untuk Lahan pertanianmu</h1>
+          <br />
+          <h2>Kami bertekad untuk memenuhi segala kebutuhan pertanian demi meningkatkan kesejahteraan para petani. Bergabung bersama kami dan dapatkan solusi dari setiap masalah pertanian Anda.</h2>
+        </div>
+      </div>
+
       <Footer />
     </>
   );
