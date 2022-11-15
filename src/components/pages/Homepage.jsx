@@ -27,12 +27,12 @@ function Homepage() {
           <button className="btn--login btn--home">Unduh Aplikasi</button>
         </div>
       </div>
-      <div className="home">
-        <div className="Home-intro">
+      <div className="container">
+        <div className="Home-intro text--center">
           <h4>
             <div className="title">
               {state.title}
-              <div className="text">
+              <div className="text--green">
                 <TypewriterComponent
                   options={{
                     autoStart: true,
