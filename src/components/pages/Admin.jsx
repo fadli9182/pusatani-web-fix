@@ -96,7 +96,7 @@ const Admin = () => {
         </button>
         <div class="navbar-nav">
           <div class="nav-item me-3">
-            <a class="btn btn-danger nav-link px-3" href="/">
+            <a class="btn btn-danger nav-link px-3" href="/" style={{color: 'white'}}>
               Sign out
             </a>
           </div>
@@ -186,7 +186,7 @@ const Admin = () => {
                     <td>
                       <div className="d-flex gap-2">
                         <button className="btn btn-danger">Delete</button>
-                        <button className="btn btn-warning">Edit</button>
+                        <button className="btn btn-warning" >Edit</button>
                       </div>
                     </td>
                   </tr>
