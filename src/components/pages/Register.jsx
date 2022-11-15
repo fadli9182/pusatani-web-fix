@@ -1,6 +1,7 @@
 import React from "react";
 import Logo from "../asset/image/Logo.png";
 import { Link } from "react-router-dom";
+import {BsFillReplyFill} from 'react-icons/bs'
 
 function Register() {
   return (
@@ -11,7 +12,7 @@ function Register() {
             <div className="card-body py-3 text-center px-5 align-item-center card--login">
               <h3 className="mb-3 text-center">Register</h3>
               <Link to={"/login"} className="d-flex mb-2">
-                Kembali Ke halaman login
+                <BsFillReplyFill/>Kembali Ke halaman login
               </Link>
               <div className="form-outline mb-4">
                 <label className="form-label d-flex" htmlFor="email-login">
