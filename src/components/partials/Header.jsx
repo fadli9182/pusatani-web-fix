@@ -23,7 +23,7 @@ function Header() {
               <NavLink style={({ isActive }) => (isActive ? navStyle : navNormal)} to={"/info"} className="nav--link">
                 Tani Info
               </NavLink>
-              <NavLink style={({ isActive }) => (isActive ? navStyle : navNormal)} to={"/tanishop"} className="nav--link">
+              <NavLink style={({ isActive }) => (isActive ? navStyle : navNormal)} to={"/shop"} className="nav--link">
                 Tani Shop
               </NavLink>
               <NavLink style={({ isActive }) => (isActive ? navStyle : navNormal)} to={"/contact"} className="nav--link">

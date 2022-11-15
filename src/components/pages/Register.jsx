@@ -1,7 +1,6 @@
 import React from "react";
 import Logo from "../asset/image/Logo.png";
 import { Link } from "react-router-dom";
-import { BsFillReplyFill } from "react-icons/bs";
 import "../asset/css/home.css";
 
 function Register() {
