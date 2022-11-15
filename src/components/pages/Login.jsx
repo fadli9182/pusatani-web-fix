@@ -7,14 +7,17 @@ const Login = () => {
     <>
       <div className="row" style={{ height: "100vh" }}>
         <div className="col-md-5 login--page-left">
-          <div className="row">
-            <div className="col-md-4">
-              <Link to={'/'}><img className="p-4 pb-0 img-fluid" src={Logo} alt="Logo" width={"160px"} height={"150px"} /></Link>
+          <div className="row login--header">
+            <div className="col-md-4 col-sm-12">
+              <Link to={"/"}>
+                <img className="p-4 " src={Logo} alt="Logo" width={"160px"} height={"150px"} />
+              </Link>
             </div>
-            <div className="col-md-8 col-sm-12 pt-3 text--green">
+            <div className="col-md-8 col-sm-12 pt-4 text--green">
               <h1 style={{ fontSize: "30px" }}>Pusat Informasi Petani</h1>
               <p>Dengan Teknologi memberi solusi untuk Petani</p>
             </div>
+            {/* <div className="col-lg-12 login--page-left " style={{ width: "100%", height: "500px" }}></div> */}
           </div>
         </div>
         <div className="col-md-7 d-flex justify-content-center align-item-center py-5 right--login">
@@ -37,14 +40,13 @@ const Login = () => {
               <div className="form-check d-flex justify-content-start mb-4">
                 <input className="form-check-input me-2" type="checkbox" value="" id="checkbox-login" />
                 <label className="form-check-label" htmlFor="checkbox-login">
-                  {" "}
-                  Ingat Saya{" "}
+                  Ingat Saya
                 </label>
               </div>
               <button className="btn--login">Login</button>
               <hr className="my-4 baris" />
               <p>
-                Dont Have an account ? Lets <Link to="/register">Register</Link>
+                Belum Mempunyai Akun ? Mari <Link to="/register">Register</Link>
               </p>
             </div>
           </div>

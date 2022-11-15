@@ -6,6 +6,8 @@
 .about--bg {
   height: 500px;
   background: url("../image/aboutBg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
   background-attachment: fixed;
   text-align: center;
   color: var(--primary-green);

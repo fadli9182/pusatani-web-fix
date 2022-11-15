@@ -17,7 +17,7 @@ function Homepage() {
       <div className="bg" style={{ background: `url(${homeBg})`, backgroundSize: "cover", backgroundAttachment: "fixed", height: "100%", width: "100%" }}>
         <Header />
         <div className="hero--home">
-          <h1>
+          <h1 className="pt-5">
             Selamat Datang
             <br />
             Di PusaTani

@@ -42,10 +42,13 @@ code {
 .hero--home {
   padding: 10px 40px;
   color: var(--primary-green);
+  margin: 30px 0;
 }
 
 .contact--header {
   background: url("./components/asset/image/contactBg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
   height: 400px;
   margin-bottom: 3rem;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
@@ -76,12 +79,20 @@ code {
 }
 
 .login--page-left {
-  background: url("./components/asset/image/loginBg.png");
+  background: url("./components/asset/image/bg1.jpg");
   background-size: cover;
+  background-position: top left;
 }
 
 .text--green {
-  color: #2c774b;
+  color: var(--primary-green);
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}
+
+.login--header {
+  background: rgb(255, 255, 255, .5);
+  border-radius: 30px;
+  margin: 20px !important;
 }
 
 .btn--login {
