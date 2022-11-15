@@ -1,5 +1,5 @@
 import React from "react";
-import '../asset/css/about.css'
+import "../asset/css/about.css";
 import Header from "../partials/Header";
 import padi from "../asset/image/padi.jpg";
 import Footer from "../partials/Footer";
@@ -41,16 +41,12 @@ const Tentang = () => {
         <p>Informasi Mengenai PusaTani</p>
       </div>
       <div className="container my-5">
-
         <div className="row">
           <div className="col-md-6">
             <p>
               {" "}
-              Indonesia adalah negara agraris yang mayoritas penduduknya bermata
-              pencaharian sebagai petani. khususnya di daerah Indramayu dimana
-              banyaknya hasil pertanian dan harga yang tidak pasti dengan
-              besarnya ketergantungan terhadap alam membuat petani Indonesia
-              mengalami kesulitan dalam permodalan.{" "}
+              Indonesia adalah negara agraris yang mayoritas penduduknya bermata pencaharian sebagai petani. khususnya di daerah Indramayu dimana banyaknya hasil pertanian dan harga yang tidak pasti dengan besarnya ketergantungan terhadap
+              alam membuat petani Indonesia mengalami kesulitan dalam permodalan.{" "}
             </p>
           </div>
           <div className="col-md-6">
@@ -65,24 +61,16 @@ const Tentang = () => {
           <div className="col-md-6">
             <p>
               {" "}
-              Hal inilah yang memicu rendahnya angka regenerasi petani muda.
-              Data dari Badan Pusat Statistik menunjukkan bahwa hanya 19,18%
-              pemuda Indonesia yang bekerja di sektor pertanian pada 2021 dan
-              jumlahnya terus menurun bahkan di tengah peningkatan jumlah tenaga
-              kerja di Indonesia.{" "}
+              Hal inilah yang memicu rendahnya angka regenerasi petani muda. Data dari Badan Pusat Statistik menunjukkan bahwa hanya 19,18% pemuda Indonesia yang bekerja di sektor pertanian pada 2021 dan jumlahnya terus menurun bahkan di
+              tengah peningkatan jumlah tenaga kerja di Indonesia.{" "}
             </p>
           </div>
 
           <div className="col-md-6">
             <p>
               {" "}
-              PusaTani sadar akan urgensi dari masalah pertanian yang ada di
-              Indonesia. Berangkat dari mimpi dan semangat yang besar, PusaTanI
-              memiliki misi untuk menyejahterakan petani nusantara dengan
-              membangun ekosistem pertanian yang kuat dan mempermudah jalannya
-              proses hulu (Pengelolaan rantai pasok) hingga proses hilir
-              (distribusi & penyaluran hasil panen) pada ekosistem pertanian.
-              Dan menyediakan sistem informasi dan Tips Tentang Pertanian.{" "}
+              PusaTani sadar akan urgensi dari masalah pertanian yang ada di Indonesia. Berangkat dari mimpi dan semangat yang besar, PusaTanI memiliki misi untuk menyejahterakan petani nusantara dengan membangun ekosistem pertanian yang
+              kuat dan mempermudah jalannya proses hulu (Pengelolaan rantai pasok) hingga proses hilir (distribusi & penyaluran hasil panen) pada ekosistem pertanian. Dan menyediakan sistem informasi dan Tips Tentang Pertanian.{" "}
             </p>
           </div>
           <div className="col-md-6">

@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
@@ -8,6 +7,8 @@ import Homepage from "./components/pages/Homepage";
 import Login from "./components/pages/Login";
 import Register from "./components/pages/Register";
 import Tentang from "./components/pages/Tentang";
+import Info from "./components/pages/info";
+import Shop from "./components/pages/shop";
 
 function App() {
   return (
@@ -19,6 +20,8 @@ function App() {
         <Route path="/about" element={<Tentang />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/shop" element={<Shop />} />
+        <Route path="/info" element={<Info />} />
       </Routes>
     </>
   );
