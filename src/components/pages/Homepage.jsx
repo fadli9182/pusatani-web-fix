@@ -7,7 +7,7 @@ import TypewriterComponent from "typewriter-effect";
 function Homepage() {
   const [state] = useState({
     title: "Kamu",
-    tittletwo: "Ayo Bergabung Bersama Kami!",
+    titletwo: "Ayo Bergabung Bersama Kami!",
     titlethree:
       "Bergabung sekarang untuk meningkatkan kesejahteraan petani dan memberantas oknum tengkulak yang tidak bertanggung jawab.Dan nikmati berbagai manfaat dari PusaTani, seperti informasi seputar pertanian hingga penyaluran gabah dan beras. Mari bersama mewujudkan ekosistem pertanian yang kuat!",
   });
@@ -29,7 +29,23 @@ function Homepage() {
       </div>
       <div className="home">
         <div className="Home-intro">
-          <h2></h2>
+          <h4>
+            <div className="title">
+              {state.title}
+              <div className="text">
+                <TypewriterComponent
+                  options={{
+                    autoStart: true,
+                    loop: true,
+                    delay: 40,
+                    strings: ["Petani?", "Toko Pupuk?", "Pabrik?"],
+                  }}
+                />
+              </div>
+            </div>
+            <div className="titletwo">{state.titletwo}</div>
+            <div className="titlethree">{state.titlethree}</div>
+          </h4>
         </div>
       </div>
       <Footer />
