@@ -17,12 +17,12 @@ const Taniinfo = () => {
       </div>
       <div className="container info--body">
         <div className="text-center pb-5">
-          <h1 style={{ fontWeight: "700" }}>Tani Info</h1>
-          <p>Informasi tentang Teknologi dan teknik Pertanian</p>
+          <h1 style={{ fontWeight: "700" }}>Berita</h1>
+          <p>Berita informasi tentang Teknologi dan teknik Pertanian</p>
         </div>
         <div className="row">
           <div className="col-md-4">
-            <div className="card">
+            <div className="card shadow">
               <img className="img-fluid" src={berita} alt="berita" />
               <div className="p-4">
                 <h5 style={{ fontWeight: "bold" }}>Agricultural Leader</h5>
@@ -38,13 +38,13 @@ const Taniinfo = () => {
           <div className="col-12 text-center">
             <h1 style={{ fontSize: "48px" }}>Jumlah Petani Di Indramayu</h1>
           </div>
-          <div class="col-4 text-center" style={{ borderRight: "2px solid green", padding: " 0 30px" }}>
+          <div class="col-4 text-center" style={{ borderRight: "4px solid rgba(0,0,0,.5)", padding: " 0 30px" }}>
             <h1>36</h1>
             <h5>
               Petani <br /> Mandiri
             </h5>
           </div>
-          <div class="col-4 text-center" style={{ borderRight: "2px solid green", padding: " 0 30px" }}>
+          <div class="col-4 text-center" style={{ borderRight: "4px solid rgba(0,0,0,.5)", padding: " 0 30px" }}>
             <h1>112</h1>
             <h5>
               Petani <br /> Menengah

@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from "react";
 import Footer from "../partials/Footer";
 import Header from "../partials/Header";
 import Infobg from "../asset/image/bg-info.png";
@@ -16,6 +15,7 @@ const Info = () => {
           </h1>
         </div>
       </div>
+      <Footer />
     </>
   );
 };

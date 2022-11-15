@@ -24,7 +24,7 @@ function Homepage() {
           </h1>
           <h3>Pusat Informasi Petani</h3>
           <h4>Dengan Teknologi Memberi Solusi Untuk Petani</h4>
-          <button className="btn--login btn--home">Unduh Aplikasi</button>
+          <button className="btn--login btn--home" >Unduh Aplikasi</button>
         </div>
       </div>
       <div className="container mt-5 intro">

@@ -43,7 +43,7 @@ const Login = () => {
                   Ingat Saya
                 </label>
               </div>
-              <button className="btn--login">Login</button>
+              <button className="btn--login w-75">Login</button>
               <hr className="my-4 baris" />
               <p>
                 Belum Mempunyai Akun ? Mari <Link to="/register">Register</Link>

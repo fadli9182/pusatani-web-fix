@@ -2,6 +2,7 @@
   background: url("../image/infoBg.png");
   background-size: cover;
   background-repeat: no-repeat;
+  background-attachment: fixed;
   height: 500px;
   margin-bottom: 50px;
 }
