@@ -20,15 +20,8 @@ function Header() {
               <NavLink style={({ isActive }) => (isActive ? navStyle : navNormal)} to={"/about"} className="nav--link">
                 Tentang Kami
               </NavLink>
-              <NavLink style={({ isActive }) => (isActive ? navStyle : navNormal)} to={"/info"} className="nav--link">
-                Tani Info
-              </NavLink>
-              <NavLink style={({ isActive }) => (isActive ? navStyle : navNormal)} to={"/tanishop"} className="nav--link">
-                Tani Shop
-              </NavLink>
-              <NavLink style={({ isActive }) => (isActive ? navStyle : navNormal)} to={"/contact"} className="nav--link">
-                Contact
-              </NavLink>
+              <NavLink className="nav--link">Tani Info</NavLink>
+              <NavLink className="nav--link">Tani Shop</NavLink>
               <Link to={"/login"} className="btn btn-success me-2" style={{ fontSize: "12px" }}>
                 Login
               </Link>

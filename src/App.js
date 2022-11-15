@@ -9,6 +9,8 @@ import Login from "./components/pages/Login";
 import Register from "./components/pages/Register";
 import Taniinfo from "./components/pages/Taniinfo";
 import Tentang from "./components/pages/Tentang";
+import Info from "./components/pages/info";
+import Shop from "./components/pages/shop";
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
         <Route path="/info" element={<Taniinfo />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/shop" element={<Shop />} />
+        <Route path="/info" element={<Info />} />
       </Routes>
     </>
   );
