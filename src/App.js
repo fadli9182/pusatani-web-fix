@@ -10,6 +10,7 @@ import Register from "./components/pages/Register";
 import Taniinfo from "./components/pages/Taniinfo";
 import Tentang from "./components/pages/Tentang";
 import TaniShop from "./components/pages/TaniShop";
+import DaftarToko from "./components/pages/DaftarToko";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/" element={<Homepage />} />
         <Route path="/register" element={<Register />} />
         <Route path="/admin" element={<AdminLogin />} />
+        <Route path="/daftartoko" element={<DaftarToko />} />
         <Route path="/admdashoard" element={<Admin />} />
         <Route path="/about" element={<Tentang />} />
         <Route path="/info" element={<Taniinfo />} />

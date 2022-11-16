@@ -1,8 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import Logo from "../asset/image/Logo.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const [isLogin, setIsLogin] = useState(false);
+
+  const navigate = useNavigate();
+
+  function userLogin(e) {
+    e.preventDefault();
+    setIsLogin(true);
+    navigate("/");
+  }
+
   return (
     <>
       <div className="row" style={{ height: "100vh" }}>
@@ -20,30 +30,33 @@ const Login = () => {
             {/* <div className="col-lg-12 login--page-left " style={{ width: "100%", height: "500px" }}></div> */}
           </div>
         </div>
+
         <div className="col-md-7 d-flex justify-content-center align-item-center py-5 right--login">
           <div className="card shadow align-content-center" style={{ borderRadius: "1rem", width: "500px" }}>
             <div className="card-body p-5 text-center align-item-center card--login">
-              <h3 className="mb-5">Sign in</h3>
-              <div className="form-outline mb-4">
-                <label className="form-label" htmlFor="email-login">
-                  Email
-                </label>
-                <input type="email" id="email-login" className="form-control form-control-lg form-float" placeholder="Email Anda" />
-              </div>
-              <div className="form-outline mb-4">
-                <label className="form-label" htmlFor="password-login">
-                  Password
-                </label>
-                <input type="password" id="password-login" className="form-control form-control-lg" placeholder="Masukan Kata Sandi" />
-              </div>
-              {/* <!-- Checkbox --> */}
-              <div className="form-check d-flex justify-content-start mb-4">
-                <input className="form-check-input me-2" type="checkbox" value="" id="checkbox-login" />
-                <label className="form-check-label" htmlFor="checkbox-login">
-                  Ingat Saya
-                </label>
-              </div>
-              <button className="btn--login w-75">Login</button>
+              <form onSubmit={(e) => userLogin(e)}>
+                <h3 className="mb-5">Sign in</h3>
+                <div className="form-outline mb-4">
+                  <label className="form-label" htmlFor="email-login">
+                    Email
+                  </label>
+                  <input type="email" id="email-login" className="form-control form-control-lg form-float" placeholder="Email Anda" />
+                </div>
+                <div className="form-outline mb-4">
+                  <label className="form-label" htmlFor="password-login">
+                    Password
+                  </label>
+                  <input type="password" id="password-login" className="form-control form-control-lg" placeholder="Masukan Kata Sandi" />
+                </div>
+                {/* <!-- Checkbox --> */}
+                <div className="form-check d-flex justify-content-start mb-4">
+                  <input className="form-check-input me-2" type="checkbox" value="" id="checkbox-login" />
+                  <label className="form-check-label" htmlFor="checkbox-login">
+                    Ingat Saya
+                  </label>
+                </div>
+                <button className="btn--login w-75">Login</button>
+              </form>
               <hr className="my-4 baris" />
               <p>
                 Belum Mempunyai Akun ? Ayo <Link to="/register">Register!</Link>

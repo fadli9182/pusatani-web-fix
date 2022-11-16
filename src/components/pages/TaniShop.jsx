@@ -25,7 +25,7 @@ const TaniShop = () => {
           <h1 style={{ fontWeight: "700" }}>Pabrik dan Toko </h1>
           <p>Yang Sudah Menjadi Partner Kami</p>
         </div>
-        <div className="card mb-3" style={{ maxWidth: "80%" }}>
+        <div className="card mb-3" style={{ maxWidth: "100%" }}>
           <div className="row g-0">
             <div className="col-md-4">
               <img src={Foto1} className="img-fluid rounded-start" alt="..." />
@@ -41,7 +41,7 @@ const TaniShop = () => {
             </div>
           </div>
         </div>
-        <div className="card mb-3" style={{ maxWidth: "80%" }}>
+        <div className="card mb-3" style={{ maxWidth: "100%" }}>
           <div className="row g-0">
             <div className="col-md-4">
               <img src={Foto2} className="img-fluid rounded-start" alt="..." />
@@ -58,58 +58,71 @@ const TaniShop = () => {
           </div>
         </div>
         <div id="galeri">
-          <div class="galeri">
-            <div class="judul-home">
+          <div className="galeri">
+            <div className="judul-home text-center">
               <h1>Harga Rata-Rata Komoditas</h1>
               <h3>Harga Tigkat Pengecer</h3>
             </div>
-            <br />
-            <div class="foto">
-              <div class="foto1">
-                <img src={Foto3} alt="" />
-                <div class="deskripsi">
-                  <h3>Gabah Tigkat Petani</h3>
-                  <hr />
-                  <p>Rp. 4.550/Kg</p>
+            <div className="foto">
+              <div className="row text-center">
+                <div className="col-md-6">
+                  <div className="foto1">
+                    <img src={Foto3} alt="" />
+                    <div className="deskripsi">
+                      <h3>Gabah Tigkat Petani</h3>
+                      <hr />
+                      <p>Rp. 4.550/Kg</p>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div class="foto1">
-                <img src={Foto4} alt="" />
-                <div class="deskripsi">
-                  <h3>Beras di penggilingan</h3>
-                  <hr />
-                  <p>Rp. 8.800/Kg</p>
+                <div className="col-md-6">
+                  <div className="foto1">
+                    <img src={Foto4} alt="" />
+                    <div className="deskripsi">
+                      <h3>Beras di penggilingan</h3>
+                      <hr />
+                      <p>Rp. 8.800/Kg</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
             <br />
-            <div class="judul-home mt-5 mb-5">
+            <div className="judul-home mt-5 mb-5 text-center">
               <h3>Harga Tigkat Pengecer</h3>
             </div>
-            <div class="foto">
-              <br />
-              <div class="foto1">
-                <img src={Foto5} alt="" />
-                <div class="deskripsi">
-                  <h3>Beras Premium</h3>
-                  <hr />
-                  <p>Rp. 12.000/Kg</p>
+            <div className="foto">
+              <div className="row text-center">
+                <div className="col-md-6">
+                  <div className="foto1">
+                    <img src={Foto5} alt="" />
+                    <div className="deskripsi">
+                      <h3>Beras Premium</h3>
+                      <hr />
+                      <p>Rp. 12.000/Kg</p>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div class="foto1">
-                <img src={Foto6} alt="" />
-                <div class="deskripsi">
-                  <h3>Beras Medium</h3>
-                  <hr />
-                  <p>Rp. 10.500/Kg</p>
+                <div className="col-md-6">
+                  <div className="foto1">
+                    <img src={Foto6} alt="" />
+                    <div className="deskripsi">
+                      <h3>Beras Medium</h3>
+                      <hr />
+                      <p>Rp. 10.500/Kg</p>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div class="foto1">
-                <img src={Foto7} alt="" />
-                <div class="deskripsi">
-                  <h3>Beras Termurah</h3>
-                  <hr />
-                  <p>Beras Termurah</p>
+
+                <div className="col-md-12">
+                  <div className="foto1">
+                    <img src={Foto7} alt="" />
+                    <div className="deskripsi">
+                      <h3>Beras Termurah</h3>
+                      <hr />
+                      <p>Beras Termurah</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

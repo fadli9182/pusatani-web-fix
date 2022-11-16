@@ -42,7 +42,7 @@ function Contact() {
                 <label htmlFor="pesan-contact" className="form-label d-flex">
                   Pesan
                 </label>
-                <textarea class="form-control" name="pesan" id="pesan-contact" rows="6" style={{ height: "10rem" }} />
+                <textarea className="form-control" name="pesan" id="pesan-contact" rows="6" style={{ height: "10rem" }} />
               </div>
               <button className="btn--login w-100">Kirim</button>
             </form>

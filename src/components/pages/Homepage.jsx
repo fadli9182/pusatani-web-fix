@@ -3,6 +3,7 @@ import Footer from "../partials/Footer";
 import Header from "../partials/Header";
 import homeBg from "../asset/image/homeBg.png";
 import TypewriterComponent from "typewriter-effect";
+import { Link } from "react-router-dom";
 
 function Homepage() {
   const [state] = useState({
@@ -48,7 +49,9 @@ function Homepage() {
               Bergabung sekarang untuk meningkatkan kesejahteraan petani dan memberantas oknum tengkulak yang tidak bertanggung jawab. Dan nikmati berbagai manfaat dari PusaTani, seperti informasi seputar pertanian hingga penyaluran gabah
               dan beras. Mari bersama mewujudkan ekosistem pertanian yang kuat!
             </p>
-            <button className="btn--login">Daftar Sekarang</button>
+            <Link to={"/daftartoko"} className="btn--login" style={{ textDecoration: "none" }}>
+              Daftar Sekarang
+            </Link>
           </div>
         </div>
       </div>

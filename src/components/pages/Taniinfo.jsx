@@ -3,6 +3,7 @@ import Footer from "../partials/Footer";
 import Header from "../partials/Header";
 import berita from "../asset/image/berita.png";
 import TypewriterComponent from "typewriter-effect";
+import { Link } from "react-router-dom";
 import("../asset/css/taniinfo.css");
 
 const Taniinfo = () => {
@@ -35,23 +36,23 @@ const Taniinfo = () => {
         </div>
       </div>
       <div className="d-flex justify-content-center align-items-center flex-column jumlah--content">
-        <div class="row justify-content-center align-items-center g-2">
+        <div className="row justify-content-center align-items-center g-2">
           <div className="col-12 text-center">
             <h1 style={{ fontSize: "48px" }}>Jumlah Petani Di Indramayu</h1>
           </div>
-          <div class="col-4 text-center" style={{ borderRight: "4px solid rgba(0,0,0,.5)", padding: " 0 30px" }}>
+          <div className="col-4 text-center" style={{ borderRight: "4px solid rgba(0,0,0,.5)", padding: " 0 30px" }}>
             <h1>36</h1>
             <h5>
               Petani <br /> Mandiri
             </h5>
           </div>
-          <div class="col-4 text-center" style={{ borderRight: "4px solid rgba(0,0,0,.5)", padding: " 0 30px" }}>
+          <div className="col-4 text-center" style={{ borderRight: "4px solid rgba(0,0,0,.5)", padding: " 0 30px" }}>
             <h1>112</h1>
             <h5>
               Petani <br /> Menengah
             </h5>
           </div>
-          <div class="col-4 text-center">
+          <div className="col-4 text-center">
             <h1>3000</h1>
             <h5>
               Petani <br /> Tradisional
@@ -81,7 +82,9 @@ const Taniinfo = () => {
               Bergabung sekarang untuk meningkatkan kesejahteraan petani dan memberantas oknum tengkulak yang tidak bertanggung jawab. Dan nikmati berbagai manfaat dari PusaTani, seperti informasi seputar pertanian hingga penyaluran gabah
               dan beras. Mari bersama mewujudkan ekosistem pertanian yang kuat!
             </p>
-            <button className="btn--login">Daftar Sekarang</button>
+            <Link to={"/daftartoko"} className="btn--login" style={{ textDecoration: "none" }}>
+              Daftar Sekarang
+            </Link>
           </div>
         </div>
       </div>
