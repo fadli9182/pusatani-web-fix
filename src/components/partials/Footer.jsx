@@ -18,13 +18,13 @@ const Footer = () => {
                 <Link to={"/"} className="footer--link">
                   Home
                 </Link>
-                <Link to={"/"} className="footer--link">
+                <Link to={"/about"} className="footer--link">
                   Tentang Kami
                 </Link>
-                <Link to={"/"} className="footer--link">
+                <Link to={"/info"} className="footer--link">
                   Tani Info
                 </Link>
-                <Link to={"/"} className="footer--link">
+                <Link to={"/shop"} className="footer--link">
                   Tani Shop
                 </Link>
               </ul>

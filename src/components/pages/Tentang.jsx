@@ -6,6 +6,7 @@ import Footer from "../partials/Footer";
 import CanvasJSReact from "../asset/canvasjs.react";
 import about2 from "../asset/image/about2.jpg";
 import about3 from "../asset/image/about3.jpg";
+import TypewriterComponent from "typewriter-effect";
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
 const Tentang = () => {
@@ -90,6 +91,31 @@ const Tentang = () => {
             </div>
             <div className="col-md-6">
               <img className="img-fluid" src={about3} alt="gambar padi" style={{ borderRadius: "5px", margin: "0" }} />
+            </div>
+          </div>
+        </div>
+        <div className="container">
+          <div className="row justify-content-center">
+            <div className="col-12" style={{ padding: "100px 200px" }}>
+              <h2 style={{ fontWeight: "700" }}>
+                Kamu Pemilik
+                <span style={{ color: "#2c774b" }}>
+                  <TypewriterComponent
+                    options={{
+                      autoStart: true,
+                      loop: true,
+                      delay: 40,
+                      strings: ["Toko Pupuk?", "Pabrik?"],
+                    }}
+                  />{" "}
+                </span>
+              </h2>
+              <h2>Ayo Bergabung Bersama Kami!</h2>
+              <p>
+                Bergabung sekarang untuk meningkatkan kesejahteraan petani dan memberantas oknum tengkulak yang tidak bertanggung jawab. Dan nikmati berbagai manfaat dari PusaTani, seperti informasi seputar pertanian hingga penyaluran gabah
+                dan beras. Mari bersama mewujudkan ekosistem pertanian yang kuat!
+              </p>
+              <button className="btn--login">Daftar Sekarang</button>
             </div>
           </div>
         </div>

@@ -40,11 +40,11 @@ const Admin = () => {
                 <option value="teknologi">Teknologi</option>
               </select>
             </div>
-            <div className="form-outline mb-4">
-              <label className="form-label d-flex" for="foto-artikel">
+            <div class="mb-3">
+              <label for="formFile" class="form-label">
                 Foto Artikel
               </label>
-              <input type="file" className="form-file" id="foto-artikel" />
+              <input class="form-control" type="file" id="formFile" />
             </div>
             <button className="btn--login w-75">Tambah</button>
           </form>

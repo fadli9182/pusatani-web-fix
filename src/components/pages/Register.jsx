@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import Logo from "../asset/image/Logo.png";
 import { Link } from "react-router-dom";
 import "../asset/css/home.css";
 
 function Register() {
+  const BaseUrl = "http://127.0.0.1:8000/api/auth/";
+
+  const [email, setEmail] = useState("");
+  const [nomor, setNomor] = useState("");
+  const [pwd, setPwd] = useState("");
+
   return (
     <>
       <div className="row" style={{ height: "100vh" }}>
@@ -34,7 +40,7 @@ function Register() {
               </form>
               <hr className="my-4 baris" />
               <p>
-                Sudah Mempunyai Akun ? Mari <Link to="/login">Login</Link>
+                Sudah Mempunyai Akun ? Ayo <Link to="/login">Login</Link>
               </p>
             </div>
           </div>

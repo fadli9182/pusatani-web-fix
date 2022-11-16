@@ -27,12 +27,12 @@ function Homepage() {
           <button className="btn--login btn--home">Unduh Aplikasi</button>
         </div>
       </div>
-      <div className="container mt-5 intro">
-        <div className="Home-intro text--center">
-          <h4>
-            <div className="title">
-              {state.title}
-              <div className="text--green">
+      <div className="container">
+        <div className="row justify-content-center">
+          <div className="col-12" style={{ padding: "100px 200px" }}>
+            <h2 style={{ fontWeight: "700" }}>
+              Kamu Pemilik
+              <span style={{ color: "#2c774b" }}>
                 <TypewriterComponent
                   options={{
                     autoStart: true,
@@ -40,22 +40,25 @@ function Homepage() {
                     delay: 40,
                     strings: ["Toko Pupuk?", "Pabrik?"],
                   }}
-                />
-              </div>
-            </div>
-            <br />
-            <div className="titletwo">{state.titletwo}</div>
-            <br />
-            <div className="titlethree">{state.titlethree}</div>
-          </h4>
+                />{" "}
+              </span>
+            </h2>
+            <h2>Ayo Bergabung Bersama Kami!</h2>
+            <p>
+              Bergabung sekarang untuk meningkatkan kesejahteraan petani dan memberantas oknum tengkulak yang tidak bertanggung jawab. Dan nikmati berbagai manfaat dari PusaTani, seperti informasi seputar pertanian hingga penyaluran gabah
+              dan beras. Mari bersama mewujudkan ekosistem pertanian yang kuat!
+            </p>
+            <button className="btn--login">Daftar Sekarang</button>
+          </div>
         </div>
       </div>
-      {/* testi */}
-      <div className="container mt-5 text">
-        <div>
-          <h1 className="">Solusi Untuk Lahan pertanianmu</h1>
+      <br />
+      {/* {/card/} */}
+      <div className="container content--home">
+        <div className="row justify-content-center">
+          <h2 className="text-align-center">Solusi Untuk Lahan pertanianmu</h2>
           <br />
-          <h2>Kami bertekad untuk memenuhi segala kebutuhan pertanian demi meningkatkan kesejahteraan para petani. Bergabung bersama kami dan dapatkan solusi dari setiap masalah pertanian Anda.</h2>
+          <h3>Kami bertekad untuk memenuhi segala kebutuhan pertanian demi meningkatkan kesejahteraan para petani. Bergabung bersama kami dan dapatkan solusi dari setiap masalah pertanian Anda.</h3>
         </div>
       </div>
 

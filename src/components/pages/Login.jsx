@@ -46,7 +46,7 @@ const Login = () => {
               <button className="btn--login w-75">Login</button>
               <hr className="my-4 baris" />
               <p>
-                Belum Mempunyai Akun ? Mari <Link to="/register">Register</Link>
+                Belum Mempunyai Akun ? Ayo <Link to="/register">Register!</Link>
               </p>
             </div>
           </div>
