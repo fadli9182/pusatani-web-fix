@@ -63,7 +63,7 @@ const Taniinfo = () => {
         <div className="row justify-content-center">
           <div className="col-12" style={{ padding: "100px 200px" }}>
             <h2 style={{ fontWeight: "700" }}>
-              Kamu Pemilik
+              Anda Pemilik
               <span style={{ color: "#2c774b" }}>
                 <TypewriterComponent
                   options={{
