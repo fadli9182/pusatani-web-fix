@@ -6,7 +6,7 @@ import TypewriterComponent from "typewriter-effect";
 
 function Homepage() {
   const [state] = useState({
-    title: "Kamu",
+    title: "Anda Pemilik",
     titletwo: "Ayo Bergabung Bersama Kami!",
     titlethree:
       "Bergabung sekarang untuk meningkatkan kesejahteraan petani dan memberantas oknum tengkulak yang tidak bertanggung jawab.Dan nikmati berbagai manfaat dari PusaTani, seperti informasi seputar pertanian hingga penyaluran gabah dan beras. Mari bersama mewujudkan ekosistem pertanian yang kuat!",
@@ -24,7 +24,7 @@ function Homepage() {
           </h1>
           <h3>Pusat Informasi Petani</h3>
           <h4>Dengan Teknologi Memberi Solusi Untuk Petani</h4>
-          <button className="btn--login btn--home" >Unduh Aplikasi</button>
+          <button className="btn--login btn--home">Unduh Aplikasi</button>
         </div>
       </div>
       <div className="container mt-5 intro">
