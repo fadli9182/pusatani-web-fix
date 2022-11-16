@@ -20,8 +20,9 @@ const Taniinfo = () => {
           <h1 style={{ fontWeight: "700" }}>Berita</h1>
           <p>Berita informasi tentang Teknologi dan teknik Pertanian</p>
         </div>
-        <div className="row">
-          <div className="col-md-4">
+        {/* body */}
+        <div className="row p-2 m-2">
+          <div className="col-lg-4 col-md-6 col-sm-12 p-2">
             <div className="card shadow">
               <img className="img-fluid" src={berita} alt="berita" />
               <div className="p-4">
