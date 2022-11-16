@@ -65,7 +65,7 @@ const TaniShop = () => {
             </div>
             <div className="foto">
               <div className="row text-center">
-                <div className="col-md-6">
+                <div className="col-md-6 com-sm-12">
                   <div className="foto1">
                     <img src={Foto3} alt="" />
                     <div className="deskripsi">
@@ -75,7 +75,7 @@ const TaniShop = () => {
                     </div>
                   </div>
                 </div>
-                <div className="col-md-6">
+                <div className="col-md-6 com-sm-12">
                   <div className="foto1">
                     <img src={Foto4} alt="" />
                     <div className="deskripsi">
@@ -93,7 +93,7 @@ const TaniShop = () => {
             </div>
             <div className="foto">
               <div className="row text-center">
-                <div className="col-md-6">
+                <div className="col-md-4 com-sm-12">
                   <div className="foto1">
                     <img src={Foto5} alt="" />
                     <div className="deskripsi">
@@ -103,7 +103,7 @@ const TaniShop = () => {
                     </div>
                   </div>
                 </div>
-                <div className="col-md-6">
+                <div className="col-md-4 com-sm-12">
                   <div className="foto1">
                     <img src={Foto6} alt="" />
                     <div className="deskripsi">
@@ -114,13 +114,13 @@ const TaniShop = () => {
                   </div>
                 </div>
 
-                <div className="col-md-12">
+                <div className="col-md-4 com-sm-12">
                   <div className="foto1">
                     <img src={Foto7} alt="" />
                     <div className="deskripsi">
                       <h3>Beras Termurah</h3>
                       <hr />
-                      <p>Beras Termurah</p>
+                      <p>Rp. 9.000/Kg</p>
                     </div>
                   </div>
                 </div>
