@@ -7,6 +7,7 @@ import CanvasJSReact from "../asset/canvasjs.react";
 import about2 from "../asset/image/about2.jpg";
 import about3 from "../asset/image/about3.jpg";
 import TypewriterComponent from "typewriter-effect";
+import { Link } from "react-router-dom";
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
 const Tentang = () => {
@@ -115,7 +116,9 @@ const Tentang = () => {
                 Bergabung sekarang untuk meningkatkan kesejahteraan petani dan memberantas oknum tengkulak yang tidak bertanggung jawab. Dan nikmati berbagai manfaat dari PusaTani, seperti informasi seputar pertanian hingga penyaluran gabah
                 dan beras. Mari bersama mewujudkan ekosistem pertanian yang kuat!
               </p>
-              <button className="btn--login">Daftar Sekarang</button>
+              <Link to={"/daftartoko"} className="btn--login" style={{ textDecoration: "none" }}>
+                Daftar Sekarang
+              </Link>
             </div>
           </div>
         </div>

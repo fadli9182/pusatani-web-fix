@@ -4,3 +4,22 @@
   padding: 70px 0;
   background-color: white;
 }
+
+.testi {
+  background: url("../image/bg-testi.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 700px;
+  margin-bottom: 50px;
+}
+
+.judul--testi {
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 100px;
+  color: #2c774b;
+}
