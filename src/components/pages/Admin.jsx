@@ -1,12 +1,37 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../asset/css/dashboard.css";
 import "bootstrap/dist/js/bootstrap.js";
 import Logo from "../asset/image/Logo.png";
-import { Link } from "react-router-dom";
+import { json, Link, Navigate, useNavigate } from "react-router-dom";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
+import axios from "axios";
+import { BASE_URL, deleteToken } from "../utils/api";
 
 const Admin = () => {
+  const [articles, setArticles] = useState([]);
+
+  const navigate = useNavigate();
+
+  async function getArticles() {
+    try {
+      let res = await axios.get(`${BASE_URL}/article`);
+      setArticles(res.data.data);
+      console.log(res.data.data);
+    } catch (e) {
+      console.log(e);
+    }
+  }
+  useEffect(() => {
+    getArticles();
+  }, []);
+
+  function adminLogout() {
+    deleteToken();
+    alert("berhasil logout");
+    navigate("/admin");
+  }
+
   const [modalShow, setModalShow] = React.useState(false);
   function FormModal(props) {
     return (
@@ -66,9 +91,9 @@ const Admin = () => {
         </button>
         <div className="navbar-nav">
           <div className="nav-item me-3">
-            <a className="btn btn-danger nav-link px-3" href="/" style={{ color: "white" }}>
+            <Link onClick={adminLogout} className="btn btn-danger nav-link px-3" href="/" style={{ color: "white" }}>
               Sign out
-            </a>
+            </Link>
           </div>
         </div>
       </header>
@@ -102,16 +127,6 @@ const Admin = () => {
           <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
             <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
               <h1 className="h2">Dashboard</h1>
-              <div className="btn-toolbar mb-2 mb-md-0">
-                <div className="btn-group me-2">
-                  <button type="button" className="btn btn-sm btn-outline-secondary">
-                    Share
-                  </button>
-                  <button type="button" className="btn btn-sm btn-outline-secondary">
-                    Export
-                  </button>
-                </div>
-              </div>
             </div>
             <h2>List Artikel</h2>
             <button className="btn btn-info" variant="primary" onClick={() => setModalShow(true)}>
@@ -121,28 +136,34 @@ const Admin = () => {
               <table className="table table-striped table-sm">
                 <thead>
                   <tr>
-                    <th scope="col">No</th>
+                    <th scope="col">Id</th>
                     <th scope="col">Foto</th>
                     <th scope="col">Judul</th>
-                    <th scope="col">Keterangan</th>
+                    <th scope="col">Isi Berita</th>
                     <th scope="col">Kategori</th>
                     <th scope="col">Action</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>"......."</td>
-                    <td>Petani Padi padi</td>
-                    <td>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum libero voluptatem expedita dolores, vero minima quam voluptas quae necessitatibus ab?</td>
-                    <td>Berita</td>
-                    <td>
-                      <div className="d-flex gap-2">
-                        <button className="btn btn-danger">Delete</button>
-                        <button className="btn btn-warning">Edit</button>
-                      </div>
-                    </td>
-                  </tr>
+                  {articles.map((article) => {
+                    return (
+                      <tr>
+                        <td>{article.id}</td>
+                        <td style={{ fontSize: "10px" }}>{article.image}</td>
+                        <td>{article.title}</td>
+                        <td className="article--text" style={{ fontSize: "12px" }}>
+                          {article.body}
+                        </td>
+                        <td>{article.id_category}</td>
+                        <td>
+                          <div className="d-flex gap-2">
+                            <button className="btn btn-danger">Delete</button>
+                            <button className="btn btn-warning">Edit</button>
+                          </div>
+                        </td>
+                      </tr>
+                    );
+                  })}
                 </tbody>
               </table>
             </div>

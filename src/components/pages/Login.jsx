@@ -1,16 +1,49 @@
 import React, { useState } from "react";
 import Logo from "../asset/image/Logo.png";
 import { Link, useNavigate } from "react-router-dom";
+import { BASE_URL, putAccessToken } from "../utils/api";
+import axios from "axios";
 
 const Login = () => {
   const [isLogin, setIsLogin] = useState(false);
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
 
   const navigate = useNavigate();
 
-  function userLogin(e) {
+  function emailChange(e) {
+    setEmail(e.target.value);
+    console.log(email);
+  }
+  function passwordChange(e) {
+    setPassword(e.target.value);
+    console.log(password);
+  }
+
+  async function userLogin(e) {
     e.preventDefault();
-    setIsLogin(true);
-    navigate("/");
+
+    try {
+      const res = await axios.post(
+        `${BASE_URL}/auth/login`,
+        { email, password },
+        {
+          headers: {
+            // "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+        }
+      );
+      putAccessToken(res.data.data.token);
+      setIsLogin(true);
+      setEmail("");
+      setPassword("");
+      alert("berhasil login");
+      navigate("/");
+    } catch (e) {
+      console.log(e);
+      alert("Login Gagal");
+    }
   }
 
   return (
@@ -34,19 +67,19 @@ const Login = () => {
         <div className="col-md-7 d-flex justify-content-center align-item-center py-5 right--login">
           <div className="card shadow align-content-center" style={{ borderRadius: "1rem", width: "500px" }}>
             <div className="card-body p-5 text-center align-item-center card--login">
-              <form onSubmit={(e) => userLogin(e)}>
+              <form onSubmit={userLogin}>
                 <h3 className="mb-5">Sign in</h3>
                 <div className="form-outline mb-4">
                   <label className="form-label" htmlFor="email-login">
                     Email
                   </label>
-                  <input type="email" id="email-login" className="form-control form-control-lg form-float" placeholder="Email Anda" />
+                  <input onChange={emailChange} type="email" id="email-login" className="form-control form-control-lg form-float" placeholder="Email Anda" />
                 </div>
                 <div className="form-outline mb-4">
                   <label className="form-label" htmlFor="password-login">
                     Password
                   </label>
-                  <input type="password" id="password-login" className="form-control form-control-lg" placeholder="Masukan Kata Sandi" />
+                  <input onChange={passwordChange} type="password" id="password-login" className="form-control form-control-lg" placeholder="Masukan Kata Sandi" />
                 </div>
                 {/* <!-- Checkbox --> */}
                 <div className="form-check d-flex justify-content-start mb-4">

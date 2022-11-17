@@ -17,6 +17,13 @@
   color: #2c774b;
 }
 
+.article--text {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 .info--body {
   color: #2c774b;
 }

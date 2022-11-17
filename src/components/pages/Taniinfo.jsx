@@ -1,12 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Footer from "../partials/Footer";
 import Header from "../partials/Header";
 import berita from "../asset/image/berita.png";
 import TypewriterComponent from "typewriter-effect";
 import { Link } from "react-router-dom";
+import { BASE_URL } from "../utils/api";
+import axios from "axios";
 import("../asset/css/taniinfo.css");
 
 const Taniinfo = () => {
+  const [articles, setArticles] = useState([]);
+
+  async function getArticles() {
+    try {
+      let res = await axios.get(`${BASE_URL}/article`);
+      setArticles(res.data.data);
+      console.log(res);
+    } catch (e) {
+      console.log(e);
+    }
+  }
+  useEffect(() => {
+    getArticles();
+  }, []);
+
   return (
     <>
       <div className="info--bg">
@@ -23,36 +40,22 @@ const Taniinfo = () => {
         </div>
         {/* body */}
         <div className="row p-2 m-2">
-          <div className="col-lg-4 col-md-6 col-sm-12 p-2">
-            <div className="card shadow">
-              <img className="img-fluid" src={berita} alt="berita" />
-              <div className="p-4">
-                <h5 style={{ fontWeight: "bold" }}>Agricultural Leader</h5>
-                <p style={{ fontSize: "12px" }}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni quae repellendus dignissimos deserunt optio corrupti, dolore aperiam! Eos, voluptatum placeat.</p>
-                <button className="btn btn--login text-light">Lihat Selengkapnya</button>
+          {articles.map((article) => {
+            return (
+              <div className="col-lg-4 col-md-6 col-sm-12 p-2">
+                <div className="card shadow">
+                  <img className="img-fluid" src={article.image} alt="berita" />
+                  <div className="p-4">
+                    <h5 style={{ fontWeight: "bold" }}>{article.title}</h5>
+                    <p className="article--text" style={{ fontSize: "12px" }}>
+                      {article.body}
+                    </p>
+                    <button className="btn btn--login text-light">Lihat Selengkapnya</button>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-          <div className="col-lg-4 col-md-6 col-sm-12 p-2">
-            <div className="card shadow">
-              <img className="img-fluid" src={berita} alt="berita" />
-              <div className="p-4">
-                <h5 style={{ fontWeight: "bold" }}>Agricultural Leader</h5>
-                <p style={{ fontSize: "12px" }}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni quae repellendus dignissimos deserunt optio corrupti, dolore aperiam! Eos, voluptatum placeat.</p>
-                <button className="btn btn--login text-light">Lihat Selengkapnya</button>
-              </div>
-            </div>
-          </div>
-          <div className="col-lg-4 col-md-6 col-sm-12 p-2">
-            <div className="card shadow">
-              <img className="img-fluid" src={berita} alt="berita" />
-              <div className="p-4">
-                <h5 style={{ fontWeight: "bold" }}>Agricultural Leader</h5>
-                <p style={{ fontSize: "12px" }}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni quae repellendus dignissimos deserunt optio corrupti, dolore aperiam! Eos, voluptatum placeat.</p>
-                <button className="btn btn--login text-light">Lihat Selengkapnya</button>
-              </div>
-            </div>
-          </div>
+            );
+          })}
         </div>
       </div>
       <div className="d-flex justify-content-center align-items-center flex-column jumlah--content">

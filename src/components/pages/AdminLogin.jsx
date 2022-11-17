@@ -1,12 +1,50 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Logo from "../asset/image/Logo.png";
+import { BASE_URL, putAccessToken } from "../utils/api";
+import axios from "axios";
 
 const AdminLogin = () => {
+  const [isLogin, setIsLogin] = useState(false);
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+
   const navigate = useNavigate();
 
-  function loginAdmin() {
-    navigate("/admdashoard");
+  function emailChange(e) {
+    setEmail(e.target.value);
+    console.log(email);
+  }
+  function passwordChange(e) {
+    setPassword(e.target.value);
+    console.log(password);
+  }
+
+  async function loginAdmin(e) {
+    e.preventDefault();
+
+    try {
+      const res = await axios.post(
+        `${BASE_URL}/auth/login`,
+        { email, password },
+        {
+          headers: {
+            // "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+        }
+      );
+      putAccessToken(res.data.data.token);
+      setIsLogin(true);
+      setEmail("");
+      setPassword("");
+      alert("berhasil login");
+      navigate("/admdashoard");
+    } catch (err) {
+      console.log(err.response.data.meta.message);
+
+      alert(e.response.data.meta.message);
+    }
   }
 
   return (
@@ -21,13 +59,13 @@ const AdminLogin = () => {
                 <label className="form-label" htmlFor="email-login">
                   Email
                 </label>
-                <input type="email" id="email-login" className="form-control form-control-lg form-float" placeholder="Email" />
+                <input value={email} onChange={emailChange} type="email" id="email-login" className="form-control form-control-lg form-float" placeholder="Email" />
               </div>
               <div className="form-outline mb-4">
                 <label className="form-label" htmlFor="password-login">
                   Password
                 </label>
-                <input type="password" id="password-login" className="form-control form-control-lg" placeholder="Masukan Kata Sandi" />
+                <input value={password} onChange={passwordChange} type="password" id="password-login" className="form-control form-control-lg" placeholder="Masukan Kata Sandi" />
               </div>
               <button className="btn--login">Login</button>
               <hr className="my-4 baris" />
