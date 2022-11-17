@@ -1,12 +1,21 @@
-import React from "react";
-import Footer from "../partials/Footer";
-import Header from "../partials/Header";
+import React, { useState } from "react";
 import berita from "../asset/image/berita.png";
 import TypewriterComponent from "typewriter-effect";
 import { Link } from "react-router-dom";
+import Header from "../partials/Header";
+import Footer from "../partials/Footer";
+import axios from "axios";
 import("../asset/css/taniinfo.css");
 
 const Taniinfo = () => {
+  const [post, setPost] = useState();
+
+  async function getPost() {
+    let res = await axios.get("http://127.0.0.1:8000/api/article");
+    console.log(res);
+  }
+  getPost();
+
   return (
     <>
       <div className="info--bg">

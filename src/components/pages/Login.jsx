@@ -1,17 +1,42 @@
 import React, { useState } from "react";
 import Logo from "../asset/image/Logo.png";
 import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Login = () => {
   const [isLogin, setIsLogin] = useState(false);
+  const BaseUrl = "http://127.0.0.1:8000/api/";
+
+  // let [data, SetData] = useState({
+  //   email: "",
+  //   password: "",
+  // });
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const navigate = useNavigate();
 
   function userLogin(e) {
     e.preventDefault();
+    axios
+      .post(`${BaseUrl}auth/login`, email, password, {
+        headers: {
+          Accept: "application/json",
+        },
+      })
+      .then(function (response) {
+        console.log(response);
+        navigate("/");
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+
     setIsLogin(true);
-    navigate("/");
+    navigate("");
+    console.log(isLogin);
   }
+  console.log(email, password);
 
   return (
     <>
@@ -40,13 +65,13 @@ const Login = () => {
                   <label className="form-label" htmlFor="email-login">
                     Email
                   </label>
-                  <input type="email" id="email-login" className="form-control form-control-lg form-float" placeholder="Email Anda" />
+                  <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" id="email-login" className="form-control form-control-lg form-float" placeholder="Email Anda" />
                 </div>
                 <div className="form-outline mb-4">
                   <label className="form-label" htmlFor="password-login">
                     Password
                   </label>
-                  <input type="password" id="password-login" className="form-control form-control-lg" placeholder="Masukan Kata Sandi" />
+                  <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" id="password-login" className="form-control form-control-lg" placeholder="Masukan Kata Sandi" />
                 </div>
                 {/* <!-- Checkbox --> */}
                 <div className="form-check d-flex justify-content-start mb-4">
