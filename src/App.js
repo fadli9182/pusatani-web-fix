@@ -11,6 +11,8 @@ import Taniinfo from "./components/pages/Taniinfo";
 import Tentang from "./components/pages/Tentang";
 import TaniShop from "./components/pages/TaniShop";
 import DaftarToko from "./components/pages/DaftarToko";
+import DetailPost from "./components/pages/detailPost";
+import DetailShop from "./components/pages/detailShop";
 
 function App() {
   return (
@@ -26,6 +28,8 @@ function App() {
         <Route path="/shop" element={<TaniShop />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/detailpost" element={<DetailPost />} />
+        <Route path="/detailshop" element={<DetailShop />} />
       </Routes>
     </>
   );
