@@ -1,13 +1,13 @@
 import React from "react";
 import "../asset/css/about.css";
-import Header from "../partials/Header";
 import padi from "../asset/image/padi.jpg";
-import Footer from "../partials/Footer";
 import CanvasJSReact from "../asset/canvasjs.react";
 import about2 from "../asset/image/about2.jpg";
 import about3 from "../asset/image/about3.jpg";
 import TypewriterComponent from "typewriter-effect";
 import { Link } from "react-router-dom";
+import Header from "../partials/Header";
+import Footer from "../partials/Footer";
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
 const Tentang = () => {

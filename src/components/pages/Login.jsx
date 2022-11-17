@@ -45,6 +45,7 @@ const Login = () => {
       alert("Login Gagal");
     }
   }
+  console.log(email, password);
 
   return (
     <>

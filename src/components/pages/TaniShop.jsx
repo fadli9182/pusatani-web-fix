@@ -1,6 +1,4 @@
 import React from "react";
-import Footer from "../partials/Footer";
-import Header from "../partials/Header";
 import "../asset/css/tanishop.css";
 import Foto1 from "../asset/image/hijrahpupuk.jpeg";
 import Foto2 from "../asset/image/Pberas.jpeg";
@@ -9,6 +7,8 @@ import Foto4 from "../asset/image/beras-giling.png";
 import Foto5 from "../asset/image/beras_premium.png";
 import Foto6 from "../asset/image/beras_medium.png";
 import Foto7 from "../asset/image/beras_termurah.png";
+import Header from "../partials/Header";
+import Footer from "../partials/Footer";
 
 const TaniShop = () => {
   return (
@@ -33,6 +33,7 @@ const TaniShop = () => {
             <div className="col-md-8">
               <div className="card-body">
                 <h5 className="card-title">Hijrah Pupuk</h5>
+                <hr />
                 <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                 <p className="card-text">
                   <button className=" btn btn-success">Selengkapnya</button>
@@ -49,6 +50,7 @@ const TaniShop = () => {
             <div className="col-md-8">
               <div className="card-body">
                 <h5 className="card-title">Bulogss</h5>
+                <hr />
                 <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                 <p className="card-text">
                   <button className=" btn btn-success">Selengkapnya</button>
@@ -60,7 +62,7 @@ const TaniShop = () => {
         <div id="galeri">
           <div className="galeri">
             <div className="judul-home text-center">
-              <h1>Harga Rata-Rata Komoditas</h1>
+              <h1>Harga Komoditas Saat Ini</h1>
               <h3>Harga Tigkat Pengecer</h3>
             </div>
             <div className="foto">

@@ -1,9 +1,9 @@
 import React from "react";
 import { AiOutlineMail, AiOutlinePhone } from "react-icons/ai";
 import { CiLocationOn } from "react-icons/ci";
-import Header from "../partials/Header";
-import Footer from "../partials/Footer";
 import { Link } from "react-router-dom";
+import Footer from "../partials/Footer";
+import Header from "../partials/Header";
 
 function Contact() {
   return (
