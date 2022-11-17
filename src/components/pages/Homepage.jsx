@@ -5,6 +5,7 @@ import homeBg from "../asset/image/homeBg.png";
 import Card from "../asset/image/card.png";
 import Main from "../asset/image/main.png";
 import Yanto from "../asset/image/yanto.png";
+import Logo from "../asset/image/Logo.png";
 import TypewriterComponent from "typewriter-effect";
 import { Link } from "react-router-dom";
 
@@ -169,7 +170,7 @@ function Homepage() {
       <div className="container">
         <div className="row py-3">
           <div className="col-md-4">
-            <img src={Yanto} className="img-fluid rounded-start" alt="..." />
+            <img src={Logo} className="img-fluid rounded-start" alt="..." />
           </div>
           <div className="text col-md-4">
             <h3>Ingin Menjadi Petani yang efektif dan sukses?</h3>
@@ -178,6 +179,11 @@ function Homepage() {
               Menjadi Petani yang Efektif dan Efesien, Mari Bergabung dengan mengunduh aplikasi kami di Handphonemu! untuk memenuhi kebutuhan petani Indonesia menuju ekosistem pertanian yang lebih kuat. Buka aplikasi untuk mendapatkan
               informasi seputar pertanian.
             </p>
+          </div>
+          <div className="col-md-4">
+            <Link to={"/"} className="btn--login" style={{ textDecoration: "none" }}>
+              Unduh Aplikasi
+            </Link>
           </div>
         </div>
       </div>
