@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Footer from "../partials/Footer";
 import Header from "../partials/Header";
 import homeBg from "../asset/image/homeBg.png";
@@ -16,12 +16,13 @@ import I2 from "../asset/image/cepat2.png";
 import I3 from "../asset/image/cepat3.png";
 
 function Homepage() {
-  const [state] = useState({
-    title: "Anda Pemilik",
-    titletwo: "Ayo Bergabung Bersama Kami!",
-    titlethree:
-      "Bergabung sekarang untuk meningkatkan kesejahteraan petani dan memberantas oknum tengkulak yang tidak bertanggung jawab.Dan nikmati berbagai manfaat dari PusaTani, seperti informasi seputar pertanian hingga penyaluran gabah dan beras. Mari bersama mewujudkan ekosistem pertanian yang kuat!",
-  });
+  // const [state] = useState({
+  //   title: "Anda Pemilik",
+  //   titletwo: "Ayo Bergabung Bersama Kami!",
+  //   titlethree:
+  //     "Bergabung sekarang untuk meningkatkan kesejahteraan petani dan memberantas oknum tengkulak yang tidak bertanggung jawab.Dan nikmati berbagai manfaat dari PusaTani, seperti informasi seputar pertanian hingga penyaluran gabah dan beras. Mari bersama mewujudkan ekosistem pertanian yang kuat!",
+  // });
+  // console.log(state);
 
   return (
     <>
@@ -109,12 +110,12 @@ function Homepage() {
         <div className="container py-5">
           <div className="row mx-auto  px-5 g-3">
             <div className="col-md-4">
-              <div class="card text-light g-3" style={{ width: "18rem" }}>
-                <img src={Card} class="card-img" alt="..." />
-                <div class="card-img-overlay">
-                  <h5 class="card-title py-3">Tani Info</h5>
-                  <p class="card-text">Wadah edukasi dan informasi yang bertujuan untuk menjadi panduan bagi para petani yang ingin memulai usaha bertani dan membantu mewujudkan kemudahan bagi para petani</p>
-                  <p class="card-text py-1">
+              <div className="card text-light g-3" style={{ width: "18rem" }}>
+                <img src={Card} className="card-img" alt="..." />
+                <div className="card-img-overlay">
+                  <h5 className="card-title py-3">Tani Info</h5>
+                  <p className="card-text">Wadah edukasi dan informasi yang bertujuan untuk menjadi panduan bagi para petani yang ingin memulai usaha bertani dan membantu mewujudkan kemudahan bagi para petani</p>
+                  <p className="card-text py-1">
                     <Link to={"/daftartoko"} className="btn--login" style={{ textDecoration: "none" }}>
                       Selengkapnya
                     </Link>
@@ -123,12 +124,12 @@ function Homepage() {
               </div>
             </div>
             <div className="col-md-4">
-              <div class="card text-light" style={{ width: "18rem" }}>
-                <img src={Card} class="card-img" alt="..." />
-                <div class="card-img-overlay">
-                  <h5 class="card-title py-5">Tani Shop</h5>
-                  <p class="card-text">Mempermudah para petani untuk mencari pabrik dan kios yang dibutuhkan</p>
-                  <p class="card-text py-2">
+              <div className="card text-light" style={{ width: "18rem" }}>
+                <img src={Card} className="card-img" alt="..." />
+                <div className="card-img-overlay">
+                  <h5 className="card-title py-5">Tani Shop</h5>
+                  <p className="card-text">Mempermudah para petani untuk mencari pabrik dan kios yang dibutuhkan</p>
+                  <p className="card-text py-2">
                     <Link to={"/daftartoko"} className="btn--login" style={{ textDecoration: "none" }}>
                       Selengkapnya
                     </Link>
@@ -137,12 +138,12 @@ function Homepage() {
               </div>
             </div>
             <div className="col-md-4">
-              <div class="card text-light" style={{ width: "18rem" }}>
-                <img src={Card} class="card-img" alt="..." />
-                <div class="card-img-overlay">
-                  <h5 class="card-title py-5">Aksebilitas</h5>
-                  <p class="card-text">Mempermudah para petani untuk mengakses fitur-fitur dan mendapatkan informasi</p>
-                  <p class="card-text py-2">
+              <div className="card text-light" style={{ width: "18rem" }}>
+                <img src={Card} className="card-img" alt="..." />
+                <div className="card-img-overlay">
+                  <h5 className="card-title py-5">Aksebilitas</h5>
+                  <p className="card-text">Mempermudah para petani untuk mengakses fitur-fitur dan mendapatkan informasi</p>
+                  <p className="card-text py-2">
                     <Link to={"/daftartoko"} className="btn--login" style={{ textDecoration: "none" }}>
                       Unduh Aplikasi
                     </Link>

@@ -42,7 +42,7 @@ const Login = () => {
       navigate("/");
     } catch (e) {
       console.log(e);
-      alert("Login Gagal");
+      alert(e.response.data.meta.message);
     }
   }
   console.log(email, password);
@@ -66,37 +66,50 @@ const Login = () => {
         </div>
 
         <div className="col-md-7 d-flex justify-content-center align-item-center py-5 right--login">
-          <div className="card shadow align-content-center" style={{ borderRadius: "1rem", width: "500px" }}>
-            <div className="card-body p-5 text-center align-item-center card--login">
-              <form onSubmit={userLogin}>
-                <h3 className="mb-5">Sign in</h3>
-                <div className="form-outline mb-4">
-                  <label className="form-label" htmlFor="email-login">
-                    Email
-                  </label>
-                  <input onChange={emailChange} type="email" id="email-login" className="form-control form-control-lg form-float" placeholder="Email Anda" />
+          {isLogin ? (
+            <>
+              <div className="container text-center">
+                <div className="card">
+                  <h1>Anda sudah login</h1>
+                  <h5>
+                    Kembali ke Halaman <Link to={"/"}>Home</Link>
+                  </h5>
                 </div>
-                <div className="form-outline mb-4">
-                  <label className="form-label" htmlFor="password-login">
-                    Password
-                  </label>
-                  <input onChange={passwordChange} type="password" id="password-login" className="form-control form-control-lg" placeholder="Masukan Kata Sandi" />
-                </div>
-                {/* <!-- Checkbox --> */}
-                <div className="form-check d-flex justify-content-start mb-4">
-                  <input className="form-check-input me-2" type="checkbox" value="" id="checkbox-login" />
-                  <label className="form-check-label" htmlFor="checkbox-login">
-                    Ingat Saya
-                  </label>
-                </div>
-                <button className="btn--login w-75">Login</button>
-              </form>
-              <hr className="my-4 baris" />
-              <p>
-                Belum Mempunyai Akun ? Ayo <Link to="/register">Register!</Link>
-              </p>
+              </div>
+            </>
+          ) : (
+            <div className="card shadow align-content-center" style={{ borderRadius: "1rem", width: "500px" }}>
+              <div className="card-body p-5 text-center align-item-center card--login">
+                <form onSubmit={userLogin}>
+                  <h3 className="mb-5">Sign in</h3>
+                  <div className="form-outline mb-4">
+                    <label className="form-label" htmlFor="email-login">
+                      Email
+                    </label>
+                    <input onChange={emailChange} type="email" id="email-login" className="form-control form-control-lg form-float" placeholder="Email Anda" />
+                  </div>
+                  <div className="form-outline mb-4">
+                    <label className="form-label" htmlFor="password-login">
+                      Password
+                    </label>
+                    <input onChange={passwordChange} type="password" id="password-login" className="form-control form-control-lg" placeholder="Masukan Kata Sandi" />
+                  </div>
+                  {/* <!-- Checkbox --> */}
+                  <div className="form-check d-flex justify-content-start mb-4">
+                    <input className="form-check-input me-2" type="checkbox" value="" id="checkbox-login" />
+                    <label className="form-check-label" htmlFor="checkbox-login">
+                      Ingat Saya
+                    </label>
+                  </div>
+                  <button className="btn--login w-75">Login</button>
+                </form>
+                <hr className="my-4 baris" />
+                <p>
+                  Belum Mempunyai Akun ? Ayo <Link to="/register">Register!</Link>
+                </p>
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
     </>

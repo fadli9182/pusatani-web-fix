@@ -1,12 +1,17 @@
 import React from "react";
 import Logo from "../asset/image/Logo.png";
 import { Link, NavLink } from "react-router-dom";
+import { deleteToken } from "../utils/api";
 
 function Header() {
   const navStyle = {
     borderBottom: "3px solid #2c774b",
   };
   const navNormal = {};
+
+  function userLogout() {
+    deleteToken();
+  }
 
   return (
     <>
@@ -34,8 +39,8 @@ function Header() {
               <Link to={"/login"} className="btn btn-success me-2" style={{ fontSize: "12px" }}>
                 Login
               </Link>
-              <Link to={"/register"} className="btn btn-danger" style={{ fontSize: "12px" }}>
-                Register
+              <Link to={"/login"} onClick={userLogout} className="btn btn-danger" style={{ fontSize: "12px" }}>
+                Logout
               </Link>
             </ul>
           </div>

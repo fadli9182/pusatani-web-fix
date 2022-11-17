@@ -1,14 +1,55 @@
 import React, { useState } from "react";
 import Logo from "../asset/image/Logo.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../asset/css/home.css";
+import { InputGroup } from "react-bootstrap";
+import Form from "react-bootstrap/Form";
+import { BASE_URL, getAccessToken } from "../utils/api";
+import axios from "axios";
 
 function Register() {
-  const BaseUrl = "http://127.0.0.1:8000/api/auth/";
-
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [nomor, setNomor] = useState("");
-  const [pwd, setPwd] = useState("");
+  const [password, setPassword] = useState("");
+  const [address, setAddress] = useState("");
+  const [role, setRole] = useState();
+  const [phone, setPhone] = useState();
+  const [photo_profile, setProfile] = useState();
+  const [photo_id, setPhotoId] = useState();
+
+  const navigate = useNavigate();
+
+  const registerHandler = async (e) => {
+    e.preventDefault();
+    const data = new FormData();
+
+    data.append("name", name);
+    data.append("email", email);
+    data.append("password", password);
+    data.append("address", address);
+    data.append("role", role);
+    data.append("phone", phone);
+    data.append("photo_profile", photo_profile);
+    data.append("photo_id", photo_id);
+
+    const config = {
+      headers: {
+        Authorization: `Bearer ${getAccessToken()}`,
+        "Content-Type": "multipart/form-data",
+        Accept: "application/json",
+      },
+    };
+    try {
+      let res = await axios.post(`${BASE_URL}/auth/signup`, data, config);
+      console.log(res);
+      alert("daftar berhasil");
+      navigate("/");
+    } catch (err) {
+      // const resJson = JSON.stringify(response.response.data.errors);
+      console.log(err.response.data.errors);
+      // alert();
+    }
+  };
 
   return (
     <>
@@ -17,54 +58,62 @@ function Register() {
           <div className="card shadow align-content-center" style={{ borderRadius: "1rem", width: "500px" }}>
             <div className="card-body py-3 text-center px-5 align-item-center card--login">
               <h3 className="mb-3 pt-2 text-center">Register</h3>
-              <form action="">
+              <form onSubmit={registerHandler}>
                 <div className="form-outline mb-2">
-                  <label className="form-label d-flex" htmlFor="username-login">
-                    Username
+                  <label className="form-label d-flex" htmlFor="name">
+                    Nama Lengkap
                   </label>
-                  <input type="text" id="username-login" className="form-control form-control-lg form-float" placeholder="Username Anda" />
+                  <input value={name} onChange={(e) => setName(e.target.value)} type="text" name="name" id="name" className="form-control h-50" placeholder="Username Anda" />
                 </div>
                 <div className="form-outline mb-2">
-                  <label className="form-label d-flex" htmlFor="email-login">
+                  <label className="form-label d-flex" htmlFor="email">
                     Email
                   </label>
-                  <input type="email" id="email-login" className="form-control form-control-lg form-float" placeholder="Email Anda" />
+                  <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" name="email" id="email" className="form-control h-50 " placeholder="Email Anda" />
                 </div>
                 <div className="form-outline mb-2">
-                  <label className="form-label d-flex" htmlFor="nomer-login">
-                    Nomer Whatsapp
-                  </label>
-                  <input type="text" id="nomer-login" className="form-control form-control-lg form-float" placeholder="+62" />
-                </div>
-                <div className="form-outline mb-2">
-                  <label className="form-label d-flex" htmlFor="alamat-login">
-                    Alamat
-                  </label>
-                  <input type="text" id="nomer-login" className="form-control form-control-lg form-float" placeholder="+62" />
-                </div>
-                <div className="form-outline mb-2">
-                  <label className="form-label d-flex" for="password-login">
+                  <label className="form-label d-flex" htmlFor="password">
                     Password
                   </label>
-                  <input type="password" id="password-login" className="form-control form-control-lg" placeholder="Masukan Kata Sandi" />
+                  <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" name="password" id="password" className="form-control h-50" placeholder="Masukan Password" />
                 </div>
                 <div className="form-outline mb-2">
-                  <label className="form-label d-flex" for="password-login">
-                    Foto Profil
+                  <label htmlFor="address" className="form-label d-flex">
+                    Alamat
                   </label>
-                  <input type="file" id="password-login" className="form-control form-control-lg" placeholder="Masukan Kata Sandi" />
+                  <textarea value={address} onChange={(e) => setAddress(e.target.value)} className="form-control" name="address" id="address" rows="3"></textarea>
                 </div>
                 <div className="form-outline mb-2">
-                  <label className="form-label d-flex" for="password-login">
-                    Foto Id
+                  <label className="form-label d-flex" htmlFor="role">
+                    Jenis Toko
                   </label>
-                  <input type="file" id="password-login" className="form-control form-control-lg" placeholder="Masukan Kata Sandi" />
-                </div>
-                <div>
-                  <select class="form-select" aria-label="Default select example">
+                  <select value={role} onChange={(e) => setRole(e.target.value)} className="form-select form-control h-50" name="role" id="role" defaultValue={"default"}>
+                    <option value="default">Pilih Jenis Toko</option>
                     <option value="2">Pabrik</option>
                     <option value="3">Toko</option>
                   </select>
+                </div>
+                <div className="form-outline mb-2">
+                  <label className="form-label d-flex" htmlFor="phone">
+                    Nomer Telepon
+                  </label>
+                  <InputGroup className="mb-3 h-50">
+                    <InputGroup.Text>+62</InputGroup.Text>
+                    <Form.Control value={phone} onChange={(e) => setPhone(e.target.value)} name="phone" id="phone" />
+                  </InputGroup>
+                </div>
+
+                <div className="form-outline mb-2">
+                  <label className="form-label d-flex" htmlFor="photo_profile">
+                    Foto Profil
+                  </label>
+                  <input onChange={(e) => setProfile(e.target.files[0])} accept=".jpg, .png, .jpeg" type="file" name="photo_profile" id="photo_profile" className="form-control h-50" />
+                </div>
+                <div className="form-outline mb-2">
+                  <label className="form-label d-flex" htmlFor="photo_id">
+                    Foto Identitas
+                  </label>
+                  <input onChange={(e) => setPhotoId(e.target.files[0])} accept=".jpg, .png, .jpeg" type="file" name="photo_id" id="photo_id" className="form-control h-50" />
                 </div>
                 <button className="btn--login w-75">Register</button>
               </form>
@@ -77,12 +126,12 @@ function Register() {
         </div>
         <div className="col-md-5 login--page-left">
           <div className="row login--header">
-            <div className="col-md-2 col-sm-12">
+            <div className="col-md-5 col-sm-12">
               <Link to={"/"}>
-                <img className="p-2 " src={Logo} alt="Logo" width={"160px"} height={"150px"} />
+                <img className="pt-4 ps-2 img-fluid " src={Logo} alt="Logo" width={"160px"} height={"150px"} />
               </Link>
             </div>
-            <div className="col-md-8 col-sm-12 pt-2 text--green">
+            <div className="col-md-7 col-sm-12 p-4 text--green">
               <h1 style={{ fontSize: "30px" }}>Pusat Informasi Petani</h1>
               <p>Dengan Teknologi memberi solusi untuk Petani</p>
             </div>
