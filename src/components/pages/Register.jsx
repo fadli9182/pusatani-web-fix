@@ -88,7 +88,7 @@ function Register() {
                     Jenis Toko
                   </label>
                   <select value={role} onChange={(e) => setRole(e.target.value)} className="form-select form-control h-50" name="role" id="role" defaultValue={"default"}>
-                    <option value="default">Pilih Jenis Toko</option>
+                    <option disabled>Pilih Jenis Toko</option>
                     <option value="2">Pabrik</option>
                     <option value="3">Toko</option>
                   </select>

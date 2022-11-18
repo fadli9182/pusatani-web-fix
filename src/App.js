@@ -13,6 +13,7 @@ import TaniShop from "./components/pages/TaniShop";
 import DaftarToko from "./components/pages/DaftarToko";
 import DetailPost from "./components/pages/detailPost";
 import DetailShop from "./components/pages/detailShop";
+import EditProfil from "./components/pages/editProfil";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/detailpost" element={<DetailPost />} />
         <Route path="/detailshop" element={<DetailShop />} />
+        <Route path="/editprofil" element={<EditProfil />} />
       </Routes>
     </>
   );

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Footer from "../partials/Footer";
 import Header from "../partials/Header";
-import berita from "../asset/image/berita.png";
 import TypewriterComponent from "typewriter-effect";
 import { Link } from "react-router-dom";
 import { BASE_URL } from "../utils/api";
