@@ -1,6 +1,6 @@
 import React from "react";
-import Footer from "../partials/Footer";
-import Header from "../partials/Header";
+import Footer from "../partials/footer/Footer";
+import Header from "../partials/header/Header";
 
 const DaftarToko = () => {
   return (

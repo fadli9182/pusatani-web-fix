@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Logo from "../asset/image/Logo.png";
 import { Link, useNavigate } from "react-router-dom";
-import "../asset/css/home.css";
 import { InputGroup } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import { BASE_URL, getAccessToken } from "../utils/api";
@@ -126,13 +125,13 @@ function Register() {
         </div>
         <div className="col-md-5 login--page-left">
           <div className="row login--header">
-            <div className="col-md-5 col-sm-12">
+            <div className="col-xl-4 col-md-12 col-sm-12">
               <Link to={"/"}>
-                <img className="pt-4 ps-2 img-fluid " src={Logo} alt="Logo" width={"160px"} height={"150px"} />
+                <img className="p-4" src={Logo} alt="Logo" width={"160px"} height={"150px"} />
               </Link>
             </div>
-            <div className="col-md-7 col-sm-12 p-4 text--green">
-              <h1 style={{ fontSize: "30px" }}>Pusat Informasi Petani</h1>
+            <div className="col-xl-8 col-md-12 col-sm-12 pt-4 text--green judul--login">
+              <h5>Pusat Informasi Petani</h5>
               <p>Dengan Teknologi memberi solusi untuk Petani</p>
             </div>
             {/* <div className="col-lg-12 login--page-left " style={{ width: "100%", height: "500px" }}></div> */}

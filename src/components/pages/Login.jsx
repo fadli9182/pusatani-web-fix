@@ -3,6 +3,7 @@ import Logo from "../asset/image/Logo.png";
 import { Link, useNavigate } from "react-router-dom";
 import { BASE_URL, putAccessToken } from "../utils/api";
 import axios from "axios";
+import Header from "../partials/header/Header";
 
 const Login = () => {
   const [isLogin, setIsLogin] = useState(false);
@@ -52,13 +53,13 @@ const Login = () => {
       <div className="row" style={{ height: "100vh" }}>
         <div className="col-md-5 login--page-left">
           <div className="row login--header">
-            <div className="col-md-4 col-sm-12">
+            <div className="col-xl-4 col-md-12 col-sm-12">
               <Link to={"/"}>
-                <img className="p-4 " src={Logo} alt="Logo" width={"160px"} height={"150px"} />
+                <img className="p-4" src={Logo} alt="Logo" width={"160px"} height={"150px"} />
               </Link>
             </div>
-            <div className="col-md-8 col-sm-12 pt-4 text--green">
-              <h1 style={{ fontSize: "30px" }}>Pusat Informasi Petani</h1>
+            <div className="col-xl-8 col-md-12 col-sm-12 pt-4 text--green judul--login">
+              <h5>Pusat Informasi Petani</h5>
               <p>Dengan Teknologi memberi solusi untuk Petani</p>
             </div>
             {/* <div className="col-lg-12 login--page-left " style={{ width: "100%", height: "500px" }}></div> */}

@@ -1,0 +1,26 @@
+.footer--bg {
+  background-image: var(--linear-color);
+  color: white;
+  font-size: 14px;
+}
+
+.footer--bg h5 {
+  font-size: 16px;
+  line-height: 25px;
+}
+
+.footer--bg ul {
+  padding-left: 10px;
+}
+
+.sosmed .footer--link {
+  color: white;
+  padding-right: 13px;
+  font-size: 20px;
+}
+
+.footer--link {
+  color: white;
+  text-decoration: none;
+  padding-bottom: 5px;
+}
