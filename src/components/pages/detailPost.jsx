@@ -10,7 +10,7 @@ const DetailPost = () => {
       <Header />
       <div className="singlePost">
         <div className="singlePostWrapper">
-          <img src={Card1} className="singlePostImg" alt="sa" />
+          <img className="singlePostImg" src={Card1} alt="sa" />
           <h1 className="singlePostTitle">Lorem ipsum dolor</h1>
           <div className="singlePostInfo">
             <span>Author:</span>
