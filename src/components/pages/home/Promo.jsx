@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import TypewriterComponent from "typewriter-effect";
+import { motion } from "framer-motion";
 
 const Promo = () => {
   return (
@@ -26,8 +27,10 @@ const Promo = () => {
               Bergabung sekarang untuk meningkatkan <strong>kesejahteraan petani</strong> dan memberantas oknum tengkulak yang tidak bertanggung jawab. Dan nikmati berbagai manfaat dari <strong>PusaTani</strong>, seperti informasi seputar
               pertanian hingga penyaluran gabah dan beras. Mari bersama mewujudkan ekosistem pertanian yang kuat!
             </p>
-            <Link to={"/register"} className="btn--login" style={{ textDecoration: "none" }}>
-              Daftar Sekarang
+            <Link to={"/register"}>
+              <motion.button initial={{ scale: 1 }} whileHover={{ scale: 1.5 }} className="btn--login" style={{ textDecoration: "none" }}>
+                Daftar Sekarang
+              </motion.button>
             </Link>
           </div>
         </div>
