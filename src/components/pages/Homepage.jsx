@@ -15,6 +15,8 @@ import I1 from "../asset/image/cepat1.png";
 import I2 from "../asset/image/cepat2.png";
 import I3 from "../asset/image/cepat3.png";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 function Homepage() {
   // const [state] = useState({
@@ -189,24 +191,34 @@ function Homepage() {
           <h1>Testimoni Mitra</h1>
           <p>Sekilas hasil Testimoi mereka yang sudah bergabung dengan PusaTani</p>
         </div>
-        <div className="row ">
-          <div className="col-md-12 d-flex justify-content-center ">
-            <div className="card mb-3" style={{ maxWidth: "80%", justifyContent: "center" }}>
-              <div className="row g-0">
-                <div className="col-md-4">
-                  <img src={Yanto} className="img-fluid rounded-start" alt="..." />
-                </div>
-                <div className="col-md-8">
-                  <div className="card-body py-3">
-                    <h5 className="card-title py-3">Yanto</h5>
-                    <h5 className="card-title2 py-3">Petani, Zimbabwe</h5>
-                    <p className="card-text">“Bergabung Dengan PusaTani tidak ribet dan sangat mudah dan sangat banyak membantu dan mempermudah kami para petani”</p>
-                  </div>
-                </div>
-              </div>
+        <Carousel showArrows={true} infiniteLoop={true} showThumbs={false} showStatus={false} autoPlay={true} interval={6100}>
+          <div>
+            <img src={Yanto} />
+            <div className="myCarousel">
+              <h3>Yanto</h3>
+              <h4>Petani, Zimbabwe</h4>
+              <p>It's freeing to be able to catch up on customized news and not be distracted by a social media element on the same site</p>
             </div>
           </div>
-        </div>
+
+          <div>
+            <img src={Yanto} />
+            <div className="myCarousel">
+              <h3>Yanti</h3>
+              <h4>Petani, Nigeria</h4>
+              <p>The simple and intuitive design makes it easy for me use. I highly recommend Fetch to my peers.</p>
+            </div>
+          </div>
+
+          <div>
+            <img src={Yanto} />
+            <div className="myCarousel">
+              <h3>Yatno</h3>
+              <h4>Peani, Oman</h4>
+              <p>I enjoy catching up with Fetch on my laptop, or on my phone when I'm on the go!</p>
+            </div>
+          </div>
+        </Carousel>
       </div>
       {/* foot */}
       <div className="container">
