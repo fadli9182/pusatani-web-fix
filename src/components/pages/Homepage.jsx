@@ -193,7 +193,7 @@ function Homepage() {
         </div>
         <Carousel showArrows={true} infiniteLoop={true} showThumbs={false} showStatus={false} autoPlay={true} interval={6100}>
           <div>
-            <img src={Yanto} />
+            <img src={Yanto} alt="foto" />
             <div className="myCarousel">
               <h3>Yanto</h3>
               <h4>Petani, Zimbabwe</h4>
@@ -202,7 +202,7 @@ function Homepage() {
           </div>
 
           <div>
-            <img src={Yanto} />
+            <img src={Yanto} alt="foto" />
             <div className="myCarousel">
               <h3>Yanti</h3>
               <h4>Petani, Nigeria</h4>
@@ -211,7 +211,7 @@ function Homepage() {
           </div>
 
           <div>
-            <img src={Yanto} />
+            <img src={Yanto} alt="foto" />
             <div className="myCarousel">
               <h3>Yatno</h3>
               <h4>Peani, Oman</h4>

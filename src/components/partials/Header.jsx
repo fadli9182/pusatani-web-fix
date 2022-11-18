@@ -17,7 +17,7 @@ function Header() {
     <>
       <nav className="navbar nav--bg">
         <div className="container-fluid d-flex px-5">
-          <img className="img-fluid order-2 order-md-1" src={Logo} alt="" width={"80px"} style={{ background: "white", padding: "5px", borderRadius: "20%" }} />
+          <img className="img-fluid order-2 order-md-1" src={Logo} alt="" width={"80px"} style={{ padding: "5px", borderRadius: "20%" }} />
 
           <div className="my-2 ms-auto nav--item order-1 order-md-2" id="navbarnav">
             <ul className="m-0">

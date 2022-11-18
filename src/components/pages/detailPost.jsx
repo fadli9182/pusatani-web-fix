@@ -2,7 +2,7 @@ import React from "react";
 import Footer from "../partials/Footer";
 import Header from "../partials/Header";
 import "../asset/css/post.css";
-import Card1 from "../asset/image/card.png";
+import Card1 from "../asset/image/slider7.jpg";
 
 const DetailPost = () => {
   return (
@@ -10,7 +10,7 @@ const DetailPost = () => {
       <Header />
       <div className="singlePost">
         <div className="singlePostWrapper">
-          <img className="singlePostImg" src={Card1} alt="" />
+          <img src={Card1} className="singlePostImg" alt="sa" />
           <h1 className="singlePostTitle">Lorem ipsum dolor</h1>
           <div className="singlePostInfo">
             <span>Author:</span>
