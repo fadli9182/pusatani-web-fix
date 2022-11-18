@@ -31,7 +31,7 @@ const Tentang = () => {
             className="my-4"
           />
 
-          <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ type: "tween", stiffness: 100, duration: 2 }} className="text-start">
+          <motion.p initial={{ opacity: 0, x: -100 }} whileInView={{ opacity: 1, x: 0 }} transition={{ type: "tween", stiffness: 100, duration: 2 }} className="text-start">
             Indonesia adalah negara agraris yang mayoritas penduduknya bermata pencaharian sebagai <strong>petani</strong>. khususnya di daerah <strong>Indramayu</strong> dimana banyaknya hasil pertanian dan harga yang tidak pasti dengan
             besarnya ketergantungan terhadap alam membuat petani Indonesia mengalami kesulitan dalam permodalan. Hal inilah yang memicu rendahnya angka regenerasi <strong>petani muda</strong>. Data dari Badan Pusat Statistik menunjukkan
             bahwa hanya <strong>19,18%</strong> pemuda Indonesia yang bekerja di sektor pertanian pada 2021 dan jumlahnya terus <strong>menurun</strong> bahkan di tengah peningkatan jumlah tenaga kerja di Indonesia. <br />
