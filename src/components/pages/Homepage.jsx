@@ -14,6 +14,7 @@ import G3 from "../asset/image/g3.png";
 import I1 from "../asset/image/cepat1.png";
 import I2 from "../asset/image/cepat2.png";
 import I3 from "../asset/image/cepat3.png";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function Homepage() {
   // const [state] = useState({
@@ -116,7 +117,7 @@ function Homepage() {
                   <h5 className="card-title py-3">Tani Info</h5>
                   <p className="card-text">Wadah edukasi dan informasi yang bertujuan untuk menjadi panduan bagi para petani yang ingin memulai usaha bertani dan membantu mewujudkan kemudahan bagi para petani</p>
                   <p className="card-text py-1">
-                    <Link to={"/daftartoko"} className="btn--login" style={{ textDecoration: "none" }}>
+                    <Link to={"/info"} className="btn--login" style={{ textDecoration: "none" }}>
                       Selengkapnya
                     </Link>
                   </p>
@@ -130,7 +131,7 @@ function Homepage() {
                   <h5 className="card-title py-5">Tani Shop</h5>
                   <p className="card-text">Mempermudah para petani untuk mencari pabrik dan kios yang dibutuhkan</p>
                   <p className="card-text py-2">
-                    <Link to={"/daftartoko"} className="btn--login" style={{ textDecoration: "none" }}>
+                    <Link to={"/shop"} className="btn--login" style={{ textDecoration: "none" }}>
                       Selengkapnya
                     </Link>
                   </p>
