@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../asset/css/dashboard.css";
 import "bootstrap/dist/js/bootstrap.js";
 import Logo from "../asset/image/Logo.png";
-import { json, Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import axios from "axios";
@@ -28,8 +28,8 @@ const Admin = () => {
 
   function adminLogout() {
     deleteToken();
-    alert("berhasil logout");
     navigate("/admin");
+    alert("berhasil logout");
   }
 
   const [modalShow, setModalShow] = React.useState(false);
@@ -91,9 +91,9 @@ const Admin = () => {
         </button>
         <div className="navbar-nav">
           <div className="nav-item me-3">
-            <Link onClick={adminLogout} className="btn btn-danger nav-link px-3" href="/" style={{ color: "white" }}>
+            <button onClick={adminLogout} className="btn btn-danger nav-link px-3" style={{ color: "white" }}>
               Sign out
-            </Link>
+            </button>
           </div>
         </div>
       </header>
