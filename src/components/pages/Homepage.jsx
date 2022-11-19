@@ -110,11 +110,12 @@ function Homepage() {
             </div>
           </div>
         </div>
+        <hr className="py-2" />
         <div className="container py-5">
           <div className="row mx-auto  px-5 g-3">
             <div className="col-md-4">
               <div className="card text-light g-3" style={{ width: "18rem" }}>
-                <img src={Card} className="card-img" alt="..." />
+                <img src={Card} className="card-img " alt="..." />
                 <div className="card-img-overlay">
                   <h5 className="card-title py-3">Tani Info</h5>
                   <p className="card-text">Wadah edukasi dan informasi yang bertujuan untuk menjadi panduan bagi para petani yang ingin memulai usaha bertani dan membantu mewujudkan kemudahan bagi para petani</p>
