@@ -2,11 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import TypewriterComponent from "typewriter-effect";
 import Main from "../../asset/image/main.png";
+import { motion } from "framer-motion";
 
 const HomeTentang = () => {
   return (
     <>
-      <section>
+      <motion.section initial={{ opacity: 0, y: -100 }} whileInView={{ opacity: 1, y: 0 }} transition={{ type: "spring", duration: 1, stiffness: 120 }}>
         <div className="row justify-content-center">
           <div className="col-md-6">
             <div className="py-5">
@@ -31,7 +32,7 @@ const HomeTentang = () => {
           </div>
           <img className="col-md-6" src={Main} alt="" />
         </div>
-      </section>
+      </motion.section>
     </>
   );
 };

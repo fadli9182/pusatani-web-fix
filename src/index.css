@@ -8,6 +8,10 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap");
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
@@ -57,6 +61,10 @@ h3 {
   text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
 }
 
+.text--shadow {
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}
+
 .login--header {
   background: rgb(255, 255, 255, 0.5);
   border-radius: 30px;
@@ -75,12 +83,11 @@ h3 {
 }
 
 .btn--login:hover {
-  transition: all 0.5s ease-in-out;
-  color: black;
+  /* transition: all 0.5s ease-in-out; */
   text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
 
   background: linear-gradient(240deg, #2c774b 33.36%, #008d82 50.42%);
-  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 0px 0px rgba(243, 241, 241, 0.5);
   border-radius: 15px;
 }
 

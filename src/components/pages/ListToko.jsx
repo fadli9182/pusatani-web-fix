@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { BASE_URL } from "../utils/api";
+import { BASE_URL, config } from "../utils/api";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 const ListToko = () => {
-  const [tokos, setTokos] = useState([]);
+  const [tokos, setTokos] = useState();
 
   async function getToko() {
     try {
       let res = await axios.get(`${BASE_URL}/toko`);
-      setTokos(res.data.data);
-      console.log(res.data.data);
+      setTokos(res.data.data.data);
+      console.log(res.data.data.data);
     } catch (e) {
       console.log(e);
     }
@@ -17,6 +18,17 @@ const ListToko = () => {
   useEffect(() => {
     getToko();
   }, []);
+
+  const handleDelete = async (id) => {
+    try {
+      let res = await axios.delete(`${BASE_URL}/toko/${id}`, config);
+      console.log(res);
+      Swal.fire("Berhasil", "Toko sudah dihapus", "success");
+      getToko();
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   return (
     <div>
@@ -34,7 +46,7 @@ const ListToko = () => {
             </tr>
           </thead>
           <tbody>
-            {tokos.map((toko) => {
+            {tokos?.map((toko) => {
               return (
                 <tr key={toko.id}>
                   <td>{toko.id}</td>
@@ -46,7 +58,9 @@ const ListToko = () => {
                   <td>{toko.user_name}</td>
                   <td>
                     <div className="d-flex gap-2">
-                      <button className="btn btn-danger">Hapus</button>
+                      <button onClick={() => handleDelete(toko.id)} className="btn btn-danger">
+                        Hapus
+                      </button>
                       <button className="btn btn-warning">Verifikasi</button>
                     </div>
                   </td>

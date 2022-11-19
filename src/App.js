@@ -1,8 +1,7 @@
-import React from "react";
+import React, { lazy } from "react";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import Admin from "./components/pages/Admin";
-import AdminLogin from "./components/pages/AdminLogin";
+
 import Contact from "./components/pages/Kontak/Contact";
 import Login from "./components/pages/Login";
 import Register from "./components/pages/Register";
@@ -15,6 +14,8 @@ import DetailShop from "../src/components/pages/TaniShop/detailShop";
 import EditProfil from "./components/pages/user/editProfil";
 import Homepage from "./components/pages/home/Homepage";
 import DetailPabrik from "./components/pages/TaniShop/detailPabrik";
+const Admin = lazy(() => import("./components/pages/Admin"));
+const AdminLogin = lazy(() => import("./components/pages/AdminLogin"));
 
 function App() {
   return (

@@ -20,4 +20,12 @@ function putAccessToken(accessToken) {
   return localStorage.setItem("accessToken", accessToken);
 }
 
-export { getAccessToken, deleteToken, putAccessToken, putUser, getUser };
+const config = {
+  headers: {
+    Authorization: `Bearer ${getAccessToken()}`,
+    "Content-Type": "multipart/form-data",
+    Accept: "application/json",
+  },
+};
+
+export { getAccessToken, deleteToken, putAccessToken, putUser, getUser, config };

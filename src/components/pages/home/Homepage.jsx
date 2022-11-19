@@ -11,6 +11,7 @@ import Tujuan from "./Tujuan";
 import HomeContent from "./HomeContent";
 import HomeTentang from "./HomeTentang";
 import HomeCarousel from "./HomeCarousel";
+import HomeUnduh from "./HomeUnduh";
 
 function Homepage() {
   return (
@@ -34,7 +35,9 @@ function Homepage() {
       {/* testi */}
       <HomeCarousel />
       {/* foot */}
-      <div className="container my-5"></div>
+      <div className="container my-5">
+        <HomeUnduh />
+      </div>
       <Footer />
     </>
   );

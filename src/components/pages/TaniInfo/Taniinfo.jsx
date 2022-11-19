@@ -57,12 +57,16 @@ const Taniinfo = () => {
         <div className="row p-2 m-2">
           {articles?.map((article) => {
             return (
-              <div key={article.id} className="col-lg-4 col-md-6 col-sm-12 p-2">
-                <div className="card shadow h-100">
+              <div key={article.id} className="col-lg-6 col-md-6 col-sm-12 p-2 mb-3">
+                <div className="card shadow h-100 ">
                   <img className="img-fluid" src={article.image} alt="berita" />
-                  <div className="p-4">
-                    <h5 style={{ fontWeight: "bold" }}>{article.title}</h5>
-                    <p className="article--text" style={{ fontSize: "12px" }}>
+                  <div className="p-4" style={{ position: "absolute", bottom: "0", background: "linear-gradient(to top, rgba(0,0,0, .7), rgba(255,255,255, 0))", width: "100%" }}>
+                    <h5 className="text--shadow" style={{ fontWeight: "bold", textTransform: "capitalize" }}>
+                      {article.title}
+                    </h5>
+                    <hr />
+                    <p className="text--shadow">Author: {article.author}</p>
+                    <p className="article--text text--shadow" style={{ fontSize: "12px" }}>
                       {article.body}
                     </p>
                     <Link to={`/post/${article.id}`} className="btn btn--login text-light">
