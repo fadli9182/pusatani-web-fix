@@ -12,7 +12,7 @@ import TaniShop from "./components/pages/TaniShop/TaniShop";
 import DaftarToko from "./components/pages/DaftarToko";
 import DetailPost from "./components/pages/TaniInfo/detailPost";
 import DetailShop from "./components/pages/TaniShop/detailShop";
-import EditProfil from "./components/pages/editProfil";
+import EditProfil from "./components/pages/user/editProfil";
 import Homepage from "./components/pages/home/Homepage";
 
 function App() {
