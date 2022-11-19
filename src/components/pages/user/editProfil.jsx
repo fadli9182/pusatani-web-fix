@@ -1,8 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Footer from "../../partials/footer/Footer";
 import Header from "../../partials/header/Header";
+import { getUser } from "../../utils/api";
 
-const editProfil = () => {
+const EditProfil = () => {
+  const [user, setUser] = useState("");
+
+  useEffect(() => {
+    function getAuth() {
+      const user = getUser();
+      setUser(user);
+    }
+    getAuth();
+  }, []);
   return (
     <div>
       <Header />
@@ -20,20 +30,13 @@ const editProfil = () => {
           </div>
 
           <div className="col-md-9 personal-info">
-            <div className="alert alert-info alert-dismissable">
-              {/* <a className="panel-close close" data-dismiss="alert">
-                x
-              </a> */}
-              <i className="fa fa-coffee"></i>
-              This is an <strong>.alert</strong>. Use this to show important messages to the user.
-            </div>
             <h3>Info Diri</h3>
 
             <form className="form-horizontal">
               <div className="form-group">
                 <label className="col-lg-3 control-label">Nama Awal:</label>
                 <div className="col-lg-8">
-                  <input className="form-control" type="text" />
+                  <input className="form-control" type="text" value={user.name} />
                 </div>
               </div>
               <div className="form-group">
@@ -51,7 +54,7 @@ const editProfil = () => {
               <div className="form-group">
                 <label className="col-lg-3 control-label">Email:</label>
                 <div className="col-lg-8">
-                  <input className="form-control" type="text" />
+                  <input className="form-control" type="text" value={user.email} />
                 </div>
               </div>
             </form>
@@ -64,4 +67,4 @@ const editProfil = () => {
     </div>
   );
 };
-export default editProfil;
+export default EditProfil;

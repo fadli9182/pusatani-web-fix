@@ -5,6 +5,7 @@ import { InputGroup } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import { BASE_URL, getAccessToken } from "../utils/api";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 function Register() {
   const [name, setName] = useState("");
@@ -41,8 +42,8 @@ function Register() {
     try {
       let res = await axios.post(`${BASE_URL}/auth/signup`, data, config);
       console.log(res);
-      alert("daftar berhasil");
-      navigate("/");
+      Swal.fire("Berhasil!", "Akun berhasil dibuat", "success");
+      navigate("/login");
     } catch (err) {
       // const resJson = JSON.stringify(response.response.data.errors);
       console.log(err.response.data.errors);

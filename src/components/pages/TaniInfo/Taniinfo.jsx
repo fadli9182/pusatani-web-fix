@@ -58,7 +58,7 @@ const Taniinfo = () => {
           {articles?.map((article) => {
             return (
               <div key={article.id} className="col-lg-4 col-md-6 col-sm-12 p-2">
-                <div className="card shadow">
+                <div className="card shadow h-100">
                   <img className="img-fluid" src={article.image} alt="berita" />
                   <div className="p-4">
                     <h5 style={{ fontWeight: "bold" }}>{article.title}</h5>

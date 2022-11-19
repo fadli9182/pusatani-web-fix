@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import Logo from "../asset/image/Logo.png";
 import { Link, useNavigate } from "react-router-dom";
-import { BASE_URL, putAccessToken } from "../utils/api";
+import { BASE_URL, getUser, putAccessToken, putUser } from "../utils/api";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 const Login = () => {
-  const [isLogin, setIsLogin] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  // const [isLogin, setIsLogin] = useState(false);
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const [userName, setUserName] = useState("");
 
   const navigate = useNavigate();
 
@@ -18,6 +21,10 @@ const Login = () => {
   function passwordChange(e) {
     setPassword(e.target.value);
     console.log(password);
+  }
+
+  function isLogin() {
+    localStorage.setItem("isLogin", true);
   }
 
   async function userLogin(e) {
@@ -35,16 +42,22 @@ const Login = () => {
         }
       );
       putAccessToken(res.data.data.token);
-      setIsLogin(true);
+      putUser(res.data.data.user);
+      setUserName(res.data.data.user.name);
+      isLogin();
       setEmail("");
       setPassword("");
-      alert("berhasil login");
+      Swal.fire("Selamat Datang!", `Okaeri! ${userName}`, "success");
+      console.log(res.data.data);
       navigate("/");
     } catch (e) {
       console.log(e);
-      alert(e.response.data.meta.message);
+      Swal.fire("Gagal Login!", "Email atau Password salah", "error");
     }
   }
+  const togglePassword = () => {
+    setShowPassword(!showPassword);
+  };
   console.log(email, password);
 
   return (
@@ -66,50 +79,43 @@ const Login = () => {
         </div>
 
         <div className="col-md-7 d-flex justify-content-center align-item-center py-5 right--login">
-          {isLogin ? (
-            <>
-              <div className="container text-center">
-                <div className="card">
-                  <h1>Anda sudah login</h1>
-                  <h5>
-                    Kembali ke Halaman <Link to={"/"}>Home</Link>
-                  </h5>
+          <div className="card shadow align-content-center" style={{ borderRadius: "1rem", width: "500px" }}>
+            <div className="card-body p-5 text-center align-item-center card--login">
+              <form onSubmit={userLogin}>
+                <h3 className="mb-5">Sign in</h3>
+                <div className="form-outline mb-4">
+                  <label className="form-label" htmlFor="email-login">
+                    Email
+                  </label>
+                  <input onChange={emailChange} type="email" id="email-login" className="form-control form-control-lg form-float" placeholder="Email Anda" />
                 </div>
-              </div>
-            </>
-          ) : (
-            <div className="card shadow align-content-center" style={{ borderRadius: "1rem", width: "500px" }}>
-              <div className="card-body p-5 text-center align-item-center card--login">
-                <form onSubmit={userLogin}>
-                  <h3 className="mb-5">Sign in</h3>
-                  <div className="form-outline mb-4">
-                    <label className="form-label" htmlFor="email-login">
-                      Email
-                    </label>
-                    <input onChange={emailChange} type="email" id="email-login" className="form-control form-control-lg form-float" placeholder="Email Anda" />
-                  </div>
-                  <div className="form-outline mb-4">
-                    <label className="form-label" htmlFor="password-login">
-                      Password
-                    </label>
-                    <input onChange={passwordChange} type="password" id="password-login" className="form-control form-control-lg" placeholder="Masukan Kata Sandi" />
-                  </div>
-                  {/* <!-- Checkbox --> */}
+                <div className="form-outline mb-4">
+                  <label className="form-label" htmlFor="password-login">
+                    Password
+                  </label>
+                  <input onChange={passwordChange} type={showPassword ? "text" : "password"} id="password-login" className="form-control form-control-lg" placeholder="Masukan Kata Sandi" />
                   <div className="form-check d-flex justify-content-start mb-4">
-                    <input className="form-check-input me-2" type="checkbox" value="" id="checkbox-login" />
-                    <label className="form-check-label" htmlFor="checkbox-login">
-                      Ingat Saya
+                    <input onClick={togglePassword} className="form-check-input me-2" type="checkbox" value="" id="checkbox-pwd" />
+                    <label className="form-check-label mt-1" style={{ fontSize: "12px" }} htmlFor="checkbox-pwd">
+                      Show Password
                     </label>
                   </div>
-                  <button className="btn--login w-75">Login</button>
-                </form>
-                <hr className="my-4 baris" />
-                <p>
-                  Belum Mempunyai Akun ? Ayo <Link to="/register">Register!</Link>
-                </p>
-              </div>
+                </div>
+                {/* <!-- Checkbox --> */}
+                <div className="form-check d-flex justify-content-start mb-4">
+                  <input className="form-check-input me-2" type="checkbox" value="" id="checkbox-login" />
+                  <label className="form-check-label" htmlFor="checkbox-login">
+                    Ingat Saya
+                  </label>
+                </div>
+                <button className="btn--login w-75">Login</button>
+              </form>
+              <hr className="my-4 baris" />
+              <p>
+                Belum Mempunyai Akun ? Ayo <Link to="/register">Register!</Link>
+              </p>
             </div>
-          )}
+          </div>
         </div>
       </div>
     </>

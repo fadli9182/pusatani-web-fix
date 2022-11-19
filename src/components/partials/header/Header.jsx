@@ -1,11 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./header.css";
 import Logo from "../../asset/image/Logo.png";
 import { Link, NavLink } from "react-router-dom";
-import { deleteToken } from "../../utils/api";
+import { deleteToken, getUser } from "../../utils/api";
 import { motion } from "framer-motion";
 
 function Header() {
+  const [isLogin, setIsLogin] = useState(false);
+
+  useEffect(() => {
+    if (getUser()) {
+      setIsLogin(true);
+    }
+  }, []);
+  console.log(isLogin);
+
   const navStyle = {
     borderBottom: "3px solid #2c774b",
     fontWeight: "700",
@@ -46,14 +55,19 @@ function Header() {
               <NavLink style={({ isActive }) => (isActive ? navStyle : navNormal)} to={"/profil"} className="nav--link">
                 Profil
               </NavLink>
-              <div className="">
-                <Link to={"/login"} className="btn btn-success me-2" style={{ fontSize: "12px" }}>
-                  Login
-                </Link>
-                <Link to={"/login"} onClick={userLogout} className="btn btn-danger" style={{ fontSize: "12px" }}>
-                  Logout
-                </Link>
-              </div>
+              {isLogin ? (
+                <div className="">
+                  <Link to={"/login"} onClick={userLogout} className="btn btn-danger" style={{ fontSize: "12px" }}>
+                    Logout
+                  </Link>
+                </div>
+              ) : (
+                <div className="">
+                  <Link to={"/login"} className="btn btn-success me-2" style={{ fontSize: "12px" }}>
+                    Login
+                  </Link>
+                </div>
+              )}
             </div>
           </div>
         </div>
