@@ -39,7 +39,7 @@ const AdminLogin = () => {
       setEmail("");
       setPassword("");
       alert("berhasil login");
-      navigate("/admdashoard");
+      navigate("/admdashboard");
     } catch (err) {
       console.log(err.response.data.meta.message);
 

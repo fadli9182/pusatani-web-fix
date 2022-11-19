@@ -6,6 +6,8 @@ import Foto2 from "../../asset/image/Pberas.jpeg";
 import Header from "../../partials/header/Header";
 import Footer from "../../partials/footer/Footer";
 import HargaKomoditas from "./HargaKomoditas";
+import Pabrik from "./Pabrik";
+import Toko from "./Toko";
 
 const TaniShop = () => {
   return (
@@ -22,40 +24,11 @@ const TaniShop = () => {
           <h1 style={{ fontWeight: "700" }}>Pabrik dan Toko </h1>
           <p>Yang Sudah Menjadi Partner Kami</p>
         </div>
-        <div className="card mb-3" style={{ maxWidth: "100%" }}>
-          <div className="row g-0">
-            <div className="col-md-4">
-              <img src={Foto1} className="img-fluid rounded-start" alt="..." />
-            </div>
-            <div className="col-md-8">
-              <div className="card-body">
-                <h5 className="card-title">Hijrah Pupuk</h5>
-                <hr />
-                <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <p className="card-text">
-                  <button className=" btn btn-success">Selengkapnya</button>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="card mb-3" style={{ maxWidth: "100%" }}>
-          <div className="row g-0">
-            <div className="col-md-4">
-              <img src={Foto2} className="img-fluid rounded-start" alt="..." />
-            </div>
-            <div className="col-md-8">
-              <div className="card-body">
-                <h5 className="card-title">Bulogss</h5>
-                <hr />
-                <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <p className="card-text">
-                  <button className=" btn btn-success">Selengkapnya</button>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
+        <h2>Daftar Nama Toko</h2>
+        <Toko />
+
+        <h2>Daftar Nama Pabrik</h2>
+        <Pabrik />
 
         <HargaKomoditas />
       </div>

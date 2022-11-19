@@ -23,7 +23,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/admin" element={<AdminLogin />} />
         <Route path="/daftartoko" element={<DaftarToko />} />
-        <Route path="/admdashoard" element={<Admin />} />
+        <Route path="/admdashboard" element={<Admin />} />
         <Route path="/about" element={<Tentang />} />
         <Route path="/info" element={<Taniinfo />} />
         <Route path="/shop" element={<TaniShop />} />
