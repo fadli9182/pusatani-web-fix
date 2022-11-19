@@ -3,7 +3,6 @@ import Logo from "../asset/image/Logo.png";
 import { Link, useNavigate } from "react-router-dom";
 import { BASE_URL, putAccessToken } from "../utils/api";
 import axios from "axios";
-import Header from "../partials/header/Header";
 
 const Login = () => {
   const [isLogin, setIsLogin] = useState(false);

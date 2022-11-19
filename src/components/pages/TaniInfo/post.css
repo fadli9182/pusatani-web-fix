@@ -18,6 +18,7 @@
   text-align: center;
   margin: 10px;
   font-size: 28px;
+  text-transform: capitalize;
 }
 
 .singlePostEdit {
@@ -45,7 +46,7 @@
   color: #be9656;
 }
 
-.singlePostAuthor{
+.singlePostAuthor {
   margin-left: 5px;
 }
 

@@ -14,6 +14,7 @@ import DetailPost from "./components/pages/TaniInfo/detailPost";
 import DetailShop from "../src/components/pages/TaniShop/detailShop";
 import EditProfil from "./components/pages/user/editProfil";
 import Homepage from "./components/pages/home/Homepage";
+import DetailPabrik from "./components/pages/TaniShop/detailPabrik";
 
 function App() {
   return (
@@ -30,7 +31,8 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
         <Route path="/post/:id" element={<DetailPost />} />
-        <Route path="/detailshop" element={<DetailShop />} />
+        <Route path="/shop/:id" element={<DetailShop />} />
+        <Route path="/pabrik/:id" element={<DetailPabrik />} />
         <Route path="/profil" element={<EditProfil />} />
       </Routes>
     </>

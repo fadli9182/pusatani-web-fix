@@ -5,7 +5,6 @@ import { BASE_URL, putAccessToken } from "../utils/api";
 import axios from "axios";
 
 const AdminLogin = () => {
-  const [isLogin, setIsLogin] = useState(false);
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
@@ -35,7 +34,6 @@ const AdminLogin = () => {
         }
       );
       putAccessToken(res.data.data.token);
-      setIsLogin(true);
       setEmail("");
       setPassword("");
       alert("berhasil login");

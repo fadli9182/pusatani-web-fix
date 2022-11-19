@@ -1,7 +1,5 @@
 import React from "react";
 import "./tanishop.css";
-import Foto1 from "../../asset/image/hijrahpupuk.jpeg";
-import Foto2 from "../../asset/image/Pberas.jpeg";
 import Header from "../../partials/header/Header";
 import Footer from "../../partials/footer/Footer";
 import HargaKomoditas from "./HargaKomoditas";

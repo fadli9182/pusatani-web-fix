@@ -14,8 +14,8 @@ const Taniinfo = () => {
   async function getArticles() {
     try {
       let res = await axios.get(`${BASE_URL}/article`);
-      setArticles(res.data.data);
-      console.log(res);
+      setArticles(res.data.data.data);
+      console.log(res.data.data.data);
     } catch (e) {
       console.log(e);
     }
@@ -55,7 +55,7 @@ const Taniinfo = () => {
           </div>
         </div>
         <div className="row p-2 m-2">
-          {articles.map((article) => {
+          {articles?.map((article) => {
             return (
               <div key={article.id} className="col-lg-4 col-md-6 col-sm-12 p-2">
                 <div className="card shadow">
@@ -65,7 +65,7 @@ const Taniinfo = () => {
                     <p className="article--text" style={{ fontSize: "12px" }}>
                       {article.body}
                     </p>
-                    <Link to="/post/:id" className="btn btn--login text-light">
+                    <Link to={`/post/${article.id}`} className="btn btn--login text-light">
                       Lihat Selengkapnya
                     </Link>
                   </div>

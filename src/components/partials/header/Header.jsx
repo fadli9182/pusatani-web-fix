@@ -22,7 +22,7 @@ function Header() {
     <>
       <nav class="navbar navbar-expand-lg navbar-light bg-transparent text-center">
         <div class="container-fluid nav--item">
-          <motion.img initial={{ rotate: 0 }} whileInView={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 1 }} className="ms-5 navbar--logo" src={Logo} width={"80px"} alt="logo" />
+          <img initial={{ rotate: 0 }} whileInView={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 1 }} className="ms-5 navbar--logo" src={Logo} width={"80px"} alt="logo" />
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>

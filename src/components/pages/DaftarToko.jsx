@@ -32,11 +32,13 @@ const DaftarToko = () => {
     try {
       let res = await axios.post(`${BASE_URL}/toko`, dataToko, config);
       console.log(res);
+      console.log(status);
       alert("daftar berhasil");
       navigate("/shop");
     } catch (err) {
       // const resJson = JSON.stringify(response.response.data.errors);
       console.log(err.response.data.errors);
+
       // alert();
     }
   };

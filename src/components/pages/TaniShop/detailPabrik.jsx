@@ -5,7 +5,7 @@ import Footer from "../../partials/footer/Footer";
 import Header from "../../partials/header/Header";
 import { BASE_URL } from "../../utils/api";
 
-const DetailShop = () => {
+const DetailPabrik = () => {
   const { id } = useParams();
   const [name, setName] = useState("");
   const [address, setAddress] = useState("");
@@ -13,9 +13,9 @@ const DetailShop = () => {
   const [image, setImage] = useState(null);
   const [pemilik, setPemilik] = useState("");
 
-  const getSingleShop = async (e) => {
+  const getSinglePabrik = async (e) => {
     try {
-      const res = await axios.get(`${BASE_URL}/toko/${id}`);
+      const res = await axios.get(`${BASE_URL}/pabrik/${id}`);
       setName(res.data.data.name);
       setAddress(res.data.data.address);
       setDeskripsi(res.data.data.deskripsi);
@@ -28,7 +28,7 @@ const DetailShop = () => {
   };
 
   useEffect(() => {
-    getSingleShop();
+    getSinglePabrik();
   });
 
   return (
@@ -36,7 +36,7 @@ const DetailShop = () => {
       <Header />
       <div className="singlePost">
         <div className="singlePostWrapper">
-          <img className="singlePostImg py-3" src={image} alt="sa" />
+          <img className="singlePostImg py-3" src={image} alt="foto pabrik" />
           <h1 className="singlePostTitle">{name}</h1>
           <div className="singlePostInfo">
             <span>Alamat: {address}</span>
@@ -51,4 +51,4 @@ const DetailShop = () => {
   );
 };
 
-export default DetailShop;
+export default DetailPabrik;
