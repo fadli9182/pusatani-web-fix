@@ -11,7 +11,7 @@ import Tentang from "./components/pages/Tentang/Tentang";
 import TaniShop from "./components/pages/TaniShop/TaniShop";
 import DaftarToko from "./components/pages/DaftarToko";
 import DetailPost from "./components/pages/TaniInfo/detailPost";
-import DetailShop from "./components/pages/TaniShop/detailShop  ";
+import DetailShop from "../src/components/pages/TaniShop/detailShop";
 import EditProfil from "./components/pages/user/editProfil";
 import Homepage from "./components/pages/home/Homepage";
 
@@ -30,7 +30,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
         <Route path="/post/:id" element={<DetailPost />} />
-        <Route path="/post/:id" element={<DetailShop />} />
+        <Route path="/detailshop" element={<DetailShop />} />
         <Route path="/profil" element={<EditProfil />} />
       </Routes>
     </>

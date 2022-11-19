@@ -5,7 +5,7 @@ import Foto2 from "../../asset/image/Pberas.jpeg";
 import Header from "../../partials/header/Header";
 import Footer from "../../partials/footer/Footer";
 import HargaKomoditas from "./HargaKomoditas";
-import DetailShop from "/shop/:id";
+import DetailShop from "../TaniShop/detailShop";
 import { Link } from "react-router-dom";
 
 const TaniShop = () => {
