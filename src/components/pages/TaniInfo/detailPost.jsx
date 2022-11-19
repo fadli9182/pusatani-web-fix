@@ -10,7 +10,7 @@ const DetailPost = () => {
       <Header />
       <div className="singlePost">
         <div className="singlePostWrapper">
-          <img className="singlePostImg" src={Card1} alt="sa" />
+          <img className="singlePostImg py-3" src={Card1} alt="sa" />
           <h1 className="singlePostTitle">Lorem ipsum dolor</h1>
           <div className="singlePostInfo">
             <span>Author:</span>
@@ -28,6 +28,7 @@ const DetailPost = () => {
             sit amet consectetur adipisicing elit. Iste error quibusdam ipsa quis quidem doloribus eos, dolore ea iusto impedit! Voluptatum necessitatibus eum beatae, adipisci voluptas a odit modi eos! Lorem, ipsum dolor sit amet
             consectetur adipisicing elit. Iste error quibusdam ipsa quis quidem doloribus eos, dolore ea iusto impedit! Voluptatum necessitatibus eum beatae, adipisci voluptas a odit modi eos! Lorem, ipsum dolor sit amet consectetur.
           </p>
+          <hr />
         </div>
       </div>
       <Footer />

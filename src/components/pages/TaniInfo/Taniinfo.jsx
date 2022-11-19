@@ -5,6 +5,7 @@ import { BASE_URL } from "../../utils/api";
 import axios from "axios";
 import InfoPetani from "./InfoPetani";
 import Promo from "../home/Promo";
+import { Link } from "react-router-dom";
 import("./taniinfo.css");
 
 const Taniinfo = () => {
@@ -64,7 +65,9 @@ const Taniinfo = () => {
                     <p className="article--text" style={{ fontSize: "12px" }}>
                       {article.body}
                     </p>
-                    <button className="btn btn--login text-light">Lihat Selengkapnya</button>
+                    <Link to="/post/:id" className="btn btn--login text-light">
+                      Lihat Selengkapnya
+                    </Link>
                   </div>
                 </div>
               </div>

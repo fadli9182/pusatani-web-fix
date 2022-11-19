@@ -2,10 +2,11 @@ import React from "react";
 import "./tanishop.css";
 import Foto1 from "../../asset/image/hijrahpupuk.jpeg";
 import Foto2 from "../../asset/image/Pberas.jpeg";
-
 import Header from "../../partials/header/Header";
 import Footer from "../../partials/footer/Footer";
 import HargaKomoditas from "./HargaKomoditas";
+import DetailShop from "/shop/:id";
+import { Link } from "react-router-dom";
 
 const TaniShop = () => {
   return (
@@ -50,7 +51,9 @@ const TaniShop = () => {
                 <hr />
                 <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                 <p className="card-text">
-                  <button className=" btn btn-success">Selengkapnya</button>
+                  <Link to={DetailShop} className=" btn btn-success">
+                    Selengkapnya
+                  </Link>
                 </p>
               </div>
             </div>
