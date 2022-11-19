@@ -6,7 +6,18 @@ import { Link, useNavigate } from "react-router-dom";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import axios from "axios";
-import { BASE_URL, deleteToken } from "../utils/api";
+import { BASE_URL, deleteToken, getAccessToken } from "../utils/api";
+import ListToko from "./ListToko";
+import ListPabrik from "./ListPabrik";
+import Swal from "sweetalert2";
+
+const config = {
+  headers: {
+    Authorization: `Bearer ${getAccessToken()}`,
+    "Content-Type": "multipart/form-data",
+    Accept: "application/json",
+  },
+};
 
 const Admin = () => {
   const [articles, setArticles] = useState([]);
@@ -26,6 +37,16 @@ const Admin = () => {
     getArticles();
   }, []);
 
+  const onDelete = async (id) => {
+    try {
+      await axios.delete(`${BASE_URL}/article/${id}`, config);
+      Swal.fire("Berhasil", "Postingan sudah dihapus", "success");
+    } catch (error) {
+      console.log(error);
+    }
+    getArticles();
+  };
+
   function adminLogout() {
     deleteToken();
     navigate("/admin");
@@ -34,42 +55,67 @@ const Admin = () => {
 
   const [modalShow, setModalShow] = React.useState(false);
   function FormModal(props) {
+    const [judul, setJudul] = useState("");
+    const [body, setBody] = useState("");
+    const [category, setCategory] = useState();
+    const [image, setImage] = useState(null);
+
+    const addArtikel = async (e) => {
+      e.preventDefault();
+      const dataArtikel = new FormData();
+
+      dataArtikel.append("title", judul);
+      dataArtikel.append("body", body);
+      dataArtikel.append("category", category);
+      dataArtikel.append("image", image);
+
+      try {
+        let res = await axios.post(`${BASE_URL}/article`, dataArtikel, config);
+
+        console.log(res);
+        alert("berhasil membuat post");
+        navigate("/admdashboard");
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
     return (
       <Modal {...props} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
         <Modal.Header closeButton>
           <Modal.Title id="contained-modal-title-vcenter">Tambah Artikel</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <form action="">
+          <form onSubmit={addArtikel}>
             <div className="form-outline mb-4">
               <label className="form-label d-flex" htmlFor="judul-artikel">
                 Judul
               </label>
-              <input type="text" id="judul-artikel" className="form-control form-control-lg" placeholder="Judul Artikel" />
+              <input value={judul} onChange={(e) => setJudul(e.target.value)} type="text" id="judul-artikel" className="form-control form-control-lg" placeholder="Judul Artikel" />
             </div>
             <div className="form-outline mb-4">
               <label className="form-label d-flex" htmlFor="nomer-login">
                 Isi Artikel
               </label>
-              <input type="email" id="nomer-login" className="form-control form-control-lg" placeholder="Masukan isi Artikel" />
+              <input value={body} onChange={(e) => setBody(e.target.value)} type="text" id="nomer-login" className="form-control form-control-lg" placeholder="Masukan isi Artikel" />
             </div>
             <div className="form-outline mb-4">
               <label className="form-label d-flex" for="password-login">
                 Kategori
               </label>
-              <select className="form-select" name="category" id="category" defaultValue={"default"}>
+              <select value={category} onChange={(e) => setCategory(e.target.value)} className="form-select" name="category" id="category" defaultValue={"default"}>
                 <option disabled value="default">
                   Pilih Kategori
                 </option>
-                <option value="berita">Berita</option>
-                <option value="teknologi">Teknologi</option>
+                <option value="1">Berita</option>
+                <option value="2">Teknologi</option>
               </select>
             </div>
             <div className="mb-3">
               <label for="formFile" className="form-label">
                 Foto Artikel
               </label>
-              <input className="form-control" type="file" id="formFile" />
+              <input onChange={(e) => setImage(e.target.files[0])} accept=".jpg, .png, .jpeg" className="form-control" type="file" id="formFile" />
             </div>
             <button className="btn--login w-75">Tambah</button>
           </form>
@@ -147,9 +193,11 @@ const Admin = () => {
                 <tbody>
                   {articles.map((article) => {
                     return (
-                      <tr>
+                      <tr key={article.id}>
                         <td>{article.id}</td>
-                        <td style={{ fontSize: "10px" }}>{article.image}</td>
+                        <td>
+                          <img src={article.image} width={"100px"} alt="foto artikel" />
+                        </td>
                         <td>{article.title}</td>
                         <td className="article--text" style={{ fontSize: "12px" }}>
                           {article.body}
@@ -157,7 +205,9 @@ const Admin = () => {
                         <td>{article.id_category}</td>
                         <td>
                           <div className="d-flex gap-2">
-                            <button className="btn btn-danger">Delete</button>
+                            <button onClick={() => onDelete(article.id)} className="btn btn-danger">
+                              Delete
+                            </button>
                             <button className="btn btn-warning">Edit</button>
                           </div>
                         </td>
@@ -168,36 +218,8 @@ const Admin = () => {
               </table>
             </div>
             <hr />
-            <h2>List Toko</h2>
-            <div className="table-responsive" id="tabel-toko">
-              <table className="table table-striped table-sm">
-                <thead>
-                  <tr>
-                    <th scope="col">No</th>
-                    <th scope="col">Foto KTP</th>
-                    <th scope="col">Nama Toko</th>
-                    <th scope="col">Alamat</th>
-                    <th scope="col">Jenis Toko</th>
-                    <th scope="col">Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>"......."</td>
-                    <td>Petani Padi padi</td>
-                    <td>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum libero voluptatem expedita dolores, vero minima quam voluptas quae necessitatibus ab?</td>
-                    <td>Berita</td>
-                    <td>
-                      <div className="d-flex gap-2">
-                        <button className="btn btn-danger">Hapus</button>
-                        <button className="btn btn-warning">Verifikasi</button>
-                      </div>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+            <ListToko />
+            <ListPabrik />
           </main>
           <Modal>
             <h1>Hello</h1>
