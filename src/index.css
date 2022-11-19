@@ -1,5 +1,8 @@
 :root {
   --primary-green: #2c774b;
+  --secondary-color: #fce181;
+  --third-color: #62ac7c;
+  --primary-linear: linear-gradient(123.72deg, #2c774b 33.36%, #008d82 83.42%);
   --linear-color: linear-gradient(to right top, #2c774b, #1c7f60, #038674, #008d88, #00939a, #0d9ea0, #1ba8a5, #29b3aa, #5cc39c, #90d18c, #c5db81, #fce181);
 }
 
@@ -21,71 +24,26 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
-.nav--link {
-  margin-right: 2rem;
-  color: var(--primary-green);
-  text-decoration: none;
-  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+h1 {
+  font-size: 48px;
 }
 
-.nav--link:hover {
-  border-bottom: 3px solid green;
+h2 {
+  font-size: 32px;
 }
 
-.nav--item {
-  background-color: rgb(255, 255, 255, 0.95);
-  padding: 10px 10px;
-  border-radius: 10px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-
-@media (max-width: 900px) {
-  .nav--item {
-    font-size: small;
-    padding: 10px 5px;
-  }
-  .nav--link {
-    margin-right: 15px;
-  }
-}
-
-.hero--home {
-  padding: 10px 40px;
-  color: var(--primary-green);
-  margin: 30px 0;
-}
-
-.contact--header {
-  background: url("./components/asset/image/contactBg.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  height: 400px;
-  margin-bottom: 3rem;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
-}
-
-.contact--header h1 {
-  text-align: center;
-  color: var(--primary-green);
-  margin-top: 8%;
-  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
-}
-
-.form--contact {
-  padding: 10px 100px !important;
-}
-
-.contact--icon {
-  color: var(--primary-green);
-  font-size: 100px;
-  border-radius: 50%;
-  padding: 10px;
-  border: 4px solid var(--primary-green);
-  margin-bottom: 1rem;
+h3 {
+  font-size: 24px;
 }
 
 .btn--home {
   margin: 80px 50px;
+}
+
+@media (max-width: 800px) {
+  .judul--login {
+    font-size: small !important;
+  }
 }
 
 .login--page-left {
@@ -106,7 +64,7 @@ code {
 }
 
 .btn--login {
-  background: linear-gradient(123.72deg, #2c774b 33.36%, #008d82 83.42%);
+  background: var(--primary-linear);
   box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.5);
   /* text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white; */
   font-weight: 700;
@@ -144,31 +102,4 @@ code {
 
 .card--login {
   padding-top: 150px !important;
-}
-
-.footer--bg {
-  background-image: var(--linear-color);
-  color: white;
-  font-size: 14px;
-}
-
-.footer--bg h5 {
-  font-size: 16px;
-  line-height: 25px;
-}
-
-.footer--bg ul {
-  padding-left: 10px;
-}
-
-.sosmed .footer--link {
-  color: white;
-  padding-right: 13px;
-  font-size: 20px;
-}
-
-.footer--link {
-  color: white;
-  text-decoration: none;
-  padding-bottom: 5px;
 }

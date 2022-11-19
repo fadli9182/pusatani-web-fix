@@ -3,17 +3,17 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Admin from "./components/pages/Admin";
 import AdminLogin from "./components/pages/AdminLogin";
-import Contact from "./components/pages/Contact";
-import Homepage from "./components/pages/Homepage";
+import Contact from "./components/pages/Kontak/Contact";
 import Login from "./components/pages/Login";
 import Register from "./components/pages/Register";
-import Taniinfo from "./components/pages/Taniinfo";
-import Tentang from "./components/pages/Tentang";
-import TaniShop from "./components/pages/TaniShop";
+import Taniinfo from "./components/pages/TaniInfo/Taniinfo";
+import Tentang from "./components/pages/Tentang/Tentang";
+import TaniShop from "./components/pages/TaniShop/TaniShop";
 import DaftarToko from "./components/pages/DaftarToko";
-import DetailPost from "./components/pages/detailPost";
-import DetailShop from "./components/pages/detailShop";
+import DetailPost from "./components/pages/TaniInfo/detailPost";
+import DetailShop from "./components/pages/TaniShop/detailShop";
 import EditProfil from "./components/pages/editProfil";
+import Homepage from "./components/pages/home/Homepage";
 
 function App() {
   return (
@@ -29,9 +29,9 @@ function App() {
         <Route path="/shop" element={<TaniShop />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/detailpost" element={<DetailPost />} />
+        <Route path="/post/:id" element={<DetailPost />} />
         <Route path="/detailshop" element={<DetailShop />} />
-        <Route path="/editprofil" element={<EditProfil />} />
+        <Route path="/profil" element={<EditProfil />} />
       </Routes>
     </>
   );

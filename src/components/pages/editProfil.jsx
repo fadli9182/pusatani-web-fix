@@ -1,8 +1,11 @@
 import React from "react";
+import Footer from "../partials/footer/Footer";
+import Header from "../partials/header/Header";
 
 const editProfil = () => {
   return (
     <div>
+      <Header />
       <div className="container bootstrap snippets bootdey">
         <h1 className="text-primary">Edit Profil</h1>
         <hr />
@@ -57,6 +60,7 @@ const editProfil = () => {
       </div>
       <hr />
       <hr />
+      <Footer />
     </div>
   );
 };
