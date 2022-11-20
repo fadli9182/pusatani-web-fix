@@ -83,10 +83,7 @@ const Page404 = () => {
           </g>
         </svg>
         <h1 className="">
-          Kembali Ke Halaman{" "}
-          <Link to={"/"} style={{ textDecoration: "none" }}>
-            Home..
-          </Link>
+          Kembali Ke Halaman <Link to={"/"}>Home..</Link>
         </h1>
       </div>
     </>

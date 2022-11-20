@@ -6,6 +6,7 @@ import axios from "axios";
 import InfoPetani from "./InfoPetani";
 import Promo from "../home/Promo";
 import { Link } from "react-router-dom";
+import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 import("./taniinfo.css");
 
 const Taniinfo = () => {
@@ -42,7 +43,7 @@ const Taniinfo = () => {
           <div className="sort">
             <div class="dropdown">
               <button class="btn btn-secondary dropdown-toggle" type="button" id="triggerId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Sorting Berdasar Kategori
+                Filter Berdasar Kategori
               </button>
               <div class="dropdown-menu" aria-labelledby="triggerId">
                 <a class="dropdown-item" href="/">
@@ -78,6 +79,16 @@ const Taniinfo = () => {
               );
             })}
           </div>
+          <section>
+            <div className="btn-group">
+              <button>
+                <AiOutlineLeft />
+              </button>
+              <button>
+                <AiOutlineRight />
+              </button>
+            </div>
+          </section>
         </section>
       </div>
 
