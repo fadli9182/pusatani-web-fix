@@ -8,6 +8,7 @@ const DaftarToko = () => {
   const [namaToko, setNamaToko] = useState("");
   const [user, setUser] = useState();
   const [addressToko, setAddressToko] = useState("");
+  const [deskripsiToko, setDeskripsiToko] = useState("");
   const [phoneToko, setPhoneToko] = useState();
   const [fotoToko, setFotoToko] = useState();
   const [status, setStatus] = useState();
@@ -65,6 +66,12 @@ const DaftarToko = () => {
               Alamat
             </label>
             <textarea onChange={(e) => setAddressToko(e.target.value)} type="text" className="form-control" name="alamat" id="alamat" placeholder="Masukan Alamat Toko" />
+          </div>
+          <div className="mb-3">
+            <label htmlFor="alamat" className="form-label">
+              Deskripsi
+            </label>
+            <textarea onChange={(e) => setDeskripsiToko(e.target.value)} type="text" className="form-control" name="alamat" id="alamat" placeholder="Masukan Alamat Toko" />
           </div>
           <div className="mb-3">
             <label htmlFor="telp" className="form-label">
