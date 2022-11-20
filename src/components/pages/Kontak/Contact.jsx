@@ -18,7 +18,9 @@ function Contact() {
     <>
       <div className="contact--header">
         <Header />
-        <h1 className="fw-bold">Kontak Informasi</h1>
+        <h1 className="fw-bold">
+          Kontak <br /> Informasi
+        </h1>
       </div>
       <div className="container justify-content-center">
         <section>

@@ -27,9 +27,16 @@ const Promo = () => {
               Bergabung sekarang untuk meningkatkan <strong>kesejahteraan petani</strong> dan memberantas oknum tengkulak yang tidak bertanggung jawab. Dan nikmati berbagai manfaat dari <strong>PusaTani</strong>, seperti informasi seputar
               pertanian hingga penyaluran gabah dan beras. Mari bersama mewujudkan ekosistem pertanian yang kuat!
             </p>
+          </div>
+          <div className="d-flex flex-row gap-5 justify-content-center align-items-center mt-4">
             <Link to={"/daftartoko"}>
               <motion.button initial={{ scale: 1 }} whileHover={{ scale: 1.5 }} className="btn--login" style={{ textDecoration: "none" }}>
-                Daftar Sekarang
+                Daftarkan Toko
+              </motion.button>
+            </Link>
+            <Link to={"/daftarpabrik"}>
+              <motion.button initial={{ scale: 1 }} whileHover={{ scale: 1.5 }} className="btn--login" style={{ textDecoration: "none" }}>
+                Daftarkan Pabrik
               </motion.button>
             </Link>
           </div>

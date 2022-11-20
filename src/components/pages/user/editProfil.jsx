@@ -12,10 +12,12 @@ const EditProfil = () => {
     function getAuth() {
       const user = getUser();
       setUser(user);
+      console.log(user);
+      console.log(user.user_details.phone);
     }
     getAuth();
   }, []);
-  return (
+  return user ? (
     <>
       <Header />
       <div className="container bootstrap snippets bootdey">
@@ -36,15 +38,15 @@ const EditProfil = () => {
 
             <form className="form-horizontal">
               <div className="form-group">
-                <label className="col-lg-3 control-label">Nama Awal:</label>
+                <label className="col-lg-3 control-label">Nama Lengkap:</label>
                 <div className="col-lg-8">
-                  <input className="form-control" type="text" value={user.name} />
+                  <input className="form-control" type="text" placeholder={user.name} />
                 </div>
               </div>
               <div className="form-group">
-                <label className="col-lg-3 control-label">Nama Akhir:</label>
+                <label className="col-lg-3 control-label">Nomer WhatsApp:</label>
                 <div className="col-lg-8">
-                  <input className="form-control" type="text" />
+                  <input className="form-control" type="text" placeholder={user.user_details.phone} />
                 </div>
               </div>
               <div className="form-group">
@@ -56,7 +58,7 @@ const EditProfil = () => {
               <div className="form-group">
                 <label className="col-lg-3 control-label">Email:</label>
                 <div className="col-lg-8">
-                  <input className="form-control" type="text" value={user.email} />
+                  <input className="form-control" type="text" placeholder={user.email} />
                 </div>
               </div>
             </form>
@@ -67,6 +69,8 @@ const EditProfil = () => {
       <hr />
       <Footer />
     </>
+  ) : (
+    navigate("/login")
   );
 };
 export default EditProfil;

@@ -85,7 +85,7 @@ const Footer = () => {
           </div>
         </div>
         <hr />
-        <p style={{ paddingBottom: "50px", textShadow: "none" }} className="text-center">
+        <p style={{ paddingBottom: "50px", textShadow: "none", margin: "0" }} className="text-center">
           &copy;2022 PusaTani | All Rights Reserved
         </p>
       </div>

@@ -44,28 +44,6 @@ const Toko = () => {
             </div>
           );
         })}
-      {/* {listTokos?.map((toko) => {
-        return (
-          <div key={toko.id} className="card mb-3" style={{ maxWidth: "100%" }}>
-            <div className="row g-0">
-              <div className="col-md-4">
-                <img src={toko.image} className="img-fluid rounded-start" alt="..." />
-              </div>
-              <div className="col-md-8">
-                <div className="card-body">
-                  <h5 className="card-title">{toko.name}</h5>
-                  <p>Pemilik: {toko.user_name}</p>
-                  <hr />
-                  <p className="card-text">Alamat: {toko.address}</p>
-                  <p className="card-text">
-                    <button className=" btn btn-success">Selengkapnya</button>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        );
-      })} */}
     </>
   );
 };

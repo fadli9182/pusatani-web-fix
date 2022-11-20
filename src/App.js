@@ -15,6 +15,7 @@ import EditProfil from "./components/pages/user/editProfil";
 import Homepage from "./components/pages/home/Homepage";
 import DetailPabrik from "./components/pages/TaniShop/detailPabrik";
 import Page404 from "./components/Page404";
+import DaftarPabrik from "./components/pages/DaftarPabrik";
 const Admin = lazy(() => import("./components/pages/Admin"));
 const AdminLogin = lazy(() => import("./components/pages/AdminLogin"));
 
@@ -26,6 +27,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/admin" element={<AdminLogin />} />
         <Route path="/daftartoko" element={<DaftarToko />} />
+        <Route path="/daftarpabrik" element={<DaftarPabrik />} />
         <Route path="/admdashboard" element={<Admin />} />
         <Route path="/about" element={<Tentang />} />
         <Route path="/info" element={<Taniinfo />} />

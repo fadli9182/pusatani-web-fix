@@ -46,17 +46,21 @@ const DetailShop = () => {
             <span>Pemilik: {pemilik}</span>
           </div>
           <p className="singlePostDesc">{deskripsi}</p>
-          <button className="btn--login">Hubungi Kami</button>
           <hr />
           {produkToko.map((produk) => {
             return (
-              <div className="card">
+              <div key={produk.id} className="card mb-3">
                 <div className="card-header">{produk.name}</div>
                 <div className="card-body">
-                  <img src={`http://pusatani.masuk.web.id/images/produk/${produk.image}`} alt="Foto Produk" width={"200px"} />
+                  <img src={`http://pusatani.masuk.web.id/images/produk/${produk.image}`} alt="Foto Produk" width={"200px"} height={"200px"} />
                   <h5 className="card-title">{produk.detail}</h5>
                   <p className="card-text">{produk.price}</p>
                   <p>Stok: {produk.stok} </p>
+                </div>
+                <div className="card-footer">
+                  <a className="btn--login" href="https://wa.me/${phone}">
+                    Hubungi Kami
+                  </a>
                 </div>
               </div>
             );

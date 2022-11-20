@@ -61,7 +61,7 @@ function Header() {
                 </div>
               ) : (
                 <div className="">
-                  <Link to={"/login"} className="btn btn-success me-2" style={{ fontSize: "12px" }}>
+                  <Link to={"/login"} className="btn btn-success" style={{ fontSize: "12px" }}>
                     Login
                   </Link>
                 </div>

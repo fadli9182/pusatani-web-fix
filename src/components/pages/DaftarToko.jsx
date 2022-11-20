@@ -1,8 +1,8 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Footer from "../partials/footer/Footer";
 import Header from "../partials/header/Header";
-import { BASE_URL, getAccessToken } from "../utils/api";
+import { BASE_URL, config } from "../utils/api";
 
 const DaftarToko = () => {
   const [namaToko, setNamaToko] = useState("");
@@ -12,6 +12,16 @@ const DaftarToko = () => {
   const [phoneToko, setPhoneToko] = useState();
   const [fotoToko, setFotoToko] = useState();
   const [status, setStatus] = useState();
+  const [idToko, setIdToko] = useState();
+
+  const pemilik = JSON.parse(localStorage.getItem("user"));
+  // console.log(pemilik);
+
+  useEffect(() => {
+    setUser(pemilik.id);
+    setStatus("Not Verified");
+  }, [pemilik.id]);
+  // console.log(user);
 
   const navigate = useState();
   const addToko = async (e) => {
@@ -20,27 +30,19 @@ const DaftarToko = () => {
     dataToko.append("id_user", user);
     dataToko.append("name", namaToko);
     dataToko.append("address", addressToko);
+    dataToko.append("deskripsi", deskripsiToko);
     dataToko.append("phone", phoneToko);
     dataToko.append("image", fotoToko);
-    dataToko.append("status", setStatus);
-    const config = {
-      headers: {
-        Authorization: `Bearer ${getAccessToken()}`,
-        "Content-Type": "multipart/form-data",
-        Accept: "application/json",
-      },
-    };
+    dataToko.append("status", status);
+
     try {
       let res = await axios.post(`${BASE_URL}/toko`, dataToko, config);
       console.log(res);
       console.log(status);
       alert("daftar berhasil");
-      navigate("/shop");
+      navigate("");
     } catch (err) {
-      // const resJson = JSON.stringify(response.response.data.errors);
-      console.log(err.response.data.errors);
-
-      // alert();
+      console.log(err);
     }
   };
 
@@ -51,9 +53,9 @@ const DaftarToko = () => {
         <form onSubmit={addToko}>
           <div className="mb-3">
             <label htmlFor="userToko" className="form-label">
-              User
+              Pemilik
             </label>
-            <input onChange={(e) => setUser(e.target.value)} type="number" className="form-control" name="userToko" id="userToko" placeholder="" />
+            <input disabled type="text" className="form-control" name="userToko" id="userToko" placeholder={pemilik.name} />
           </div>
           <div className="mb-3">
             <label htmlFor="namaToko" className="form-label">
@@ -71,7 +73,7 @@ const DaftarToko = () => {
             <label htmlFor="alamat" className="form-label">
               Deskripsi
             </label>
-            <textarea onChange={(e) => setDeskripsiToko(e.target.value)} type="text" className="form-control" name="alamat" id="alamat" placeholder="Masukan Alamat Toko" />
+            <textarea onChange={(e) => setDeskripsiToko(e.target.value)} type="text" className="form-control" name="deskripsi" id="deskripsi" placeholder="Masukan Deskripsi Toko" />
           </div>
           <div className="mb-3">
             <label htmlFor="telp" className="form-label">
@@ -79,23 +81,6 @@ const DaftarToko = () => {
             </label>
             <input onChange={(e) => setPhoneToko(e.target.value)} type="number" className="form-control" name="telp" id="telp" placeholder="+62" />
           </div>
-          <div className="mb-3">
-            <label htmlFor="" className="form-label">
-              Jenis Toko
-            </label>
-            <select className="form-select" defaultValue={"default"} name="jenis" id="jenis">
-              <option value={"default"}>Pilih Jenis Toko</option>
-              <option value="toko">Toko Pupuk</option>
-              <option value="pabrik">Pabrik</option>
-            </select>
-          </div>
-          <div className="mb-3">
-            <label htmlFor="namaToko" className="form-label">
-              Status
-            </label>
-            <input onChange={(e) => setStatus(e.target.value)} type="text" className="form-control" name="namaToko" id="namaToko" placeholder="Masukan Nama Toko" />
-          </div>
-
           <div className="mb-3">
             <label htmlFor="file" className="form-label">
               Foto Toko

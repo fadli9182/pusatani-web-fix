@@ -7,23 +7,36 @@ import InfoPetani from "./InfoPetani";
 import Promo from "../home/Promo";
 import { Link } from "react-router-dom";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
+import ListArticle from "./ListArticle";
+import Pagination from "./Pagination";
 import("./taniinfo.css");
 
 const Taniinfo = () => {
   const [articles, setArticles] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [articlesPerPage] = useState(2);
 
-  async function getArticles() {
-    try {
-      let res = await axios.get(`${BASE_URL}/article`);
-      setArticles(res.data.data.data);
-      console.log(res.data.data.data);
-    } catch (e) {
-      console.log(e);
-    }
-  }
   useEffect(() => {
+    async function getArticles() {
+      setLoading(true);
+      try {
+        let res = await axios.get(`${BASE_URL}/article`);
+        setArticles(res.data.data.data);
+        console.log(res.data.data.data);
+        setLoading(false);
+      } catch (e) {
+        console.log(e);
+      }
+    }
     getArticles();
   }, []);
+
+  const indexOflastArticle = currentPage * articlesPerPage;
+  const indexOfFirstArticle = indexOflastArticle - articlesPerPage;
+  const currentArticles = articles.slice(indexOfFirstArticle, indexOflastArticle);
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
     <>
@@ -56,30 +69,11 @@ const Taniinfo = () => {
             </div>
           </div>
           <div className="row p-2 m-2">
-            {articles?.map((article) => {
-              return (
-                <div key={article.id} className="col-lg-6 col-md-6 col-sm-12 p-2 mb-3">
-                  <div className="card shadow h-100 ">
-                    <img className="img-fluid" src={article.image} alt="berita" />
-                    <div className="p-4" style={{ position: "absolute", bottom: "0", background: "linear-gradient(to top, rgba(0,0,0, .7), rgba(255,255,255, 0))", width: "100%" }}>
-                      <h5 className="text--shadow" style={{ fontWeight: "bold", textTransform: "capitalize" }}>
-                        {article.title}
-                      </h5>
-                      <hr />
-                      <p className="text--shadow">Author: {article.author}</p>
-                      <p className="article--text text--shadow" style={{ fontSize: "12px" }}>
-                        {article.body}
-                      </p>
-                      <Link to={`/post/${article.id}`}>
-                        <button className="btn--login">Lihat Selengkapnya</button>
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
+            <ListArticle articles={currentArticles} loading={loading} />
+            <Pagination articlesPerPage={articlesPerPage} totalArticles={articles.length} paginate={paginate} />
           </div>
-          <section>
+
+          {/* <section className="text-center">
             <div className="btn-group">
               <button>
                 <AiOutlineLeft />
@@ -88,7 +82,7 @@ const Taniinfo = () => {
                 <AiOutlineRight />
               </button>
             </div>
-          </section>
+          </section> */}
         </section>
       </div>
 
