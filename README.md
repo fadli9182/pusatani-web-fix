@@ -1,7 +1,7 @@
 
 <h1 align="center">
 <br>
-  <img src="[YOUR_LOGO_URL](http://pusatani.masuk.web.id/images/toko/1668981979.png)" alt="PusaTani Logo" width="120">
+  <img src="http://pusatani.masuk.web.id/images/toko/1668981979.png" alt="PusaTani Logo" width="120">
 <br>
 <br>
 PusaTani Project
