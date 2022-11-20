@@ -12,7 +12,6 @@ function Header() {
       setIsLogin(true);
     }
   }, []);
-  console.log(isLogin);
 
   const navStyle = {
     borderBottom: "3px solid #2c774b",

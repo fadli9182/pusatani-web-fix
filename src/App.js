@@ -14,6 +14,7 @@ import DetailShop from "../src/components/pages/TaniShop/detailShop";
 import EditProfil from "./components/pages/user/editProfil";
 import Homepage from "./components/pages/home/Homepage";
 import DetailPabrik from "./components/pages/TaniShop/detailPabrik";
+import Page404 from "./components/Page404";
 const Admin = lazy(() => import("./components/pages/Admin"));
 const AdminLogin = lazy(() => import("./components/pages/AdminLogin"));
 
@@ -35,6 +36,7 @@ function App() {
         <Route path="/shop/:id" element={<DetailShop />} />
         <Route path="/pabrik/:id" element={<DetailPabrik />} />
         <Route path="/profil" element={<EditProfil />} />
+        <Route path="*" element={<Page404 />} />
       </Routes>
     </>
   );
