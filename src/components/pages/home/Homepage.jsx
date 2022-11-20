@@ -20,23 +20,35 @@ function Homepage() {
         <Header />
         <HeroHome />
       </div>
-      <Promo />
-      <br />
-      {/* {/card/} */}
+
       <div className="container content--home">
-        <Tujuan />
-        <HomeContent />
+        <section>
+          <Promo />
+        </section>
+
+        <section>
+          <Tujuan />
+        </section>
       </div>
 
-      {/* main */}
-      <div className="container py-5">
-        <HomeTentang />
+      <section className="home--content">
+        <HomeContent />
+      </section>
+
+      <div className="container">
+        <section>
+          <HomeTentang />
+        </section>
       </div>
-      {/* testi */}
-      <HomeCarousel />
-      {/* foot */}
-      <div className="container my-5">
-        <HomeUnduh />
+
+      <section>
+        <HomeCarousel />
+      </section>
+
+      <div className="container">
+        <section>
+          <HomeUnduh />
+        </section>
       </div>
       <Footer />
     </>

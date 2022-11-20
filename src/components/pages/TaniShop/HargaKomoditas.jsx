@@ -11,7 +11,7 @@ const HargaKomoditas = () => {
       <div id="galeri">
         <div className="galeri">
           <div className="judul-home text-center">
-            <h1>Harga Komoditas Saat Ini</h1>
+            <h1 className="fw-bold">Harga Komoditas Saat Ini</h1>
             <h3>Harga Tigkat Pengecer</h3>
           </div>
           <div className="foto">

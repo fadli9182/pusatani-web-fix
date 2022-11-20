@@ -22,6 +22,11 @@ body {
   min-height: 100%;
   width: 100%;
   overflow-x: hidden;
+  background: url("./components/asset/image/sun.png");
+  background-repeat: no-repeat;
+  background-size: 20%;
+  background-position: 10% 20%;
+  background-attachment: fixed;
 }
 
 code {
@@ -38,6 +43,10 @@ h2 {
 
 h3 {
   font-size: 24px;
+}
+
+section {
+  padding: 50px 0;
 }
 
 .btn--home {
@@ -84,8 +93,7 @@ h3 {
 
 .btn--login:hover {
   /* transition: all 0.5s ease-in-out; */
-  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
-
+  /* text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white; */
   background: linear-gradient(240deg, #2c774b 33.36%, #008d82 50.42%);
   box-shadow: 0px 0px 0px rgba(243, 241, 241, 0.5);
   border-radius: 15px;

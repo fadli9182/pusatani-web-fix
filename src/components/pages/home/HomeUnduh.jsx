@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 const HomeUnduh = () => {
   return (
     <>
-      <motion.div initial={{ opacity: 0, y: -100 }} whileInView={{ opacity: 1, y: 0 }} transition={{ type: "spring", duration: 1, stiffness: 120 }} className="row py-3">
+      <motion.div initial={{ opacity: 0, y: -100 }} whileInView={{ opacity: 1, y: 0 }} transition={{ type: "spring", duration: 1, stiffness: 120 }} className="row">
         <div className="col-md-3">
           <img src={Logo} className="img-fluid rounded-start" alt="..." />
         </div>

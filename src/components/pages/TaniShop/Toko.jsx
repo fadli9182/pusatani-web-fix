@@ -22,7 +22,7 @@ const Toko = () => {
       {listTokos &&
         listTokos.map((toko) => {
           return (
-            <div key={toko.id} className="card mb-3" style={{ maxWidth: "100%" }}>
+            <div key={toko.id} className="card mb-5 shadow" style={{ maxWidth: "100%" }}>
               <div className="row g-0">
                 <div className="col-md-4">
                   <img src={toko.image} className="img-fluid rounded-start" alt="..." />

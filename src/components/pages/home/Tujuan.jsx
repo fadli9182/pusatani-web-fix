@@ -10,8 +10,8 @@ import I3 from "../../asset/image/cepat3.png";
 const Tujuan = () => {
   return (
     <>
-      <motion.div initial={{ opacity: 0, y: -100 }} whileInView={{ opacity: 1, y: 0 }} transition={{ type: "spring", duration: 1, stiffness: 120 }} style={{ margin: "40px 10px" }}>
-        <div className="row mx-auto">
+      <motion.div initial={{ opacity: 0, y: -100 }} whileInView={{ opacity: 1, y: 0 }} transition={{ type: "spring", duration: 1, stiffness: 120 }}>
+        <div className="row">
           <div>
             <h2 className="text-center mb-3 text--green" style={{ fontWeight: "bold" }}>
               Solusi Untuk Lahan Pertanianmu

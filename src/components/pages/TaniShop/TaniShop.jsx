@@ -12,22 +12,30 @@ const TaniShop = () => {
       <div className="shop--bg">
         <Header />
         <div className="text-center judul--shop">
-          <h1>Tani Shop</h1>
+          <h1 className="fw-bold">Tani Shop</h1>
           <p>Informasi Mengenai Harga Padi dan Pupuk</p>
         </div>
       </div>
       <div className="container shop--body">
-        <div className="text-center pb-5">
-          <h1 style={{ fontWeight: "700" }}>Pabrik dan Toko </h1>
-          <p>Yang Sudah Menjadi Partner Kami</p>
-        </div>
-        <h2>Daftar Nama Toko</h2>
-        <Toko />
+        <section>
+          <div className="text-center">
+            <h1 className="fw-bold">Pabrik dan Toko </h1>
+            <p>Yang Sudah Menjadi Partner Kami</p>
+          </div>
+        </section>
+        <section>
+          <h2 className="fw-bold mb-4">Daftar Nama Toko</h2>
+          <Toko />
+        </section>
 
-        <h2>Daftar Nama Pabrik</h2>
-        <Pabrik />
+        <section>
+          <h2 className="fw-bold mb-4">Daftar Nama Pabrik</h2>
+          <Pabrik />
+        </section>
 
-        <HargaKomoditas />
+        <section>
+          <HargaKomoditas />
+        </section>
       </div>
       <Footer />
     </>

@@ -3,7 +3,7 @@ import TypewriterComponent from "typewriter-effect";
 
 const HeroHome = () => {
   return (
-    <div>
+    <>
       <div className="hero--home">
         <h1 className="pt-5">
           Selamat Datang
@@ -30,7 +30,7 @@ const HeroHome = () => {
         </div>
         <button className="btn--login btn--home">Unduh Aplikasi</button>
       </div>
-    </div>
+    </>
   );
 };
 

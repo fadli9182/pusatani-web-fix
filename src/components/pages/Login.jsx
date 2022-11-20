@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Logo from "../asset/image/Logo.png";
 import { Link, useNavigate } from "react-router-dom";
-import { BASE_URL, getUser, putAccessToken, putUser } from "../utils/api";
+import { BASE_URL, putAccessToken, putUser } from "../utils/api";
 import axios from "axios";
 import Swal from "sweetalert2";
 

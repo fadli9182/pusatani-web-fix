@@ -14,7 +14,7 @@ const Tentang = () => {
       <div className="about--bg">
         <Header />
         <div className="judul--tentang">
-          <h1>Tentang Kami</h1>
+          <h1 className="fw-bold">Tentang Kami</h1>
           <p>Informasi Mengenai PusaTani</p>
         </div>
       </div>
@@ -40,14 +40,18 @@ const Tentang = () => {
             informasi dan Tips Tentang Pertanian
           </motion.p>
         </section>
-        <JumbotronTentang />
-        <PromoTentang />
+        <section>
+          <JumbotronTentang />
+        </section>
+        <section>
+          <PromoTentang />
+        </section>
 
         <div className="container">
-          <Promo />
+          <section>
+            <Promo />
+          </section>
         </div>
-
-        <hr />
       </div>
       <Footer />
     </>

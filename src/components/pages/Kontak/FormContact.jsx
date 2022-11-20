@@ -14,7 +14,7 @@ const FormContact = () => {
 
   return (
     <>
-      <div className="col-md-12 form--contact my-5 text-center">
+      <div className="col-md-12 form--contact text-center">
         <h3 className="text--green mt-5 mb-3" style={{ fontWeight: "700" }}>
           Silahkan Kirim Pesan <br /> dan Masukan Untuk Kami
         </h3>

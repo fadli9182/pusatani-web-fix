@@ -2,11 +2,12 @@ import React from "react";
 import mobile1 from "../../asset/image/mobile1.png";
 import mobile2 from "../../asset/image/mobile2.png";
 import { motion } from "framer-motion";
+import CountUp from "react-countup";
 
 const JumbotronTentang = () => {
   return (
-    <div>
-      <section className="jumbo--about">
+    <>
+      <div className="jumbo--about">
         <div className="row my-5">
           <div className="col-md-6 mb-5 d-flex justify-content-center align-items-center">
             <motion.img initial={{ scale: 1, rotate: -13 }} whileHover={{ scale: 1.5 }} className="mobile1" src={mobile1} alt="" />
@@ -18,7 +19,9 @@ const JumbotronTentang = () => {
             <div className="row mt-5">
               <div className="col-6">
                 <h5>Total Download</h5>
-                <h2 className="fw-bold text--green">1.828.000</h2>
+                <h2 className="fw-bold text--green">
+                  <CountUp end={1828000} decimal="." separator="." duration={1.5} />
+                </h2>
               </div>
               <div className="col-6">
                 <h5>Total Pengguna</h5>
@@ -27,8 +30,8 @@ const JumbotronTentang = () => {
             </div>
           </div>
         </div>
-      </section>
-    </div>
+      </div>
+    </>
   );
 };
 

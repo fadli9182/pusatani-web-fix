@@ -5,7 +5,7 @@ import Yanto from "../../asset/image/yanto.png";
 const HomeCarousel = () => {
   return (
     <>
-      <div className="testi py-1 my-5">
+      <div className="testi py-1 ">
         <div className="judul--testi">
           <h1>Testimoni Mitra</h1>
           <p>Sekilas hasil Testimoi mereka yang sudah bergabung dengan PusaTani</p>

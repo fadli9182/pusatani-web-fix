@@ -3,7 +3,6 @@ import "./header.css";
 import Logo from "../../asset/image/Logo.png";
 import { Link, NavLink } from "react-router-dom";
 import { deleteToken, getUser } from "../../utils/api";
-import { motion } from "framer-motion";
 
 function Header() {
   const [isLogin, setIsLogin] = useState(false);

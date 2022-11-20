@@ -126,7 +126,7 @@
 }
 
 .daftar--home {
-  padding: 100px 200px !important;
+  padding: 0 200px !important;
 }
 
 .hero--home {
@@ -148,6 +148,13 @@
 }
 .hero--home p {
   margin-bottom: 0;
+}
+
+.home--content {
+  width: 100%;
+  padding: 100px 130px;
+  background: linear-gradient(to right top, #2c774b, #1c7f60, #038674, #008d88, #00939a, #0d9ea0, #1ba8a5, #29b3aa, #5cc39c, #90d18c, #c5db81, #fce181);
+  background-attachment: fixed;
 }
 
 @media (max-width: 900px) {
