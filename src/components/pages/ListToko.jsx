@@ -22,7 +22,7 @@ const ListToko = () => {
   const handleDelete = async (id) => {
     try {
       let res = await axios.delete(`${BASE_URL}/toko/${id}`, config);
-      console.log(res);
+      console.log(res.data.data);
       Swal.fire("Berhasil", "Toko sudah dihapus", "success");
       getToko();
     } catch (e) {

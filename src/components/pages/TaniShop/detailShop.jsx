@@ -12,16 +12,19 @@ const DetailShop = () => {
   const [deskripsi, setDeskripsi] = useState("");
   const [image, setImage] = useState(null);
   const [pemilik, setPemilik] = useState("");
+  const [produkToko, setProdukToko] = useState([]);
 
   const getSingleShop = async (e) => {
     try {
-      const res = await axios.get(`${BASE_URL}/toko/${id}`);
+      const res = await axios.get(`${BASE_URL}/tokoWith/${id}`);
+      setProdukToko(res.data.data.toko_to_produk);
       setName(res.data.data.name);
       setAddress(res.data.data.address);
       setDeskripsi(res.data.data.deskripsi);
       setImage(res.data.data.image);
       setPemilik(res.data.data.user_name);
       console.log(res.data.data);
+      console.log(produkToko);
     } catch (error) {
       console.log(error);
     }
@@ -29,7 +32,7 @@ const DetailShop = () => {
 
   useEffect(() => {
     getSingleShop();
-  });
+  }, []);
 
   return (
     <>
@@ -43,7 +46,21 @@ const DetailShop = () => {
             <span>Pemilik: {pemilik}</span>
           </div>
           <p className="singlePostDesc">{deskripsi}</p>
+          <button className="btn--login">Hubungi Kami</button>
           <hr />
+          {produkToko.map((produk) => {
+            return (
+              <div className="card">
+                <div className="card-header">{produk.name}</div>
+                <div className="card-body">
+                  <img src={`http://pusatani.masuk.web.id/images/produk/${produk.image}`} alt="Foto Produk" width={"200px"} />
+                  <h5 className="card-title">{produk.detail}</h5>
+                  <p className="card-text">{produk.price}</p>
+                  <p>Stok: {produk.stok} </p>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
       <Footer />
