@@ -9,7 +9,7 @@ const ListArticle = ({ articles, loading }) => {
     <>
       <div className="row">
         {articles.map((article) => (
-          <div key={article.id} className="p-2 mb-5">
+          <div key={article.id} className="p-2 mb-5 col-6">
             <div className="card shadow h-100">
               <img height={"300px"} src={article.image} alt="berita" />
               <div className="p-4 " style={{ background: "linear-gradient(to top, rgba(0,0,0, 1), rgba(255,255,255, 0))", width: "100%" }}>
