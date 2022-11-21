@@ -1,5 +1,6 @@
 import React from "react";
 import TypewriterComponent from "typewriter-effect";
+import { motion } from "framer-motion";
 
 const HeroHome = () => {
   return (
@@ -28,7 +29,9 @@ const HeroHome = () => {
             Dengan <strong className="text--green">Teknologi</strong> Memberi <strong className="text--green">Solusi</strong> Untuk Petani
           </p>
         </div>
-        <button className="btn--login btn--home">Unduh Aplikasi</button>
+        <motion.button initial={{ scale: 1 }} whileHover={{ scale: 1.5 }} className="btn--login btn--home">
+          Unduh Aplikasi
+        </motion.button>
       </div>
     </>
   );

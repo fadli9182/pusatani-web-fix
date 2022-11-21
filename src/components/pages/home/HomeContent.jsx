@@ -3,11 +3,12 @@ import { Link } from "react-router-dom";
 import Card from "../../asset/image/card.png";
 import Card2 from "../../asset/image/card2.png";
 import Card3 from "../../asset/image/card4.png";
+import { motion } from "framer-motion";
 
 const HomeContent = () => {
   return (
     <>
-      <div className="row">
+      <motion.div initial={{ opacity: 0, y: -100 }} whileInView={{ opacity: 1, y: 0 }} transition={{ type: "spring", duration: 1, stiffness: 120 }} className="row">
         <div className="col-lg-4 col-md-6 col-sm-12 my-3 d-flex justify-content-center">
           <div className="card text-light shadow" style={{ width: "18rem" }}>
             <img src={Card2} className="card-img" alt="..." />
@@ -15,8 +16,10 @@ const HomeContent = () => {
               <h5 className="card-title py-3">Tani Info</h5>
               <p className="card-text article--text">Wadah edukasi dan informasi yang bertujuan untuk menjadi panduan bagi para petani yang ingin memulai usaha bertani dan membantu mewujudkan kemudahan bagi para petani</p>
               <p className="card-text py-1">
-                <Link to={"/info"} className="btn--login" style={{ textDecoration: "none" }}>
-                  Selengkapnya
+                <Link to={"/info"}>
+                  <motion.button initial={{ scale: 1 }} whileHover={{ scale: 1.5 }} className="btn--login" style={{ fontSize: "12px" }}>
+                    Selengkapnya
+                  </motion.button>
                 </Link>
               </p>
             </div>
@@ -27,10 +30,12 @@ const HomeContent = () => {
             <img src={Card3} className="card-img" alt="..." />
             <div className="card-img-overlay d-flex align-items-end flex-wrap">
               <h5 className="card-title py-5">Tani Shop</h5>
-              <p className="card-text">Mempermudah para petani untuk mencari pabrik dan kios yang dibutuhkan</p>
+              <p className="card-text article--text">Mempermudah para petani untuk mencari pabrik dan kios yang dibutuhkan</p>
               <p className="card-text py-2">
-                <Link to={"/shop"} className="btn--login" style={{ textDecoration: "none" }}>
-                  Selengkapnya
+                <Link to={"/shop"}>
+                  <motion.button initial={{ scale: 1 }} whileHover={{ scale: 1.5 }} className="btn--login" style={{ fontSize: "12px" }}>
+                    Selengkapnya
+                  </motion.button>
                 </Link>
               </p>
             </div>
@@ -41,16 +46,18 @@ const HomeContent = () => {
             <img src={Card} className="card-img" alt="..." />
             <div className="card-img-overlay d-flex align-items-end flex-wrap">
               <h5 className="card-title py-5">Aksebilitas</h5>
-              <p className="card-text">Mempermudah para petani untuk mengakses fitur-fitur dan mendapatkan informasi</p>
+              <p className="card-text article--text">Mempermudah para petani untuk mengakses fitur-fitur dan mendapatkan informasi</p>
               <p className="card-text py-2">
-                <Link to={"/daftartoko"} className="btn--login" style={{ textDecoration: "none" }}>
-                  Unduh Aplikasi
+                <Link to={""}>
+                  <motion.button initial={{ scale: 1 }} whileHover={{ scale: 1.5 }} className="btn--login" style={{ fontSize: "12px" }}>
+                    Unduh Aplikasi
+                  </motion.button>
                 </Link>
               </p>
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </>
   );
 };

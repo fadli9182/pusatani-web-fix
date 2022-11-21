@@ -35,7 +35,7 @@ const ListPabrik = () => {
   return (
     <div>
       <h2>List Pabrik</h2>
-      <div className="table-responsive" id="tabel-toko">
+      <div className="table-responsive" id="tabel-pabrik">
         <table className="table table-striped table-sm">
           <thead>
             <tr>
@@ -53,7 +53,7 @@ const ListPabrik = () => {
                 <tr key={pabrik.id}>
                   <td>{pabrik.id}</td>
                   <td>
-                    <img src={pabrik.image} width={"100px"} alt="foto pabrik" />
+                    <img src={pabrik.image} width={"100px"} height={"100px"} alt="foto pabrik" />
                   </td>
                   <td>{pabrik.name}</td>
                   <td>{pabrik.address}</td>

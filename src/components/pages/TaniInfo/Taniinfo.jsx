@@ -5,45 +5,61 @@ import { BASE_URL } from "../../utils/api";
 import axios from "axios";
 import InfoPetani from "./InfoPetani";
 import Promo from "../home/Promo";
-import { Link } from "react-router-dom";
-import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 import ListArticle from "./ListArticle";
-import Pagination from "./Pagination";
+// import Pagination from "./Pagination";
+import TypewriterComponent from "typewriter-effect";
+import { motion } from "framer-motion";
 import("./taniinfo.css");
 
 const Taniinfo = () => {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [articlesPerPage] = useState(2);
+  // const [currentPage, setCurrentPage] = useState(1);
+  // const [articlesPerPage] = useState(5);
+  const [url, setUrl] = useState(`${BASE_URL}/article?=page1`);
+  const [prevUrl, setPrevUrl] = useState("");
+  const [nextUrl, setNextUrl] = useState("");
+
+  async function getArticles() {
+    setLoading(true);
+    try {
+      let res = await axios.get(url);
+      setArticles(res.data.data.data);
+      setPrevUrl(res.data.data.prev_page_url);
+      setNextUrl(res.data.data.next_page_url);
+      console.log(res);
+      setLoading(false);
+    } catch (e) {
+      console.log(e);
+    }
+  }
 
   useEffect(() => {
-    async function getArticles() {
-      setLoading(true);
-      try {
-        let res = await axios.get(`${BASE_URL}/article`);
-        setArticles(res.data.data.data);
-        console.log(res.data.data.data);
-        setLoading(false);
-      } catch (e) {
-        console.log(e);
-      }
-    }
     getArticles();
-  }, []);
+    window.scrollTo(0, 0);
+  }, [url]);
 
-  const indexOflastArticle = currentPage * articlesPerPage;
-  const indexOfFirstArticle = indexOflastArticle - articlesPerPage;
-  const currentArticles = articles.slice(indexOfFirstArticle, indexOflastArticle);
+  // const indexOflastArticle = currentPage * articlesPerPage;
+  // const indexOfFirstArticle = indexOflastArticle - articlesPerPage;
+  // const currentArticles = articles.slice(indexOfFirstArticle, indexOflastArticle);
 
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  // const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
     <>
       <div className="info--bg">
         <Header />
         <div className="text-center judul--info">
-          <h1 className="fw-bold">Tani Info</h1>
+          <h1 className="fw-bold">
+            <TypewriterComponent
+              options={{
+                autoStart: true,
+                loop: true,
+                delay: 40,
+                strings: ["Tani Info"],
+              }}
+            />
+          </h1>
           <p>Sekilas Informasi Teknologi dan Pertanian</p>
         </div>
       </div>
@@ -68,21 +84,40 @@ const Taniinfo = () => {
               </div>
             </div>
           </div>
-          <div className="row p-2 m-2">
-            <ListArticle articles={currentArticles} loading={loading} />
-            <Pagination articlesPerPage={articlesPerPage} totalArticles={articles.length} paginate={paginate} />
-          </div>
+          <div className="row p-2 m-2 ">
+            <ListArticle articles={articles} loading={loading} />
 
-          {/* <section className="text-center">
-            <div className="btn-group">
-              <button>
-                <AiOutlineLeft />
-              </button>
-              <button>
-                <AiOutlineRight />
-              </button>
+            <div className="btn-group btn--page">
+              {prevUrl && (
+                <motion.button
+                  initial={{ scale: 1 }}
+                  whileHover={{ scale: 1.5 }}
+                  className="btn--login"
+                  onClick={() => {
+                    setArticles([]);
+                    setUrl(prevUrl);
+                  }}
+                >
+                  Sebelumnya
+                </motion.button>
+              )}
+
+              {nextUrl && (
+                <motion.button
+                  initial={{ scale: 1 }}
+                  whileHover={{ scale: 1.5 }}
+                  className="btn--login"
+                  onClick={() => {
+                    setArticles([]);
+                    setUrl(nextUrl);
+                  }}
+                >
+                  Selanjutnya
+                </motion.button>
+              )}
             </div>
-          </section> */}
+            {/* <Pagination articlesPerPage={articlesPerPage} totalArticles={articles.length} paginate={paginate} /> */}
+          </div>
         </section>
       </div>
 

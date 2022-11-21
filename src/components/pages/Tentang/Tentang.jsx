@@ -7,6 +7,7 @@ import Promo from "../home/Promo";
 import Logo from "../../asset/image/Logo.png";
 import JumbotronTentang from "./JumbotronTentang";
 import PromoTentang from "./PromoTentang";
+import TypewriterComponent from "typewriter-effect";
 
 const Tentang = () => {
   return (
@@ -14,7 +15,16 @@ const Tentang = () => {
       <div className="about--bg">
         <Header />
         <div className="judul--tentang">
-          <h1 className="fw-bold">Tentang Kami</h1>
+          <h1 className="fw-bold">
+            <TypewriterComponent
+              options={{
+                autoStart: true,
+                loop: true,
+                delay: 40,
+                strings: ["Tentang Kami"],
+              }}
+            />
+          </h1>
           <p>Informasi Mengenai PusaTani</p>
         </div>
       </div>

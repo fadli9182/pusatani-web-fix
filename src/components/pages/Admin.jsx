@@ -76,6 +76,7 @@ const Admin = () => {
         alert("berhasil membuat post");
         navigate("/admdashboard");
       } catch (error) {
+        alert("gagal membuat post");
         console.log(error);
       }
     };
@@ -94,28 +95,28 @@ const Admin = () => {
               <input value={judul} onChange={(e) => setJudul(e.target.value)} type="text" id="judul-artikel" className="form-control form-control-lg" placeholder="Judul Artikel" />
             </div>
             <div className="form-outline mb-4">
-              <label className="form-label d-flex" htmlFor="nomer-login">
+              <label className="form-label d-flex" htmlFor="isi-artikel">
                 Isi Artikel
               </label>
-              <input value={body} onChange={(e) => setBody(e.target.value)} type="text" id="nomer-login" className="form-control form-control-lg" placeholder="Masukan isi Artikel" />
+              <textarea rows="3" value={body} onChange={(e) => setBody(e.target.value)} type="text" id="isi-artikel" className="form-control form-control-lg" placeholder="Masukan isi Artikel" />
             </div>
             <div className="form-outline mb-4">
-              <label className="form-label d-flex" for="password-login">
+              <label className="form-label d-flex" htmlFor="password-login">
                 Kategori
               </label>
               <select value={category} onChange={(e) => setCategory(e.target.value)} className="form-select" name="category" id="category" defaultValue={"default"}>
                 <option disabled value="default">
                   Pilih Kategori
                 </option>
-                <option value="1">Berita</option>
-                <option value="2">Teknologi</option>
+                <option value="12">Berita</option>
+                <option value="11">Teknologi</option>
               </select>
             </div>
             <div className="mb-3">
-              <label for="formFile" className="form-label">
+              <label htmlFor="formFile" className="form-label">
                 Foto Artikel
               </label>
-              <input onChange={(e) => setImage(e.target.files[0])} accept=".jpg, .png, .jpeg" className="form-control" type="file" id="formFile" />
+              <input onChange={(e) => setImage(e.target.files[0])} accept=".jpg, .png, .jpeg" className="form-control h-50" type="file" id="formFile" />
             </div>
             <button className="btn--login w-75">Tambah</button>
           </form>
@@ -162,6 +163,11 @@ const Admin = () => {
                 <li className="nav-item">
                   <a className="nav-link" href="#tabel-toko">
                     List Toko
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" href="#tabel-pabrik">
+                    List pabrik
                   </a>
                 </li>
               </ul>

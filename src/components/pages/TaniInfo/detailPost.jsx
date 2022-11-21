@@ -32,17 +32,23 @@ const DetailPost = () => {
   return (
     <>
       <Header />
-      <div className="singlePost">
-        <div className="singlePostWrapper">
-          <img className="singlePostImg py-3" src={image} alt="foto article" />
-          <h1 className="singlePostTitle">{judul}</h1>
-          <div className="singlePostInfo">
-            <span>Author: {author}</span>
-            <span>{date}</span>
+      <div className="container">
+        <section>
+          <div className="singlePost">
+            <div className="singlePostWrapper">
+              <h1 className="singlePostTitle fw-bold text--green">{judul}</h1>
+
+              <img className="singlePostImg py-3" src={`http://pusatani.masuk.web.id/images/Article/${image}`} alt="foto article" />
+              <div className="singlePostInfo">
+                <h5 className="fw-bold">Author: {author}</h5>
+              </div>
+              <p className="singlePostDesc" style={{ lineHeight: "30px", textAlign: "justify" }}>
+                {body}
+              </p>
+              <hr />
+            </div>
           </div>
-          <p className="singlePostDesc">{body}</p>
-          <hr />
-        </div>
+        </section>
       </div>
       <Footer />
     </>

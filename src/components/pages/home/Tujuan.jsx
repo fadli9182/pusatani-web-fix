@@ -9,7 +9,7 @@ import I3 from "../../asset/image/cepat3.png";
 
 const Tujuan = () => {
   return (
-    <>
+    <div>
       <motion.div initial={{ opacity: 0, y: -100 }} whileInView={{ opacity: 1, y: 0 }} transition={{ type: "spring", duration: 1, stiffness: 120 }}>
         <div className="row">
           <div>
@@ -76,7 +76,7 @@ const Tujuan = () => {
           </div>
         </div>
       </motion.div>
-    </>
+    </div>
   );
 };
 

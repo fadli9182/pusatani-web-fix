@@ -20,6 +20,9 @@
 
 .nav--link:hover {
   border-bottom: 3px solid green;
+  /* cursor: pointer; */
+  color: tomato;
+  font-weight: bold !important;
 }
 
 .nav--item {

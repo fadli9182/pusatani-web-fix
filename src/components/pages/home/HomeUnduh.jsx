@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 const HomeUnduh = () => {
   return (
-    <>
+    <div>
       <motion.div initial={{ opacity: 0, y: -100 }} whileInView={{ opacity: 1, y: 0 }} transition={{ type: "spring", duration: 1, stiffness: 120 }} className="row">
         <div className="col-md-3">
           <img src={Logo} className="img-fluid rounded-start" alt="..." />
@@ -19,12 +19,14 @@ const HomeUnduh = () => {
           </p>
         </div>
         <div className="col-md-3 d-flex align-items-center">
-          <Link to={"/"} className="btn--login" style={{ textDecoration: "none" }}>
-            Unduh Aplikasi
+          <Link to={"/"}>
+            <motion.button initial={{ scale: 1 }} whileHover={{ scale: 1.5 }} className="btn--login" style={{ fontSize: "12px" }}>
+              Unduh Aplikasi
+            </motion.button>
           </Link>
         </div>
       </motion.div>
-    </>
+    </div>
   );
 };
 

@@ -10,6 +10,7 @@
     "bootstrap": "^5.2.2",
     "bootstrap-icons": "^1.10.2",
     "framer-motion": "^7.6.7",
+    "jquery": "^3.6.1",
     "primeicons": "^6.0.1",
     "primereact": "^8.7.2",
     "react": "^18.2.0",

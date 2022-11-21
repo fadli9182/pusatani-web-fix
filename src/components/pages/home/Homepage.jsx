@@ -12,6 +12,7 @@ import HomeContent from "./HomeContent";
 import HomeTentang from "./HomeTentang";
 import HomeCarousel from "./HomeCarousel";
 import HomeUnduh from "./HomeUnduh";
+import ScrollButton from "../../ScrollButton";
 
 function Homepage() {
   return (

@@ -5,6 +5,7 @@ import Footer from "../../partials/footer/Footer";
 import HargaKomoditas from "./HargaKomoditas";
 import Pabrik from "./Pabrik";
 import Toko from "./Toko";
+import TypewriterComponent from "typewriter-effect";
 
 const TaniShop = () => {
   return (
@@ -12,7 +13,16 @@ const TaniShop = () => {
       <div className="shop--bg">
         <Header />
         <div className="text-center judul--shop">
-          <h1 className="fw-bold">Tani Shop</h1>
+          <h1 className="fw-bold">
+            <TypewriterComponent
+              options={{
+                autoStart: true,
+                loop: true,
+                delay: 40,
+                strings: ["Tani Shop"],
+              }}
+            />
+          </h1>
           <p>Informasi Mengenai Harga Padi dan Pupuk</p>
         </div>
       </div>
