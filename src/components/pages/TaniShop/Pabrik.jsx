@@ -25,7 +25,7 @@ const Pabrik = () => {
           <div key={pabrik.id} className="card mb-5 shadow" style={{ maxWidth: "100%" }}>
             <div className="row g-0">
               <div className="col-md-4">
-                <img src={pabrik.image} className="img-fluid rounded-start" alt="..." />
+                <img src={pabrik.image} className="img-fluid rounded-start" alt="..." style={{ height: "300px", width: "300px" }} />
               </div>
               <div className="col-md-8">
                 <div className="card-body">

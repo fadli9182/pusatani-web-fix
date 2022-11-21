@@ -34,7 +34,7 @@ const DetailPost = () => {
       <Header />
       <div className="singlePost">
         <div className="singlePostWrapper">
-          <img className="singlePostImg py-3" src={image} alt="foto article" />
+          <img className="singlePostImg py-3" src={`"http://pusatani.masuk.web.id/images/Article/${image}`} alt="foto article" />
           <h1 className="singlePostTitle">{judul}</h1>
           <div className="singlePostInfo">
             <span>Author: {author}</span>

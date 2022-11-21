@@ -49,10 +49,10 @@ const DetailShop = () => {
           <hr />
           {produkToko.map((produk) => {
             return (
-              <div key={produk.id} className="card mb-3">
+              <div key={produk.id} className="card mb-3 ">
                 <div className="card-header">{produk.name}</div>
                 <div className="card-body">
-                  <img src={`http://pusatani.masuk.web.id/images/produk/${produk.image}`} alt="Foto Produk" width={"200px"} height={"200px"} />
+                  <img src={`http://pusatani.masuk.web.id/images/produk/${produk.image}`} alt="Foto Produk" style={{ height: "200px", width: "200px" }} />
                   <h5 className="card-title">{produk.detail}</h5>
                   <p className="card-text">{produk.price}</p>
                   <p>Stok: {produk.stok} </p>
