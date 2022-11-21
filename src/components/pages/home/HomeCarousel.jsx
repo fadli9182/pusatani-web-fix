@@ -1,6 +1,8 @@
 import React from "react";
 import { Carousel } from "react-responsive-carousel";
 import Yanto from "../../asset/image/yanto.png";
+import Yanti from "../../asset/image/test.png";
+import Yatno from "../../asset/image/test2.png";
 
 const HomeCarousel = () => {
   return (
@@ -21,19 +23,19 @@ const HomeCarousel = () => {
           </div>
 
           <div>
-            <img src={Yanto} alt="foto" />
+            <img src={Yanti} alt="foto" />
             <div className="myCarousel">
               <h3>Yanti</h3>
-              <h4>Petani, Nigeria</h4>
+              <h4>Petani, Turki</h4>
               <p>The simple and intuitive design makes it easy for me use. I highly recommend Fetch to my peers.</p>
             </div>
           </div>
 
           <div>
-            <img src={Yanto} alt="foto" />
+            <img src={Yatno} alt="foto" />
             <div className="myCarousel">
               <h3>Yatno</h3>
-              <h4>Peani, Oman</h4>
+              <h4>Peani, China</h4>
               <p>I enjoy catching up with Fetch on my laptop, or on my phone when I'm on the go!</p>
             </div>
           </div>
