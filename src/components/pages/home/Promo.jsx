@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 const Promo = () => {
   return (
-    <>
+    <div>
       <motion.div initial={{ opacity: 0, y: -100 }} whileInView={{ opacity: 1, y: 0 }} transition={{ type: "spring", duration: 1, stiffness: 120 }}>
         <div className="row justify-content-center">
           <div className="col-12 daftar--home">
@@ -42,7 +42,7 @@ const Promo = () => {
           </div>
         </div>
       </motion.div>
-    </>
+    </div>
   );
 };
 
