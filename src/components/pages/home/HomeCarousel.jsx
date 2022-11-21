@@ -35,7 +35,7 @@ const HomeCarousel = () => {
             <img src={Yatno} alt="foto" />
             <div className="myCarousel">
               <h3>Yatno</h3>
-              <h4>Peani, China</h4>
+              <h4>Petani, China</h4>
               <p>I enjoy catching up with Fetch on my laptop, or on my phone when I'm on the go!</p>
             </div>
           </div>
