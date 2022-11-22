@@ -130,7 +130,7 @@
 }
 
 .hero--home {
-  padding: 10px 40px;
+  padding: 30px 40px;
   color: var(--primary-green);
   /* text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white; */
   margin: 30px 0;
@@ -157,9 +157,18 @@
   background-attachment: fixed;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 800px) {
   .daftar--home {
     padding: 50px 50px !important;
+  }
+  .hero--home > h1 {
+    font-size: 44px;
+  }
+  .hero--home span {
+    font-size: 32px;
+  }
+  .hero--home-desc p {
+    font-size: 20px;
   }
 }
 
