@@ -18,14 +18,14 @@ const Footer = () => {
               <Link to={"/"} className="footer--link">
                 Home
               </Link>
-              <Link to={"/about"} className="footer--link">
-                Tentang Kami
-              </Link>
               <Link to={"/info"} className="footer--link">
                 Tani Info
               </Link>
               <Link to={"/shop"} className="footer--link">
                 Tani Shop
+              </Link>
+              <Link to={"/about"} className="footer--link">
+                Tentang Kami
               </Link>
             </ul>
           </div>
@@ -42,10 +42,10 @@ const Footer = () => {
                 <Link to={"/"} className="footer--link">
                   Padi
                 </Link>
-                <Link to={"/"} className="footer--link">
+                <Link to={"/info"} className="footer--link">
                   Berita
                 </Link>
-                <Link to={"/"} className="footer--link">
+                <Link to={"/info"} className="footer--link">
                   Teknologi
                 </Link>
               </ul>
