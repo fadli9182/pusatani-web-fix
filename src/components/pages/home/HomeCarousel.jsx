@@ -3,6 +3,8 @@ import { Carousel } from "react-responsive-carousel";
 import Yanto from "../../asset/image/yanto.png";
 import Yanti from "../../asset/image/test.png";
 import Yatno from "../../asset/image/test2.png";
+import Yatna from "../../asset/image/test3.png";
+import Yantuy from "../../asset/image/test4.png";
 
 const HomeCarousel = () => {
   return (
@@ -18,7 +20,7 @@ const HomeCarousel = () => {
             <div className="myCarousel">
               <h3>Yanto</h3>
               <h4>Petani, Zimbabwe</h4>
-              <p>It's freeing to be able to catch up on customized news and not be distracted by a social media element on the same site</p>
+              <p>PusaTani sangat memudahkan kita sebagai petani</p>
             </div>
           </div>
 
@@ -27,7 +29,7 @@ const HomeCarousel = () => {
             <div className="myCarousel">
               <h3>Yanti</h3>
               <h4>Petani, Turki</h4>
-              <p>The simple and intuitive design makes it easy for me use. I highly recommend Fetch to my peers.</p>
+              <p>PusaTani Maha Enjoyy</p>
             </div>
           </div>
 
@@ -36,7 +38,25 @@ const HomeCarousel = () => {
             <div className="myCarousel">
               <h3>Yatno</h3>
               <h4>Petani, China</h4>
-              <p>I enjoy catching up with Fetch on my laptop, or on my phone when I'm on the go!</p>
+              <p>Fitu-fitur yang ada di PusaTani sangat membantu kita sebagai petani</p>
+            </div>
+          </div>
+
+          <div>
+            <img src={Yatna} alt="foto" />
+            <div className="myCarousel">
+              <h3>Yatna</h3>
+              <h4>Pemilik Pabrik, India</h4>
+              <p>PusaTani memberi kita ruang untuk saling menguntungkan</p>
+            </div>
+          </div>
+
+          <div>
+            <img src={Yantuy} alt="foto" />
+            <div className="myCarousel">
+              <h3>Yantuy</h3>
+              <h4>Pemilik Toko, Nigeria</h4>
+              <p>Dengan PusaTani saya yakin pertanian di daerah kita bisa merata</p>
             </div>
           </div>
         </Carousel>
