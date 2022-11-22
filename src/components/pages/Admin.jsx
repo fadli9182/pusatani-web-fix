@@ -22,6 +22,9 @@ const config = {
 const Admin = () => {
   const [articles, setArticles] = useState([]);
 
+  // const [editorState, setEditorState] = useState(() => EditorState.createEmpty());
+  // const [convertedText, setConvertedText] = useState("Some default content");
+
   const navigate = useNavigate();
 
   async function getArticles() {
@@ -99,6 +102,10 @@ const Admin = () => {
                 Isi Artikel
               </label>
               <textarea rows="3" value={body} onChange={(e) => setBody(e.target.value)} type="text" id="isi-artikel" className="form-control form-control-lg" placeholder="Masukan isi Artikel" />
+              {/* <Editor editorState={editorState} toolbarClassName="toolbarClassName" wrapperClassName="wrapperClassName" editorClassName="editorClassName" onEditorStateChange={setEditorState} /> */}
+
+              {/* <ReactQuill value={body} onChange={(e) => setBody(e.target.value)} /> */}
+              {/* <Editor editorState={editorState} toolbarClassName="toolbarClassName" wrapperClassName="wrapperClassName" editorClassName="editorClassName" onEditorStateChange={setEditorState} /> */}
             </div>
             <div className="form-outline mb-4">
               <label className="form-label d-flex" htmlFor="password-login">

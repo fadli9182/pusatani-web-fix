@@ -5,7 +5,7 @@
 
 .about--bg {
   height: 100vh;
-  background: url("../../asset/image/aboutBg.jpg");
+  background: url("../../asset/image/aboutBg.webp");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;

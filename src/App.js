@@ -1,4 +1,4 @@
-import React, { lazy, useEffect } from "react";
+import React, { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 
@@ -18,8 +18,11 @@ import Page404 from "./components/Page404";
 import DaftarPabrik from "./components/pages/DaftarPabrik";
 import AkunPabrik from "./components/pages/user/AkunPabrik";
 import AkunToko from "./components/pages/user/AkunToko";
+import ArticleById from "./components/pages/TaniInfo/ArticleById";
+
 const Admin = lazy(() => import("./components/pages/Admin"));
 const AdminLogin = lazy(() => import("./components/pages/AdminLogin"));
+// const Taniinfo = lazy(() => import("./components/pages/TaniInfo/Taniinfo"));
 
 function App() {
   return (
@@ -27,9 +30,17 @@ function App() {
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/admin" element={<AdminLogin />} />
+        <Route
+          path="/admin"
+          element={
+            <Suspense fallback={<div>Loading...</div>}>
+              <AdminLogin />
+            </Suspense>
+          }
+        />
         <Route path="/daftartoko" element={<DaftarToko />} />
         <Route path="/daftarpabrik" element={<DaftarPabrik />} />
+        <Route path="/category" element={<ArticleById />} />
         <Route path="/admdashboard" element={<Admin />} />
         <Route path="/about" element={<Tentang />} />
         <Route path="/info" element={<Taniinfo />} />

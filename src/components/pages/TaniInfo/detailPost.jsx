@@ -27,7 +27,9 @@ const DetailPost = () => {
   };
   useEffect(() => {
     getSinglePost();
+    // document.getElementById("blah").innerHTML = body;
   }, []);
+  console.log(image);
 
   return (
     <>
@@ -42,9 +44,9 @@ const DetailPost = () => {
               <div className="singlePostInfo">
                 <h5 className="fw-bold">Author: {author}</h5>
               </div>
-              <p className="singlePostDesc" style={{ lineHeight: "30px", textAlign: "justify" }}>
-                {body}
-              </p>
+              {/* <article id="biji"></article> */}
+              <article>{body}</article>
+              {/* <div id="blah">asep /n dera</div> */}
               <hr />
             </div>
           </div>
