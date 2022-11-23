@@ -4,13 +4,14 @@ import Card from "../../asset/image/card.png";
 import Card2 from "../../asset/image/card2.png";
 import Card3 from "../../asset/image/card4.png";
 import { motion } from "framer-motion";
+import "./home.css"
 
 const HomeContent = () => {
   return (
     <>
       <motion.div initial={{ opacity: 0, y: -100 }} whileInView={{ opacity: 1, y: 0 }} transition={{ type: "spring", duration: 1, stiffness: 120 }} className="row">
-        <div className="col-lg-4 col-md-6 col-sm-12 my-3 d-flex justify-content-center">
-          <div className="card text-light shadow" style={{ width: "18rem" }}>
+        <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12 my-3 d-flex justify-content-center">
+          <div className="card text-light shadow">
             <img src={Card2} className="card-img" alt="..." />
             <div className="card-img-overlay d-flex align-items-end flex-wrap">
               <h5 className="card-title py-3">Tani Info</h5>
@@ -25,8 +26,8 @@ const HomeContent = () => {
             </div>
           </div>
         </div>
-        <div className="col-lg-4 col-md-6 col-sm-12 my-3 d-flex justify-content-center">
-          <div className="card text-light" style={{ width: "18rem" }}>
+        <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12 my-3 d-flex justify-content-center">
+          <div className="card text-light">
             <img src={Card3} className="card-img" alt="..." />
             <div className="card-img-overlay d-flex align-items-end flex-wrap">
               <h5 className="card-title py-5">Tani Shop</h5>
@@ -41,9 +42,9 @@ const HomeContent = () => {
             </div>
           </div>
         </div>
-        <div className="col-lg-4 col-md-12 col-sm-12 d-flex justify-content-center my-3">
-          <div className="card text-light" style={{ width: "18rem" }}>
-            <img src={Card} className="card-img" alt="..." />
+        <div className="col-lg-4 col-md-12 col-sm-12 col-xs-12 d-flex justify-content-center my-3">
+          <div className="card text-light">
+            <img src={Card} className="card-img" alt="..."  />
             <div className="card-img-overlay d-flex align-items-end flex-wrap">
               <h5 className="card-title py-5">Aksebilitas</h5>
               <p className="card-text article--text">Mempermudah para petani untuk mengakses fitur-fitur dan mendapatkan informasi</p>
