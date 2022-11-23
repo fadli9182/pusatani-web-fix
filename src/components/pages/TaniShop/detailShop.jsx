@@ -81,7 +81,7 @@ const DetailShop = () => {
                           <a href={`https://wa.me/+62${phoneToko}`}>
                             <motion.button className="btn--login" initial={{ scale: 1 }} whileHover={{ scale: 1.5 }}>
                               Hubungi Kami
-                            </motion.button>
+                            </motion.button>  
                           </a>
                         </div>
                       </div>
