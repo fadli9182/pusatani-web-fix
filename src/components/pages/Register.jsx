@@ -85,10 +85,10 @@ function Register() {
                 </div>
                 <div className="form-outline mb-2">
                   <label className="form-label d-flex" htmlFor="role">
-                    Jenis Toko
+                    Jenis Akun
                   </label>
                   <select value={role} onChange={(e) => setRole(e.target.value)} className="form-select form-control h-50" name="role" id="role" defaultValue={"default"}>
-                    <option disabled>Pilih Jenis Toko</option>
+                    <option disabled>Pilih Jenis Akun</option>
                     <option value="2">Pabrik</option>
                     <option value="3">Toko</option>
                   </select>

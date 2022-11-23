@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Logo from "../asset/image/Logo.png";
 import { Link, useNavigate } from "react-router-dom";
-import { BASE_URL, putAccessToken, putUser } from "../utils/api";
+import { BASE_URL, putAccessToken, putIdPabrik, putIdToko, putUser } from "../utils/api";
 import axios from "axios";
 import Swal from "sweetalert2";
 
@@ -41,7 +41,10 @@ const Login = () => {
           },
         }
       );
+      console.log(res.data);
       putAccessToken(res.data.data.token);
+      putIdPabrik(res.data.data.id_pabrik);
+      putIdToko(res.data.data.id_toko);
       putUser(res.data.data.user);
       setUserName(res.data.data.user.name);
       isLogin();

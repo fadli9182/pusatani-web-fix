@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Footer from "../partials/footer/Footer";
 import Header from "../partials/header/Header";
-import { BASE_URL, config } from "../utils/api";
+import { BASE_URL, getAccessToken } from "../utils/api";
 
 const DaftarPabrik = () => {
   const [namaPabrik, setNamaPabrik] = useState("");
@@ -14,7 +14,14 @@ const DaftarPabrik = () => {
   const [status, setStatus] = useState();
 
   const pemilik = JSON.parse(localStorage.getItem("user"));
-  console.log(pemilik);
+
+  const config = {
+    headers: {
+      Authorization: `Bearer ${getAccessToken()}`,
+      "Content-Type": "multipart/form-data",
+      Accept: "application/json",
+    },
+  };
 
   useEffect(() => {
     setUser(pemilik.id);

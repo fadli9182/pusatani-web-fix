@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
@@ -81,7 +82,7 @@ const DetailShop = () => {
                           <a href={`https://wa.me/+62${phoneToko}`}>
                             <motion.button className="btn--login" initial={{ scale: 1 }} whileHover={{ scale: 1.5 }}>
                               Hubungi Kami
-                            </motion.button>  
+                            </motion.button>
                           </a>
                         </div>
                       </div>

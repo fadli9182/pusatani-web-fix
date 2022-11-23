@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Logo from "../asset/image/Logo.png";
 import { BASE_URL, putAccessToken } from "../utils/api";
 import axios from "axios";
@@ -48,7 +48,9 @@ const AdminLogin = () => {
   return (
     <>
       <form onSubmit={loginAdmin}>
-        <img src={Logo} alt="logo" width={"90px"} style={{ marginTop: "20px", marginLeft: "50px" }} />
+        <Link to={"/"}>
+          <img src={Logo} alt="logo" width={"90px"} style={{ marginTop: "20px", marginLeft: "50px" }} />
+        </Link>
         <div className="container d-flex justify-content-center my-2">
           <div className="card shadow justify-content-center align-content-center" style={{ borderRadius: "1rem", width: "500px" }}>
             <div className="card-body p-5 text-center align-item-center card--login">
