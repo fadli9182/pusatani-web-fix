@@ -10,9 +10,7 @@ const InfoPetani = () => {
             <h1 style={{ fontSize: "48px", marginBottom: "30px" }}>Jumlah Petani Di Indramayu</h1>
           </div>
           <div className="col-4 text-center w-25" style={{ borderRight: "4px solid rgba(0,0,0,.5)" }}>
-            <motion.h1 animate={{ scale: [1, 2, 2, 1, 1] }} transition={{ repeat: Infinity, duration: 1.4 }}>
-              36
-            </motion.h1>
+            <h1>36</h1>
             <h5>
               Petani <br /> Mandiri
             </h5>

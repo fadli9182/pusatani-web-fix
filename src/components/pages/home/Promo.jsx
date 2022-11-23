@@ -30,12 +30,12 @@ const Promo = () => {
           </div>
           <div className="d-flex flex-row gap-5 justify-content-center align-items-center mt-4">
             <Link to={"/daftartoko"}>
-              <motion.button initial={{ scale: 1 }} whileHover={{ scale: 1.5 }} className="btn--login" style={{ textDecoration: "none" }}>
+              <motion.button initial={{ scale: 1 }} whileHover={{ scale: 1.1 }} className="btn--login" style={{ textDecoration: "none" }}>
                 Daftarkan Toko
               </motion.button>
             </Link>
             <Link to={"/daftarpabrik"}>
-              <motion.button initial={{ scale: 1 }} whileHover={{ scale: 1.5 }} className="btn--login" style={{ textDecoration: "none" }}>
+              <motion.button initial={{ scale: 1 }} whileHover={{ scale: 1.1 }} className="btn--login" style={{ textDecoration: "none" }}>
                 Daftarkan Pabrik
               </motion.button>
             </Link>

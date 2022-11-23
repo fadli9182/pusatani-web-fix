@@ -3,23 +3,28 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Button, Modal } from "react-bootstrap";
 import { Navigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import LoadingPage from "../../LoadingPage";
 import Footer from "../../partials/footer/Footer";
 import Header from "../../partials/header/Header";
 import { BASE_URL, config } from "../../utils/api";
-import gabah1 from "../../asset/image/gabah1.jpg";
+import "./akun.css";
 
 const AkunToko = () => {
   const [modalShow, setModalShow] = React.useState(false);
   const [akunToko, setAkunToko] = useState([]);
-
+  const [produks, setProduks] = useState([]);
+  const [phone, setPhone] = useState("");
+  const [loading, setLoading] = useState(false);
   const idToko = localStorage.getItem("id_toko");
 
   const getaAkunToko = async () => {
-    let res = await axios.get(`${BASE_URL}/toko/${idToko}`, config);
-    setAkunToko(res.data.data);
-    console.log(res.data);
-    console.log(akunToko);
-    console.log(akunToko.name);
+    let res = await axios.get(`${BASE_URL}/tokoWith/${idToko}`, config);
+    setAkunToko(res.data.data.data);
+    setProduks(res.data.data.data.toko_to_produk);
+    setPhone(res.data.data.phone);
+    console.log(res.data.data.data);
+    console.log(produks);
   };
   console.log(idToko);
   useEffect(() => {
@@ -27,61 +32,81 @@ const AkunToko = () => {
   }, []);
 
   function FormModal(props) {
-    const [judul, setJudul] = useState("");
-    const [body, setBody] = useState("");
-    const [category] = useState();
+    const [name, setName] = useState("");
+    const [deskripsi, setDeskripsi] = useState("");
+    const [alamat, setAlamat] = useState("");
+    const [price, setPrice] = useState("");
     const [image, setImage] = useState(null);
+    const [stok, setStok] = useState("");
 
     const addToko = async (e) => {
       e.preventDefault();
-      const dataArtikel = new FormData();
+      const dataProduk = new FormData();
 
-      dataArtikel.append("title", judul);
-      dataArtikel.append("body", body);
-      dataArtikel.append("category", category);
-      dataArtikel.append("image", image);
+      dataProduk.append("id_toko", idToko);
+      dataProduk.append("name", name);
+      dataProduk.append("detail", deskripsi);
+      dataProduk.append("address", alamat);
+      dataProduk.append("price", price);
+      dataProduk.append("stok", stok);
+      dataProduk.append("image", image);
 
       try {
-        let res = await axios.post(`${BASE_URL}/article`, dataArtikel, config);
-
+        setLoading(true);
+        let res = await axios.post(`${BASE_URL}/produk`, dataProduk, config);
         console.log(res);
-        alert("berhasil membuat post");
-        Navigate("/admdashboard");
+        setLoading(false);
+        Swal.fire("Berhasil", "Produk Berhasil Ditambahkan", "success");
       } catch (error) {
         console.log(error);
+        setLoading(false);
       }
     };
+
+    if (loading) {
+      return <LoadingPage />;
+    }
 
     return (
       <Modal {...props} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
         <Modal.Header closeButton>
-          <Modal.Title id="contained-modal-title-vcenter">Tambah Gabah</Modal.Title>
+          <Modal.Title id="contained-modal-title-vcenter">Tambah Produk</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <form onSubmit={addToko}>
             <div className="form-outline mb-4">
-              <label className="form-label d-flex" htmlFor="nama-gabah">
-                Nama Gabah
+              <label className="form-label d-flex" htmlFor="nama-produk">
+                Nama Produk
               </label>
-              <input value={judul} onChange={(e) => setJudul(e.target.value)} type="text" id="nama-gabah" className="form-control form-control-lg" placeholder="Masukan Nama Gabah" />
+              <input value={name} onChange={(e) => setName(e.target.value)} type="text" id="nama-produk" className="form-control form-control-lg" placeholder="Masukan Nama Produk" />
             </div>
             <div className="form-outline mb-4">
-              <label className="form-label d-flex" htmlFor="desc-gabah">
+              <label className="form-label d-flex" htmlFor="desc-produk">
                 Deskripsi
               </label>
-              <input value={body} onChange={(e) => setBody(e.target.value)} type="text" id="desc-gabah" className="form-control form-control-lg" placeholder="Masukan deskripsi" />
+              <input value={deskripsi} onChange={(e) => setDeskripsi(e.target.value)} type="text" id="desc-produk" className="form-control form-control-lg" placeholder="Masukan deskripsi" />
             </div>
             <div className="form-outline mb-4">
-              <label className="form-label d-flex" htmlFor="harga-gabah">
-                Harga Gabah
+              <label className="form-label d-flex" htmlFor="harga-produk">
+                Harga Produk
               </label>
-              <input value={body} onChange={(e) => setBody(e.target.value)} type="text" id="harga-gabah" className="form-control form-control-lg" placeholder="5.000,00" />
+              <input value={price} onChange={(e) => setPrice(e.target.value)} type="text" id="harga-produk" className="form-control form-control-lg" placeholder="500000" />
+            </div>
+            <div className="form-outline mb-2">
+              <label className="form-label d-flex" htmlFor="stok">
+                Stok Produk
+              </label>
+              <select onChange={(e) => setStok(e.target.value)} className="form-select form-control h-50" name="stok" id="stok" defaultValue={"default"}>
+                <option value="default">Pilih Stok Produk</option>
+                <option value="Tersedia">Tersedia</option>
+                <option value="Tidak Tersedia">Tidak Tersedia</option>
+              </select>
             </div>
             <div className="mb-3">
               <label for="formFile" className="form-label">
-                Foto Gabah
+                Foto Produk
               </label>
-              <input onChange={(e) => setImage(e.target.files[0])} accept=".jpg, .png, .jpeg" className="form-control h-50  " type="file" id="formFile" />
+              <input onChange={(e) => setImage(e.target.files[0])} accept=".jpg, .png, .jpeg" className="form-control h-50" type="file" id="formFile" />
             </div>
             <button className="btn--login w-75">Tambah</button>
           </form>
@@ -97,7 +122,7 @@ const AkunToko = () => {
     <>
       <Header />
       <div className="container mt-0 pt-0">
-        <h1 className="text-center">Toko Anda</h1>
+        <h1 className="text-center fw-bold text--green">Toko Anda</h1>
         {idToko ? (
           <>
             <div className="card mb-5 card--pabrik" style={{ maxWidth: "100%" }}>
@@ -129,29 +154,34 @@ const AkunToko = () => {
             Tambahkan
           </button>
           <div className="row">
-            {idToko ? (
+            {!idToko ? (
               <h1>Belum Ada produk</h1>
             ) : (
               <>
-                <div className="col-4">
-                  <div className="card mb-3">
-                    <div className="card-header fw-bold" style={{ textTransform: "capitalize" }}>
-                      Nama Gabah
-                    </div>
-                    <div className="card-body">
-                      <div className="text-center mb-3">
-                        <img src={gabah1} alt="Foto Produk" style={{ height: "150px", width: "200px" }} />
+                {produks.map((produk) => {
+                  return (
+                    <div key={produk.map} className="col-xl-4 col-md-6 col-sm-12 mb-3">
+                      <div className="card mb-3 h-100">
+                        <div className="card-header fw-bold" style={{ textTransform: "capitalize" }}>
+                          {produk.name}
+                        </div>
+                        <div className="card-body">
+                          <div className="text-center mb-3">
+                            <img src={`http://pusatani.masuk.web.id/images/produk/${produk.image}`} alt="Foto Produk" style={{ height: "150px", width: "200px" }} />
+                          </div>
+                          <h5 className="card-title fw-bold">Detail Produk</h5>
+                          <p style={{ textAlign: "justify" }}>{produk.detail}</p>
+                          <p className="card-text fw-bold">Rp: {produk.price}</p>
+                        </div>
+                        {/* <div className="d-flex justify-content-center m-2">
+                          <a className="btn--login" href={`https://wa.me/$}`}>
+                            Hubungi Kami
+                          </a>
+                        </div> */}
                       </div>
-                      <h5 className="card-title">Detail Gabah</h5>
-                      <p className="card-text">Rp: Harga</p>
                     </div>
-                    <div className="d-flex justify-content-center m-2">
-                      <a className="btn--login" href={`https://wa.me/$}`}>
-                        Hubungi Kami
-                      </a>
-                    </div>
-                  </div>
-                </div>
+                  );
+                })}
               </>
             )}
           </div>

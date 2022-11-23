@@ -7,7 +7,6 @@ import Footer from "../../partials/footer/Footer";
 import Header from "../../partials/header/Header";
 import FormContact from "./FormContact";
 import TypewriterComponent from "typewriter-effect";
-import { motion } from "framer-motion";
 
 function Contact() {
   const contactStyle = {
@@ -20,16 +19,21 @@ function Contact() {
     <>
       <div className="contact--header">
         <Header />
-        <h1 className="fw-bold">
-          <TypewriterComponent
-            options={{
-              autoStart: true,
-              loop: true,
-              delay: 40,
-              strings: ["Kontak", "Informasi"],
-            }}
-          />
-        </h1>
+        <div className="contact--judul">
+          <h1 className="fw-bold">
+            <TypewriterComponent
+              options={{
+                autoStart: true,
+                loop: true,
+                delay: 40,
+                strings: ["Kontak", "Informasi"],
+              }}
+            />
+          </h1>
+          <p className="text--green" style={{ padding: "0 10px" }}>
+            Kontak Informasi Aplikasi dan Kirim Pesan
+          </p>
+        </div>
       </div>
       <div className="container justify-content-center">
         <section>
@@ -37,9 +41,9 @@ function Contact() {
             <div className="col-md-4 w-50" style={contactStyle}>
               <AiOutlinePhone className="contact--icon" />
               <p className="m-0 fw-bold">Hubungi Kami</p>
-              <motion.a initial={{ scale: 0 }} whileHover={{ scale: 1.5 }} href="https://wa.me/+628572252504" style={{ textDecoration: "none", color: "GrayText" }}>
+              <a href="https://wa.me/+628572252504" style={{ textDecoration: "none", color: "GrayText" }}>
                 +628572252504
-              </motion.a>
+              </a>
             </div>
             <div className="col-md-4 w-50" style={contactStyle}>
               <AiOutlineMail className="contact--icon" />

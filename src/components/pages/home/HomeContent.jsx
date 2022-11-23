@@ -4,7 +4,7 @@ import Card from "../../asset/image/card.png";
 import Card2 from "../../asset/image/card2.png";
 import Card3 from "../../asset/image/card4.png";
 import { motion } from "framer-motion";
-import "./home.css"
+import "./home.css";
 
 const HomeContent = () => {
   return (
@@ -18,7 +18,7 @@ const HomeContent = () => {
               <p className="card-text article--text">Wadah edukasi dan informasi yang bertujuan untuk menjadi panduan bagi para petani yang ingin memulai usaha bertani dan membantu mewujudkan kemudahan bagi para petani</p>
               <p className="card-text py-1">
                 <Link to={"/info"}>
-                  <motion.button initial={{ scale: 1 }} whileHover={{ scale: 1.5 }} className="btn--login" style={{ fontSize: "12px" }}>
+                  <motion.button initial={{ scale: 1 }} whileHover={{ scale: 1.1 }} className="btn--login" style={{ fontSize: "12px" }}>
                     Selengkapnya
                   </motion.button>
                 </Link>
@@ -34,7 +34,7 @@ const HomeContent = () => {
               <p className="card-text article--text">Mempermudah para petani untuk mencari pabrik dan kios yang dibutuhkan</p>
               <p className="card-text py-2">
                 <Link to={"/shop"}>
-                  <motion.button initial={{ scale: 1 }} whileHover={{ scale: 1.5 }} className="btn--login" style={{ fontSize: "12px" }}>
+                  <motion.button initial={{ scale: 1 }} whileHover={{ scale: 1.1 }} className="btn--login" style={{ fontSize: "12px" }}>
                     Selengkapnya
                   </motion.button>
                 </Link>
@@ -44,13 +44,13 @@ const HomeContent = () => {
         </div>
         <div className="col-lg-4 col-md-12 col-sm-12 col-xs-12 d-flex justify-content-center my-3">
           <div className="card text-light">
-            <img src={Card} className="card-img" alt="..."  />
+            <img src={Card} className="card-img" alt="..." />
             <div className="card-img-overlay d-flex align-items-end flex-wrap">
               <h5 className="card-title py-5">Aksebilitas</h5>
               <p className="card-text article--text">Mempermudah para petani untuk mengakses fitur-fitur dan mendapatkan informasi</p>
               <p className="card-text py-2">
                 <Link to={""}>
-                  <motion.button initial={{ scale: 1 }} whileHover={{ scale: 1.5 }} className="btn--login" style={{ fontSize: "12px" }}>
+                  <motion.button initial={{ scale: 1 }} whileHover={{ scale: 1.1 }} className="btn--login" style={{ fontSize: "12px" }}>
                     Unduh Aplikasi
                   </motion.button>
                 </Link>

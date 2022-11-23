@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { BASE_URL, putAccessToken, putIdPabrik, putIdToko, putUser } from "../utils/api";
 import axios from "axios";
 import Swal from "sweetalert2";
+import LoadingPage from "../LoadingPage";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -11,16 +12,15 @@ const Login = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [userName, setUserName] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
 
   function emailChange(e) {
     setEmail(e.target.value);
-    console.log(email);
   }
   function passwordChange(e) {
     setPassword(e.target.value);
-    console.log(password);
   }
 
   function isLogin() {
@@ -31,6 +31,7 @@ const Login = () => {
     e.preventDefault();
 
     try {
+      setLoading(true);
       const res = await axios.post(
         `${BASE_URL}/auth/login`,
         { email, password },
@@ -50,18 +51,31 @@ const Login = () => {
       isLogin();
       setEmail("");
       setPassword("");
-      Swal.fire("Selamat Datang!", `Okaeri! ${userName}`, "success");
+      setLoading(false);
       console.log(res.data.data);
+      console.log(res.data.data.user);
       navigate("/");
+      Swal.fire("Berhasil Login!", "Selamat datang di PusaTani", "success");
     } catch (e) {
       console.log(e);
       Swal.fire("Gagal Login!", "Email atau Password salah", "error");
+      setLoading(false);
     }
   }
   const togglePassword = () => {
     setShowPassword(!showPassword);
   };
-  console.log(email, password);
+
+  if (loading) {
+    return (
+      // <div className="d-flex justify-content-center align-items-center vh-100">
+      //   <div className="spinner-border text-primary" role="status">
+      //     <span className="visually-hidden">Loading...</span>
+      //   </div>
+      // </div>
+      <LoadingPage />
+    );
+  }
 
   return (
     <>
@@ -90,14 +104,14 @@ const Login = () => {
                   <label className="form-label" htmlFor="email-login">
                     Email
                   </label>
-                  <input onChange={emailChange} type="email" id="email-login" className="form-control form-control-lg form-float" placeholder="Email Anda" />
+                  <input onChange={emailChange} type="email" id="email-login" className="form-control form-control-lg form-float" placeholder="Email Anda" required />
                 </div>
                 <div className="form-outline mb-4">
                   <label className="form-label" htmlFor="password-login">
                     Password
                   </label>
-                  <input onChange={passwordChange} type={showPassword ? "text" : "password"} id="password-login" className="form-control form-control-lg" placeholder="Masukan Kata Sandi" />
-                  <div className="form-check d-flex justify-content-start mb-4">
+                  <input onChange={passwordChange} type={showPassword ? "text" : "password"} id="password-login" className="form-control form-control-lg" placeholder="Masukan Kata Sandi" required />
+                  <div className="form-check d-flex justify-content-start mb-4 mt-2">
                     <input onClick={togglePassword} className="form-check-input me-2" type="checkbox" value="" id="checkbox-pwd" />
                     <label className="form-check-label mt-1" style={{ fontSize: "12px" }} htmlFor="checkbox-pwd">
                       Show Password

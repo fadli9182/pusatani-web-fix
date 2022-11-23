@@ -20,7 +20,7 @@ const HomeUnduh = () => {
         </div>
         <div className="col-md-3 d-flex align-items-center">
           <Link to={"/"}>
-            <motion.button initial={{ scale: 1 }} whileHover={{ scale: 1.5 }} className="btn--login" style={{ fontSize: "12px" }}>
+            <motion.button initial={{ scale: 1 }} whileHover={{ scale: 1.1 }} className="btn--login" style={{ fontSize: "12px" }}>
               Unduh Aplikasi
             </motion.button>
           </Link>

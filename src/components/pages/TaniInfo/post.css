@@ -8,11 +8,14 @@
 }
 
 .singlePostImg {
-  width: 100%;
-  height: 500px;
-  border-radius: 50px;
-  object-fit: cover;
-  margin-bottom: 1rem;
+  width: 600px;
+  height: 400px;
+  text-align: center;
+  margin: 20px auto;
+  padding-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  border-radius: 30px;
 }
 
 .singlePostTitle {
@@ -21,6 +24,41 @@
   font-size: 28px;
   text-transform: capitalize;
   font-family: "Poppins", sans-serif;
+}
+
+.artikel {
+  text-align: justify;
+  margin: 10px;
+  font-size: 18px;
+  font-family: "Poppins", sans-serif;
+  line-height: 30px;
+}
+
+.bread {
+  margin-top: 30px !important;
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+  font-size: 12px;
+  border-bottom: 1px solid;
+}
+.breadcrumb-item {
+  color: #000 !important;
+  text-decoration: none !important;
+}
+
+.social {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.socialLinks {
+  font-size: 30px;
+}
+
+.socialLinks a {
+  margin: 10px;
 }
 
 .singlePostEdit {

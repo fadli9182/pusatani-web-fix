@@ -27,7 +27,7 @@ const HomeTentang = () => {
                 <h4>Ayo Bergabung Bersama Kami!</h4>
                 <p>Penyedia Informasi Seputar Pertanian Padi di Kabupaten Indramayu</p>
                 <Link to={"/about"}>
-                  <motion.button initial={{ scale: 1 }} whileHover={{ scale: 1.5 }} className="btn--login" style={{ fontSize: "12px" }}>
+                  <motion.button initial={{ scale: 1 }} whileHover={{ scale: 1.1 }} className="btn--login" style={{ fontSize: "12px" }}>
                     Tentang Kami
                   </motion.button>
                 </Link>

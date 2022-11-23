@@ -1,0 +1,15 @@
+.card--toko {
+  background: linear-gradient(to right top, #2c774b, #1c7f60, #038674, #008d88, #00939a, #0d9ea0, #1ba8a5, #29b3aa, #5cc39c, #90d18c, #c5db81, #fce181);
+  color: white;
+  border: none !important;
+  border-radius: 40px !important;
+  box-shadow: 10px 20px 20px rgba(0, 0, 0, 0.5) !important;
+}
+
+.card--pabrik {
+  background: linear-gradient(to right top, #2c774b, #1c7f60, #038674, #008d88, #00939a, #0d9ea0, #1ba8a5, #29b3aa, #5cc39c, #90d18c, #c5db81, #fce181);
+  color: white;
+  border: none !important;
+  border-radius: 40px !important;
+  box-shadow: 10px 20px 20px rgba(0, 0, 0, 0.5) !important;
+}

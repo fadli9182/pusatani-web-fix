@@ -11,18 +11,52 @@ function Register() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [password_confirmation, setPasswordConfirmation] = useState("");
   const [address, setAddress] = useState("");
   const [role, setRole] = useState();
   const [phone, setPhone] = useState();
   const [photo_profile, setProfile] = useState();
   const [photo_id, setPhotoId] = useState();
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
+
+  const formValidation = () => {
+    if (name === "") {
+      Swal.fire("Gagal", "Nama tidak boleh kosong", "error");
+      return false;
+    } else if (email === "") {
+      Swal.fire("Gagal", "Email tidak boleh kosong", "error");
+      return false;
+    } else if (password.length < 6) {
+      Swal.fire("Gagal", "Password kurang dari 6 Karakter", "error");
+      return false;
+    } else if (password_confirmation !== password) {
+      Swal.fire("Gagal", "Password harus sama", "error");
+      return false;
+    } else if (address === "") {
+      Swal.fire("Gagal", "Alamat tidak boleh kosong", "error");
+      return false;
+    } else if (role === "") {
+      Swal.fire("Gagal", "Jenis Akun Harus di Pilih", "error");
+      return false;
+    } else if (phone === "") {
+      Swal.fire("Gagal", "Nomor telepon tidak boleh kosong", "error");
+      return false;
+    } else if (photo_profile === "") {
+      Swal.fire("Gagal", "Foto profile tidak boleh kosong", "error");
+      return false;
+    } else if (photo_id === "") {
+      Swal.fire("Gagal", "Foto ID tidak boleh kosong", "error");
+      return false;
+    } else {
+      return true;
+    }
+  };
 
   const registerHandler = async (e) => {
     e.preventDefault();
     const data = new FormData();
-
     data.append("name", name);
     data.append("email", email);
     data.append("password", password);
@@ -40,8 +74,11 @@ function Register() {
       },
     };
     try {
+      setLoading(true);
+      formValidation();
       let res = await axios.post(`${BASE_URL}/auth/signup`, data, config);
       console.log(res);
+      setLoading(false);
       Swal.fire("Berhasil!", "Akun berhasil dibuat", "success");
       navigate("/login");
     } catch (err) {
@@ -50,6 +87,16 @@ function Register() {
       // alert();
     }
   };
+
+  if (loading) {
+    return (
+      <div className="d-flex justify-content-center align-items-center vh-100">
+        <div className="spinner-border" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <>
@@ -63,31 +110,37 @@ function Register() {
                   <label className="form-label d-flex" htmlFor="name">
                     Nama Lengkap
                   </label>
-                  <input value={name} onChange={(e) => setName(e.target.value)} type="text" name="name" id="name" className="form-control h-50" placeholder="Username Anda" />
+                  <input onChange={(e) => setName(e.target.value)} type="text" name="name" id="name" className="form-control h-50" placeholder="Username Anda" />
                 </div>
                 <div className="form-outline mb-2">
                   <label className="form-label d-flex" htmlFor="email">
                     Email
                   </label>
-                  <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" name="email" id="email" className="form-control h-50 " placeholder="Email Anda" />
+                  <input onChange={(e) => setEmail(e.target.value)} type="email" name="email" id="email" className="form-control h-50 " placeholder="Email Anda" />
                 </div>
                 <div className="form-outline mb-2">
                   <label className="form-label d-flex" htmlFor="password">
                     Password
                   </label>
-                  <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" name="password" id="password" className="form-control h-50" placeholder="Masukan Password" />
+                  <input onChange={(e) => setPassword(e.target.value)} type="password" name="password" id="password" className="form-control h-50" placeholder="Masukan Password" />
+                </div>
+                <div className="form-outline mb-2">
+                  <label className="form-label d-flex" htmlFor="confirmPassword">
+                    Konfirmasi Password
+                  </label>
+                  <input onChange={(e) => setPasswordConfirmation(e.target.value)} type="password" name="password" id="confirmPassword" className="form-control h-50" placeholder="Masukan Password" />
                 </div>
                 <div className="form-outline mb-2">
                   <label htmlFor="address" className="form-label d-flex">
                     Alamat
                   </label>
-                  <textarea value={address} onChange={(e) => setAddress(e.target.value)} className="form-control" name="address" id="address" rows="3"></textarea>
+                  <textarea onChange={(e) => setAddress(e.target.value)} className="form-control" name="address" id="address" rows="3"></textarea>
                 </div>
                 <div className="form-outline mb-2">
                   <label className="form-label d-flex" htmlFor="role">
                     Jenis Akun
                   </label>
-                  <select value={role} onChange={(e) => setRole(e.target.value)} className="form-select form-control h-50" name="role" id="role" defaultValue={"default"}>
+                  <select onChange={(e) => setRole(e.target.value)} className="form-select form-control h-50" name="role" id="role" defaultValue={"default"}>
                     <option disabled>Pilih Jenis Akun</option>
                     <option value="2">Pabrik</option>
                     <option value="3">Toko</option>
@@ -97,9 +150,13 @@ function Register() {
                   <label className="form-label d-flex" htmlFor="phone">
                     Nomer Telepon
                   </label>
-                  <InputGroup className="mb-3 h-50">
-                    <InputGroup.Text>+62</InputGroup.Text>
-                    <Form.Control value={phone} onChange={(e) => setPhone(e.target.value)} name="phone" id="phone" />
+                  <InputGroup>
+                    <InputGroup.Text>
+                      <p className="d-flex align-items-center justify-content-center m-0" style={{ fontSize: "12px" }}>
+                        +62
+                      </p>
+                    </InputGroup.Text>
+                    <Form.Control type="number" onChange={(e) => setPhone(e.target.value)} name="phone" id="phone" />
                   </InputGroup>
                 </div>
 

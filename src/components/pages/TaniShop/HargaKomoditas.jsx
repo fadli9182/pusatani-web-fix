@@ -19,7 +19,7 @@ const HargaKomoditas = () => {
             <div className="row text-center">
               <div className="col-md-6 com-sm-12">
                 <div className="foto1">
-                  <motion.img initial={{ scale: 1 }} whileHover={{ scale: 1.5 }} src={Foto3} alt="mobile3" width={"250px"} style={{ borderRadius: "20px" }} />
+                  <motion.img initial={{ scale: 1 }} whileHover={{ scale: 1.1 }} drag src={Foto3} alt="mobile3" width={"250px"} style={{ borderRadius: "20px" }} />
                   <div className="deskripsi">
                     <h3>Gabah Tigkat Petani</h3>
                     <hr />
@@ -29,7 +29,7 @@ const HargaKomoditas = () => {
               </div>
               <div className="col-md-6 com-sm-12">
                 <div className="foto1">
-                  <motion.img initial={{ scale: 1 }} whileHover={{ scale: 1.5 }} src={Foto4} alt="mobile3" width={"250px"} style={{ borderRadius: "20px" }} />
+                  <motion.img initial={{ scale: 1 }} whileHover={{ scale: 1.1 }} src={Foto4} alt="mobile3" width={"250px"} style={{ borderRadius: "20px" }} />
                   <div className="deskripsi">
                     <h3>Beras di penggilingan</h3>
                     <hr />
@@ -47,7 +47,7 @@ const HargaKomoditas = () => {
             <div className="row text-center">
               <div className="col-md-4 com-sm-12">
                 <div className="foto1">
-                  <motion.img initial={{ scale: 1 }} whileHover={{ scale: 1.5 }} src={Foto5} alt="mobile3" width={"250px"} style={{ borderRadius: "20px" }} />
+                  <motion.img initial={{ scale: 1 }} whileHover={{ scale: 1.1 }} src={Foto5} alt="mobile3" width={"250px"} style={{ borderRadius: "20px" }} />
                   <div className="deskripsi">
                     <h3>Beras Premium</h3>
                     <hr />
@@ -57,7 +57,7 @@ const HargaKomoditas = () => {
               </div>
               <div className="col-md-4 com-sm-12">
                 <div className="foto1">
-                  <motion.img initial={{ scale: 1 }} whileHover={{ scale: 1.5 }} src={Foto6} alt="mobile3" width={"250px"} style={{ borderRadius: "20px" }} />
+                  <motion.img initial={{ scale: 1 }} whileHover={{ scale: 1.1 }} src={Foto6} alt="mobile3" width={"250px"} style={{ borderRadius: "20px" }} />
                   <div className="deskripsi">
                     <h3>Beras Medium</h3>
                     <hr />

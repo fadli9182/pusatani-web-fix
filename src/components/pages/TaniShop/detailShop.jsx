@@ -6,6 +6,7 @@ import Footer from "../../partials/footer/Footer";
 import Header from "../../partials/header/Header";
 import { BASE_URL } from "../../utils/api";
 import { motion } from "framer-motion";
+import LoadingPage from "../../LoadingPage";
 
 const DetailShop = () => {
   const { id } = useParams();
@@ -16,8 +17,10 @@ const DetailShop = () => {
   const [pemilik, setPemilik] = useState("");
   const [produkToko, setProdukToko] = useState([]);
   const [phoneToko, setPhoneToko] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const getSingleShop = async (e) => {
+    setLoading(true);
     try {
       const res = await axios.get(`${BASE_URL}/tokoWith/${id}`);
       setProdukToko(res.data.data.data.toko_to_produk);
@@ -28,16 +31,22 @@ const DetailShop = () => {
       setDeskripsi(res.data.data.data.deskripsi);
       setImage(res.data.data.data.image);
       setPemilik(res.data.data.data.user_name);
+      setLoading(false);
       console.log(res.data.data);
       console.log(produkToko);
     } catch (error) {
       console.log(error);
+      setLoading(false);
     }
   };
 
   useEffect(() => {
     getSingleShop();
   }, []);
+
+  if (loading) {
+    return <LoadingPage />;
+  }
 
   return (
     <>
@@ -65,7 +74,7 @@ const DetailShop = () => {
               ) : (
                 produkToko.map((produk) => {
                   return (
-                    <div className="col-xl-4 col-md-6 col-sm-12 my-3">
+                    <div key={produk.id} className="col-xl-4 col-md-6 col-sm-12 my-3">
                       <div key={produk.id} className="card h-100 mb-3 shadow">
                         <div className="text-center mt-3" style={{ textTransform: "capitalize" }}>
                           <h3 className="fw-bold">{produk.name}</h3>
@@ -74,8 +83,10 @@ const DetailShop = () => {
                           <div className="d-flex justify-content-center pb-3">
                             <img className="text-center" src={`http://pusatani.masuk.web.id/images/produk/${produk.image}`} alt="Foto Produk" style={{ height: "200px", width: "200px" }} />
                           </div>
-                          <h5 className="card-title">{produk.detail}</h5>
-                          <p className="card-text ">Rp: {produk.price}</p>
+                          <p className="card-text" style={{ textAlign: "justify" }}>
+                            {produk.detail}
+                          </p>
+                          <p className="card-text fw-bold">Rp: {produk.price}</p>
                           <p className="fw-bold">Stok: {produk.stok} </p>
                         </div>
                         <div className="d-flex justify-content-center m-2">

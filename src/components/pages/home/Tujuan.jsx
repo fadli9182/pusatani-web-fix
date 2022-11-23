@@ -41,8 +41,7 @@ const Tujuan = () => {
               <div className="col-md-12">
                 <motion.img
                   whileHover={{
-                    scale: 1.2,
-                    transition: { duration: 0.5 },
+                    scale: 1.1,
                   }}
                   className="img-fluid w-100"
                   src={G1}
@@ -53,8 +52,7 @@ const Tujuan = () => {
               <div className="col-md-6 py-3">
                 <motion.img
                   whileHover={{
-                    scale: 1.2,
-                    transition: { duration: 0.5 },
+                    scale: 1.1,
                   }}
                   className="img-fluid w-100"
                   src={G2}
@@ -64,8 +62,7 @@ const Tujuan = () => {
               <div className="col-md-6 py-3 ">
                 <motion.img
                   whileHover={{
-                    scale: 1.2,
-                    transition: { duration: 0.5 },
+                    scale: 1.1,
                   }}
                   className="img-fluid w-100"
                   src={G3}

@@ -28,11 +28,11 @@ body {
   height: 100%;
   width: 100vw;
   overflow-x: hidden;
-  background: url("./components/asset/image/sun.png");
+  /* background: url("./components/asset/image/sun.png");
   background-repeat: no-repeat;
   background-size: 20%;
   background-position: 10% 20%;
-  background-attachment: fixed;
+  background-attachment: fixed; */
 }
 
 code {
@@ -161,10 +161,22 @@ section {
   box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.5);
   /* text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white; */
   font-weight: 700;
+  font-size: 12px;
   border-radius: 10px;
   color: #ffffff;
   padding: 10px 30px;
   border: none;
+}
+
+.card {
+  border: none !important;
+  border-radius: 20px !important;
+  /* box-shadow: rgba(50, 50, 93, 0.25) -20px -20px 20px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset !important; */
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
+}
+
+.card img {
+  border-radius: 20px 20px 0 0 !important;
 }
 
 .btn--login:hover {

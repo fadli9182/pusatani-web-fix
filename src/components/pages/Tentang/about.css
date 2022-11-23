@@ -29,8 +29,13 @@
 }
 
 .judul--tentang {
-  margin-top: 100px;
   text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+  background-color: rgb(255, 255, 255, 0.5);
+  border-radius: 20px;
+  width: fit-content;
+  padding: 34px;
+  margin: auto;
+  margin-top: 100px;
 }
 
 .judul--tentang h1 {
