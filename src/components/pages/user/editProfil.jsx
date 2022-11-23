@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Footer from "../../partials/footer/Footer";

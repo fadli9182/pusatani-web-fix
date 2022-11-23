@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import "./header.css";
 import Logo from "../../asset/image/Logo.png";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { deleteToken, getUser } from "../../utils/api";
 import { motion } from "framer-motion";
 import Swal from "sweetalert2";
 
 function Header() {
   const [isLogin, setIsLogin] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (getUser()) {
@@ -38,7 +39,7 @@ function Header() {
       if (result.isConfirmed) {
         Swal.fire("Berhasil!", "Anda telah keluar dari akun anda", "success");
         deleteToken();
-        window.location.reload();
+        navigate("/login");
       } else {
         return;
       }
@@ -49,7 +50,9 @@ function Header() {
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-transparent text-center">
         <div className="container-fluid nav--item p-0 me-4">
-          <img initial={{ rotate: 0 }} whileInView={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 1 }} className="ms-3 navbar--logo" src={Logo} width={"80px"} alt="logo" />
+          <Link to={"/"}>
+            <img initial={{ rotate: 0 }} whileInView={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 1 }} className="ms-3 navbar--logo" src={Logo} width={"80px"} alt="logo" />
+          </Link>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>

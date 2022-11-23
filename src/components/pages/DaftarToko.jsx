@@ -1,8 +1,9 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Footer from "../partials/footer/Footer";
 import Header from "../partials/header/Header";
-import { BASE_URL, config } from "../utils/api";
+import { BASE_URL, getAccessToken } from "../utils/api";
 
 const DaftarToko = () => {
   const [namaToko, setNamaToko] = useState("");
@@ -12,10 +13,18 @@ const DaftarToko = () => {
   const [phoneToko, setPhoneToko] = useState();
   const [fotoToko, setFotoToko] = useState();
   const [status, setStatus] = useState();
-  const [idToko, setIdToko] = useState();
+  const [loading, setLoading] = useState(false);
 
   const pemilik = JSON.parse(localStorage.getItem("user"));
   // console.log(pemilik);
+
+  const config = {
+    headers: {
+      Authorization: `Bearer ${getAccessToken()}`,
+      "Content-Type": "multipart/form-data",
+      Accept: "application/json",
+    },
+  };
 
   useEffect(() => {
     setUser(pemilik.id);
@@ -23,7 +32,7 @@ const DaftarToko = () => {
   }, [pemilik.id]);
   // console.log(user);
 
-  const navigate = useState();
+  const navigate = useNavigate();
   const addToko = async (e) => {
     e.preventDefault();
     const dataToko = new FormData();
@@ -34,13 +43,15 @@ const DaftarToko = () => {
     dataToko.append("phone", phoneToko);
     dataToko.append("image", fotoToko);
     dataToko.append("status", status);
+    setLoading(true);
 
     try {
       let res = await axios.post(`${BASE_URL}/toko`, dataToko, config);
       console.log(res);
       console.log(status);
+      setLoading(false);
       alert("daftar berhasil");
-      navigate("");
+      navigate("/profil");
     } catch (err) {
       console.log(err);
     }
@@ -48,49 +59,55 @@ const DaftarToko = () => {
 
   return (
     <>
-      <Header />
-      <div className="container my-5 w-75">
-        <form onSubmit={addToko}>
-          <div className="mb-3">
-            <label htmlFor="userToko" className="form-label">
-              Pemilik
-            </label>
-            <input disabled type="text" className="form-control" name="userToko" id="userToko" placeholder={pemilik.name} />
+      {loading ? (
+        <h1>Loading</h1>
+      ) : (
+        <>
+          <Header />
+          <div className="container my-5 w-75">
+            <form onSubmit={addToko}>
+              <div className="mb-3">
+                <label htmlFor="userToko" className="form-label">
+                  Pemilik
+                </label>
+                <input disabled type="text" className="form-control" name="userToko" id="userToko" placeholder={pemilik.name} />
+              </div>
+              <div className="mb-3">
+                <label htmlFor="namaToko" className="form-label">
+                  Nama Toko
+                </label>
+                <input onChange={(e) => setNamaToko(e.target.value)} type="text" className="form-control" name="namaToko" id="namaToko" placeholder="Masukan Nama Toko" />
+              </div>
+              <div className="mb-3">
+                <label htmlFor="alamat" className="form-label">
+                  Alamat
+                </label>
+                <textarea onChange={(e) => setAddressToko(e.target.value)} type="text" className="form-control" name="alamat" id="alamat" placeholder="Masukan Alamat Toko" />
+              </div>
+              <div className="mb-3">
+                <label htmlFor="alamat" className="form-label">
+                  Deskripsi
+                </label>
+                <textarea onChange={(e) => setDeskripsiToko(e.target.value)} type="text" className="form-control" name="deskripsi" id="deskripsi" placeholder="Masukan Deskripsi Toko" />
+              </div>
+              <div className="mb-3">
+                <label htmlFor="telp" className="form-label">
+                  Nomer Telepon
+                </label>
+                <input onChange={(e) => setPhoneToko(e.target.value)} type="number" className="form-control" name="telp" id="telp" placeholder="+62" />
+              </div>
+              <div className="mb-3">
+                <label htmlFor="file" className="form-label">
+                  Foto Toko
+                </label>
+                <input onChange={(e) => setFotoToko(e.target.files[0])} accept=".jpg, .png, .jpeg" type="file" className="form-control" name="file" id="file" />
+              </div>
+              <button className="btn--login w-100">Daftar</button>
+            </form>
           </div>
-          <div className="mb-3">
-            <label htmlFor="namaToko" className="form-label">
-              Nama Toko
-            </label>
-            <input onChange={(e) => setNamaToko(e.target.value)} type="text" className="form-control" name="namaToko" id="namaToko" placeholder="Masukan Nama Toko" />
-          </div>
-          <div className="mb-3">
-            <label htmlFor="alamat" className="form-label">
-              Alamat
-            </label>
-            <textarea onChange={(e) => setAddressToko(e.target.value)} type="text" className="form-control" name="alamat" id="alamat" placeholder="Masukan Alamat Toko" />
-          </div>
-          <div className="mb-3">
-            <label htmlFor="alamat" className="form-label">
-              Deskripsi
-            </label>
-            <textarea onChange={(e) => setDeskripsiToko(e.target.value)} type="text" className="form-control" name="deskripsi" id="deskripsi" placeholder="Masukan Deskripsi Toko" />
-          </div>
-          <div className="mb-3">
-            <label htmlFor="telp" className="form-label">
-              Nomer Telepon
-            </label>
-            <input onChange={(e) => setPhoneToko(e.target.value)} type="number" className="form-control" name="telp" id="telp" placeholder="+62" />
-          </div>
-          <div className="mb-3">
-            <label htmlFor="file" className="form-label">
-              Foto Toko
-            </label>
-            <input onChange={(e) => setFotoToko(e.target.files[0])} accept=".jpg, .png, .jpeg" type="file" className="form-control" name="file" id="file" />
-          </div>
-          <button className="btn--login w-100">Daftar</button>
-        </form>
-      </div>
-      <Footer />
+          <Footer />
+        </>
+      )}
     </>
   );
 };

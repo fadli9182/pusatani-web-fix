@@ -1,5 +1,6 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Modal } from "react-bootstrap";
 import { Navigate } from "react-router-dom";
 import Footer from "../../partials/footer/Footer";
@@ -9,6 +10,21 @@ import gabah1 from "../../asset/image/gabah1.jpg";
 
 const AkunToko = () => {
   const [modalShow, setModalShow] = React.useState(false);
+  const [akunToko, setAkunToko] = useState([]);
+
+  const idToko = localStorage.getItem("id_toko");
+
+  const getaAkunToko = async () => {
+    let res = await axios.get(`${BASE_URL}/toko/${idToko}`, config);
+    setAkunToko(res.data.data);
+    console.log(res.data);
+    console.log(akunToko);
+    console.log(akunToko.name);
+  };
+  console.log(idToko);
+  useEffect(() => {
+    getaAkunToko();
+  }, []);
 
   function FormModal(props) {
     const [judul, setJudul] = useState("");
@@ -16,7 +32,7 @@ const AkunToko = () => {
     const [category] = useState();
     const [image, setImage] = useState(null);
 
-    const addArtikel = async (e) => {
+    const addToko = async (e) => {
       e.preventDefault();
       const dataArtikel = new FormData();
 
@@ -42,7 +58,7 @@ const AkunToko = () => {
           <Modal.Title id="contained-modal-title-vcenter">Tambah Gabah</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <form onSubmit={addArtikel}>
+          <form onSubmit={addToko}>
             <div className="form-outline mb-4">
               <label className="form-label d-flex" htmlFor="nama-gabah">
                 Nama Gabah
@@ -65,7 +81,7 @@ const AkunToko = () => {
               <label for="formFile" className="form-label">
                 Foto Gabah
               </label>
-              <input onChange={(e) => setImage(e.target.files[0])} accept=".jpg, .png, .jpeg" className="form-control h-50" type="file" id="formFile" />
+              <input onChange={(e) => setImage(e.target.files[0])} accept=".jpg, .png, .jpeg" className="form-control h-50  " type="file" id="formFile" />
             </div>
             <button className="btn--login w-75">Tambah</button>
           </form>
@@ -81,48 +97,63 @@ const AkunToko = () => {
     <>
       <Header />
       <div className="container mt-0 pt-0">
-        <div className="card mb-5 card--pabrik" style={{ maxWidth: "100%" }}>
-          <div className="row g-0">
-            <div className="col-md-4 d-flex justify-content-center ">
-              <img src={gabah1} className="img-fluid p-3" alt="Foto Pabrik" style={{ height: "200px", width: "300px", borderRadius: "20px" }} />
-            </div>
-            <div className="col-md-8">
-              <div className="card-body">
-                <h5 className="card-title fw-bold" style={{ textTransform: "capitalize" }}>
-                  Nama Pabrik
-                </h5>
-                <p>Pemilik: Nama Pemilik</p>
-                <hr />
-                <p className="card-text">Alamat: alamat</p>
+        <h1 className="text-center">Toko Anda</h1>
+        {idToko ? (
+          <>
+            <div className="card mb-5 card--pabrik" style={{ maxWidth: "100%" }}>
+              <div className="row g-0">
+                <div className="col-md-4 d-flex justify-content-center ">
+                  <img src={akunToko.image} className="img-fluid p-3" alt="Foto Toko" style={{ height: "200px", width: "300px", borderRadius: "20px" }} />
+                </div>
+                <div className="col-md-8">
+                  <div className="card-body">
+                    <h5 className="card-title fw-bold" style={{ textTransform: "capitalize" }}>
+                      {akunToko.name}
+                    </h5>
+                    <p>Pemilik: {akunToko.user_name}</p>
+                    <hr />
+                    <p className="card-text">Alamat: {akunToko.address}</p>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
+          </>
+        ) : (
+          <>
+            <h1>Anda Belum Mempunyai Toko</h1>
+          </>
+        )}
         <section>
           <h1 className="fw-bold text-center">Produk / Permintaan Anda</h1>
           <button className="btn--login my-3" onClick={() => setModalShow(true)}>
             Tambahkan
           </button>
           <div className="row">
-            <div className="col-4">
-              <div className="card mb-3">
-                <div className="card-header fw-bold" style={{ textTransform: "capitalize" }}>
-                  Nama Gabah
-                </div>
-                <div className="card-body">
-                  <div className="text-center mb-3">
-                    <img src={gabah1} alt="Foto Produk" style={{ height: "150px", width: "200px" }} />
+            {idToko ? (
+              <h1>Belum Ada produk</h1>
+            ) : (
+              <>
+                <div className="col-4">
+                  <div className="card mb-3">
+                    <div className="card-header fw-bold" style={{ textTransform: "capitalize" }}>
+                      Nama Gabah
+                    </div>
+                    <div className="card-body">
+                      <div className="text-center mb-3">
+                        <img src={gabah1} alt="Foto Produk" style={{ height: "150px", width: "200px" }} />
+                      </div>
+                      <h5 className="card-title">Detail Gabah</h5>
+                      <p className="card-text">Rp: Harga</p>
+                    </div>
+                    <div className="d-flex justify-content-center m-2">
+                      <a className="btn--login" href={`https://wa.me/$}`}>
+                        Hubungi Kami
+                      </a>
+                    </div>
                   </div>
-                  <h5 className="card-title">Detail Gabah</h5>
-                  <p className="card-text">Rp: Harga</p>
                 </div>
-                <div className="d-flex justify-content-center m-2">
-                  <a className="btn--login" href={`https://wa.me/$}`}>
-                    Hubungi Kami
-                  </a>
-                </div>
-              </div>
-            </div>
+              </>
+            )}
           </div>
         </section>
       </div>

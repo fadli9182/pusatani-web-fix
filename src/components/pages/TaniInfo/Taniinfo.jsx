@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import Footer from "../../partials/footer/Footer";
 import Header from "../../partials/header/Header";
@@ -21,11 +22,13 @@ const Taniinfo = () => {
   const [nextUrl, setNextUrl] = useState("");
 
   async function getArticles() {
+    setLoading(true);
     try {
       let res = await axios.get(url);
       setArticles(res.data.data.data);
       setPrevUrl(res.data.data.prev_page_url);
       setNextUrl(res.data.data.next_page_url);
+      setLoading(false);
       console.log(res);
     } catch (e) {
       console.log(e);

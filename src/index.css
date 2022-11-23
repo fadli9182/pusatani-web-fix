@@ -28,11 +28,11 @@ body {
   height: 100%;
   width: 100vw;
   overflow-x: hidden;
-  /* background: url("./components/asset/image/sun.png");
+  background: url("./components/asset/image/sun.png");
   background-repeat: no-repeat;
   background-size: 20%;
   background-position: 10% 20%;
-  background-attachment: fixed; */
+  background-attachment: fixed;
 }
 
 code {
