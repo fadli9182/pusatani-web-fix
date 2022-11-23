@@ -33,13 +33,13 @@ const Footer = () => {
             <div>
               <h5>Products</h5>
               <ul className="d-flex flex-column">
-                <Link to={"/"} className="footer--link">
+                <Link to={"/shop"} className="footer--link">
                   Pupuk
                 </Link>
-                <Link to={"/"} className="footer--link">
+                <Link to={"/shop"} className="footer--link">
                   Pestisida
                 </Link>
-                <Link to={"/"} className="footer--link">
+                <Link to={"/shop"} className="footer--link">
                   Padi
                 </Link>
                 <Link to={"/info"} className="footer--link">
