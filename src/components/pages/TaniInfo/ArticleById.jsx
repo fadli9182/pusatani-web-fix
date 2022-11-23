@@ -34,14 +34,17 @@ const ArticleById = () => {
 
       <div className="container">
         <div class="btn-group" role="group" aria-label="Basic example">
-          <button onClick={() => setUrl(`${BASE_URL}/category/11`)} type="button" class="btn btn-primary">
+          <button onClick={() => setUrl(`${BASE_URL}/category/12`)} type="button" class="btn btn-primary">
             Berita Baru
           </button>
-          <button onClick={() => setUrl(`${BASE_URL}/category/12`)} type="button" class="btn btn-primary">
+          <button onClick={() => setUrl(`${BASE_URL}/category/13`)} type="button" class="btn btn-primary">
             Teknologi
           </button>
-          <button onClick={() => setUrl(`${BASE_URL}/category/13`)} type="button" class="btn btn-primary">
-            Berita
+          <button onClick={() => setUrl(`${BASE_URL}/category/14`)} type="button" class="btn btn-primary">
+            Berani
+          </button>
+          <button onClick={() => setUrl(`${BASE_URL}/category/15`)} type="button" class="btn btn-primary">
+            Hama & Penyakit
           </button>
         </div>
         <div className="row">
