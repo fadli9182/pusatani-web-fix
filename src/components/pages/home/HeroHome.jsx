@@ -8,10 +8,9 @@ const HeroHome = () => {
       <div className="hero--home">
         <h1 className="pt-5">
           Selamat Datang
-          <br />
-          <span className="d-flex gap-3">
+          <span className="d-flex gap-3" style={{ fontSize: "46px" }}>
             Di{" "}
-            <span style={{ fontWeight: "700", textShadow: "-1px 0 white, 0 1px white, 1px 0 white, 0 -1px white" }}>
+            <span style={{ fontSize: "46px", fontWeight: "700", textShadow: "-1px 0 white, 0 1px white, 1px 0 white, 0 -1px white" }}>
               <TypewriterComponent
                 options={{
                   autoStart: true,

@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Button, Modal } from "react-bootstrap";
-import { Link, Navigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import Footer from "../../partials/footer/Footer";
 import Header from "../../partials/header/Header";
 import { BASE_URL, config } from "../../utils/api";
@@ -13,7 +13,7 @@ const AkunToko = () => {
   function FormModal(props) {
     const [judul, setJudul] = useState("");
     const [body, setBody] = useState("");
-    const [category, setCategory] = useState();
+    const [category] = useState();
     const [image, setImage] = useState(null);
 
     const addArtikel = async (e) => {

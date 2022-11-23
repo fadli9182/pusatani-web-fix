@@ -37,12 +37,6 @@ const Taniinfo = () => {
     window.scrollTo(0, 0);
   }, [url]);
 
-  useEffect(() => {
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-    }, 3000);
-  }, []);
   return (
     <>
       {loading ? (
@@ -73,7 +67,9 @@ const Taniinfo = () => {
               </div>
               <div className="sort">
                 <Link to={"/category"}>
-                  <button>Cari berita berdasar Kategori</button>
+                  <motion.button initial={{ scale: 1 }} whileHover={{ scale: 1.5 }} className="btn--login">
+                    Cari berita berdasar Kategori
+                  </motion.button>
                 </Link>
               </div>
               <div className="row p-2 m-2 ">

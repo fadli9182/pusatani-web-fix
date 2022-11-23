@@ -62,7 +62,7 @@ const DetailPabrik = () => {
               ) : (
                 produkPabrik.map((produk) => {
                   return (
-                    <div className="col-xl-4 col-md-6 col-sm-12">
+                    <div className="col-xl-4 col-md-6 col-sm-12 my-3">
                       <div key={produk.id} className="card h-100 mb-3 shadow">
                         <div className="text-center mt-3" style={{ textTransform: "capitalize" }}>
                           <h3 className="fw-bold">{produk.name}</h3>
@@ -77,7 +77,7 @@ const DetailPabrik = () => {
                           </div>
                         </div>
                         <div className="d-flex justify-content-center m-2">
-                          <a href={`https://wa.me/${phoneToko}`}>
+                          <a href={`https://wa.me/+62${phoneToko}`}>
                             <motion.button className="btn--login" initial={{ scale: 1 }} whileHover={{ scale: 1.5 }}>
                               Hubungi Kami
                             </motion.button>

@@ -31,8 +31,8 @@ function Header() {
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-transparent text-center">
-        <div className="container-fluid nav--item">
-          <img initial={{ rotate: 0 }} whileInView={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 1 }} className="ms-5 navbar--logo" src={Logo} width={"80px"} alt="logo" />
+        <div className="container-fluid nav--item p-0 me-4">
+          <img initial={{ rotate: 0 }} whileInView={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 1 }} className="ms-3 navbar--logo" src={Logo} width={"80px"} alt="logo" />
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
