@@ -4,7 +4,7 @@ import Card from "../../asset/image/card.png";
 import Card2 from "../../asset/image/card2.png";
 import Card3 from "../../asset/image/card4.png";
 import { motion } from "framer-motion";
-import "./home.css"
+import "./home.css";
 
 const HomeContent = () => {
   return (
@@ -44,7 +44,7 @@ const HomeContent = () => {
         </div>
         <div className="col-lg-4 col-md-12 col-sm-12 col-xs-12 d-flex justify-content-center my-3">
           <div className="card text-light">
-            <img src={Card} className="card-img" alt="..."  />
+            <img src={Card} className="card-img" alt="..." />
             <div className="card-img-overlay d-flex align-items-end flex-wrap">
               <h5 className="card-title py-5">Aksebilitas</h5>
               <p className="card-text article--text">Mempermudah para petani untuk mengakses fitur-fitur dan mendapatkan informasi</p>
