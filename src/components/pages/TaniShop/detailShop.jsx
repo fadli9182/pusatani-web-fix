@@ -64,7 +64,7 @@ const DetailShop = () => {
               ) : (
                 produkToko.map((produk) => {
                   return (
-                    <div className="col-xl-4 col-md-6 col-sm-12">
+                    <div className="col-lg-4 col-md-6 col-sm-12">
                       <div key={produk.id} className="card h-100 mb-3 shadow">
                         <div className="text-center mt-3" style={{ textTransform: "capitalize" }}>
                           <h3 className="fw-bold">{produk.name}</h3>
@@ -81,7 +81,7 @@ const DetailShop = () => {
                           <a href={`https://wa.me/${phoneToko}`}>
                             <motion.button className="btn--login" initial={{ scale: 1 }} whileHover={{ scale: 1.5 }}>
                               Hubungi Kami
-                            </motion.button>
+                            </motion.button>  
                           </a>
                         </div>
                       </div>
