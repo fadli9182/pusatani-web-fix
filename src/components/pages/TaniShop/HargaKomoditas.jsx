@@ -4,6 +4,7 @@ import Foto4 from "../../asset/image/beras-giling.png";
 import Foto5 from "../../asset/image/beras_premium.png";
 import Foto6 from "../../asset/image/beras_medium.png";
 import Foto7 from "../../asset/image/beras_termurah.png";
+import { motion } from "framer-motion";
 
 const HargaKomoditas = () => {
   return (
