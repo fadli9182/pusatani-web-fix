@@ -41,7 +41,7 @@ const ArticleById = () => {
             Teknologi
           </button>
           <button onClick={() => setUrl(`${BASE_URL}/category/14`)} type="button" class="btn btn-primary">
-            Berani
+            Bertani
           </button>
           <button onClick={() => setUrl(`${BASE_URL}/category/15`)} type="button" class="btn btn-primary">
             Hama & Penyakit
