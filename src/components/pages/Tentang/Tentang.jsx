@@ -30,7 +30,7 @@ const Tentang = () => {
       </div>
       <div className="container my-5 card--about">
         <section className="story--about text-center">
-          <motion.img
+          <img
             whileHover={{ scale: 1.2, rotate: 360 }}
             whileTap={{
               scale: 0.8,

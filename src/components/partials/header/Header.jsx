@@ -49,7 +49,7 @@ function Header() {
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-transparent text-center">
-        <div className="container-fluid nav--item p-0 me-4">
+        <div className="container-fluid p-0 me-4">
           <Link to={"/"}>
             <img initial={{ rotate: 0 }} whileInView={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 1 }} className="ms-3 navbar--logo" src={Logo} width={"80px"} alt="logo" />
           </Link>

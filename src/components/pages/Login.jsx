@@ -52,6 +52,7 @@ const Login = () => {
       setEmail("");
       setPassword("");
       setLoading(false);
+      console.log(userName);
       console.log(res.data.data);
       console.log(res.data.data.user);
       navigate("/");

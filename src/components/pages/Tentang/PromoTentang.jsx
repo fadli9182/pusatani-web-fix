@@ -42,7 +42,7 @@ const PromoTentang = () => {
           </div>
         </div>
         <div className="col-md-6 promoBg">
-          <motion.img initial={{ scale: 1 }} whileHover={{ scale: 1.5 }} src={mobile3} alt="mobile3" width={"250px"} style={{ borderRadius: "20px" }} />
+          <motion.img initial={{ scale: 1 }} whileHover={{ scale: 1.1 }} src={mobile3} alt="mobile3" width={"250px"} style={{ borderRadius: "20px" }} />
         </div>
       </div>
     </>

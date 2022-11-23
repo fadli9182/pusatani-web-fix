@@ -14,7 +14,6 @@ const AkunPabrik = () => {
   function FormModal(props) {
     const [judul, setJudul] = useState("");
     const [body, setBody] = useState("");
-    const [category, setCategory] = useState();
     const [image, setImage] = useState(null);
 
     const addArtikel = async (e) => {
@@ -23,7 +22,7 @@ const AkunPabrik = () => {
 
       dataArtikel.append("title", judul);
       dataArtikel.append("body", body);
-      dataArtikel.append("category", category);
+      // dataArtikel.append("category", category);
       dataArtikel.append("image", image);
 
       try {

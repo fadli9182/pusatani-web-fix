@@ -2,7 +2,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Button, Modal } from "react-bootstrap";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import LoadingPage from "../../LoadingPage";
 import Footer from "../../partials/footer/Footer";
@@ -18,6 +18,8 @@ const AkunToko = () => {
   const [loading, setLoading] = useState(false);
   const idToko = localStorage.getItem("id_toko");
 
+  const navigate = useNavigate();
+
   const getaAkunToko = async () => {
     let res = await axios.get(`${BASE_URL}/tokoWith/${idToko}`, config);
     setAkunToko(res.data.data.data);
@@ -25,6 +27,7 @@ const AkunToko = () => {
     setPhone(res.data.data.phone);
     console.log(res.data.data.data);
     console.log(produks);
+    console.log(phone);
   };
   console.log(idToko);
   useEffect(() => {
@@ -34,7 +37,6 @@ const AkunToko = () => {
   function FormModal(props) {
     const [name, setName] = useState("");
     const [deskripsi, setDeskripsi] = useState("");
-    const [alamat, setAlamat] = useState("");
     const [price, setPrice] = useState("");
     const [image, setImage] = useState(null);
     const [stok, setStok] = useState("");
@@ -46,7 +48,6 @@ const AkunToko = () => {
       dataProduk.append("id_toko", idToko);
       dataProduk.append("name", name);
       dataProduk.append("detail", deskripsi);
-      dataProduk.append("address", alamat);
       dataProduk.append("price", price);
       dataProduk.append("stok", stok);
       dataProduk.append("image", image);
@@ -57,11 +58,18 @@ const AkunToko = () => {
         console.log(res);
         setLoading(false);
         Swal.fire("Berhasil", "Produk Berhasil Ditambahkan", "success");
+        getaAkunToko();
       } catch (error) {
         console.log(error);
         setLoading(false);
       }
     };
+
+    useEffect(() => {
+      if (akunToko === null) {
+        navigate("/login");
+      }
+    }, [akunToko, navigate]);
 
     if (loading) {
       return <LoadingPage />;
