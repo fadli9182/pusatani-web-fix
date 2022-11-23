@@ -4,6 +4,7 @@ import Logo from "../../asset/image/Logo.png";
 import { Link, NavLink } from "react-router-dom";
 import { deleteToken, getUser } from "../../utils/api";
 import { motion } from "framer-motion";
+import Swal from "sweetalert2";
 
 function Header() {
   const [isLogin, setIsLogin] = useState(false);
@@ -25,7 +26,23 @@ function Header() {
   };
 
   function userLogout() {
-    deleteToken();
+    Swal.fire({
+      title: "Apakah anda yakin?",
+      text: "Anda akan keluar dari akun anda",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Ya, keluar",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire("Berhasil!", "Anda telah keluar dari akun anda", "success");
+        deleteToken();
+        window.location.reload();
+      } else {
+        return;
+      }
+    });
   }
 
   return (
@@ -58,7 +75,7 @@ function Header() {
               </NavLink>
               {isLogin ? (
                 <div className="">
-                  <Link to={"/login"} onClick={userLogout}>
+                  <Link onClick={userLogout}>
                     <motion.button initial={{ scale: 1 }} whileHover={{ scale: 1.5 }} className="btn btn-danger" style={{ fontSize: "12px" }}>
                       Logout
                     </motion.button>
