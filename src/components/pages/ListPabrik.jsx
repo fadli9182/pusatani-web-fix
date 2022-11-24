@@ -39,7 +39,7 @@ const ListPabrik = () => {
         <table className="table table-striped table-sm">
           <thead>
             <tr>
-              <th scope="col">No</th>
+              <th scope="col">Id</th>
               <th scope="col">Foto Toko</th>
               <th scope="col">Nama Toko</th>
               <th scope="col">Alamat</th>

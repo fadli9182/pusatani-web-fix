@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import { BASE_URL } from "../../utils/api";
 import axios from "axios";
 import LoadingPage from "../../LoadingPage";
+import LoadingFetch from "../LoadingFetch";
 
 const ArticleById = () => {
   const [articles, setArticles] = useState([]);
@@ -14,6 +15,7 @@ const ArticleById = () => {
   const [url, setUrl] = useState(`${BASE_URL}/category/11`);
 
   async function getArticles() {
+    setLoading(true);
     try {
       // setLoading
       let res = await axios.get(url);
@@ -28,6 +30,10 @@ const ArticleById = () => {
   useEffect(() => {
     getArticles();
   }, [url]);
+
+  if (loading) {
+    return <LoadingFetch />;
+  }
 
   return (
     <>

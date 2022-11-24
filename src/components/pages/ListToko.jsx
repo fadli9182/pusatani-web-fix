@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import { BASE_URL, config } from "../utils/api";
 import axios from "axios";
 import Swal from "sweetalert2";
+import LoadingFetch from "./LoadingFetch";
 
 const ListToko = () => {
   const [tokos, setTokos] = useState();
+  const [loading, setLoading] = useState(false);
 
   async function getToko() {
     try {
@@ -20,15 +22,23 @@ const ListToko = () => {
   }, []);
 
   const handleDelete = async (id) => {
+    setLoading(true);
     try {
       let res = await axios.delete(`${BASE_URL}/toko/${id}`, config);
       console.log(res.data.data);
+      setLoading(false);
       Swal.fire("Berhasil", "Toko sudah dihapus", "success");
       getToko();
     } catch (e) {
       console.log(e);
+      Swal.fire("Gagal", "Toko gagal dihapus", "error");
+      setLoading(false);
     }
   };
+
+  if (loading) {
+    return <LoadingFetch />;
+  }
 
   return (
     <div>
@@ -37,7 +47,7 @@ const ListToko = () => {
         <table className="table table-striped table-sm">
           <thead>
             <tr>
-              <th scope="col">No</th>
+              <th scope="col">Id</th>
               <th scope="col">Foto KTP</th>
               <th scope="col">Nama Toko</th>
               <th scope="col">Alamat</th>

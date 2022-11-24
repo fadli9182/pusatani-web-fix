@@ -30,8 +30,8 @@ const Admin = () => {
   async function getArticles() {
     try {
       let res = await axios.get(`${BASE_URL}/article`);
-      setArticles(res.data.data.data);
-      console.log(res.data.data.data);
+      setArticles(res.data.data);
+      console.log(res.data.data);
     } catch (e) {
       console.log(e);
     }
