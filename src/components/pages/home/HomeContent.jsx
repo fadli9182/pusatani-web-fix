@@ -30,7 +30,7 @@ const HomeContent = () => {
           <div className="card text-light">
             <img src={Card3} className="card-img" alt="..." />
             <div className="card-img-overlay d-flex align-items-end flex-wrap">
-              <h5 className="card-title py-5">Tani Shop</h5>
+              <h5 className="card-title py-3">Tani Shop</h5>
               <p className="card-text article--text">Mempermudah para petani untuk mencari pabrik dan kios yang dibutuhkan</p>
               <p className="card-text py-2">
                 <Link to={"/shop"}>
@@ -42,11 +42,11 @@ const HomeContent = () => {
             </div>
           </div>
         </div>
-        <div className="col-lg-4 col-md-12 col-sm-12 col-xs-12 d-flex justify-content-center my-3">
+        <div className="col-lg-4 col-md-12 col-sm-12 col-xs-12 my-3 d-flex justify-content-center">
           <div className="card text-light">
             <img src={Card} className="card-img" alt="..." />
             <div className="card-img-overlay d-flex align-items-end flex-wrap">
-              <h5 className="card-title py-5">Aksebilitas</h5>
+              <h5 className="card-title py-3">Aksebilitas</h5>
               <p className="card-text article--text">Mempermudah para petani untuk mengakses fitur-fitur dan mendapatkan informasi</p>
               <p className="card-text py-2">
                 <Link to={""}>
