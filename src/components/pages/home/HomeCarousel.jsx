@@ -1,10 +1,10 @@
 import React from "react";
 import { Carousel } from "react-responsive-carousel";
-import Yanto from "../../asset/image/yanto.png";
-import Yanti from "../../asset/image/test.png";
-import Yatno from "../../asset/image/test2.png";
-import Yatna from "../../asset/image/test3.png";
-import Yantuy from "../../asset/image/test4.png";
+import Yanto from "../../asset/image/yanto.webp";
+import Yanti from "../../asset/image/test.webp";
+import Yatno from "../../asset/image/test2.webp";
+import Yatna from "../../asset/image/test3.webp";
+import Yantuy from "../../asset/image/test4.webp";
 
 const HomeCarousel = () => {
   return (

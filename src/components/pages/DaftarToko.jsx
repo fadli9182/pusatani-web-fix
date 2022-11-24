@@ -1,24 +1,21 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import LoadingPage from "../LoadingPage";
 import Footer from "../partials/footer/Footer";
 import Header from "../partials/header/Header";
-import { BASE_URL, deleteToken, getAccessToken } from "../utils/api";
+import { BASE_URL, deleteToken, getAccessToken, getUser } from "../utils/api";
 
 const DaftarToko = () => {
   const [namaToko, setNamaToko] = useState("");
-  const [user, setUser] = useState();
+  const user = useRef(getUser());
   const [addressToko, setAddressToko] = useState("");
   const [deskripsiToko, setDeskripsiToko] = useState("");
   const [phoneToko, setPhoneToko] = useState();
   const [fotoToko, setFotoToko] = useState();
-  const [status, setStatus] = useState();
   const [loading, setLoading] = useState(false);
-
-  const pemilik = JSON.parse(localStorage.getItem("user"));
-  // console.log(pemilik);
+  const navigate = useNavigate();
 
   const config = {
     headers: {
@@ -28,29 +25,21 @@ const DaftarToko = () => {
     },
   };
 
-  useEffect(() => {
-    setUser(pemilik.id);
-    setStatus("Not Verified");
-  }, [pemilik.id]);
-  // console.log(user);
-
-  const navigate = useNavigate();
   const addToko = async (e) => {
     e.preventDefault();
     const dataToko = new FormData();
-    dataToko.append("id_user", user);
+    dataToko.append("id_user", user.current.id);
     dataToko.append("name", namaToko);
     dataToko.append("address", addressToko);
     dataToko.append("deskripsi", deskripsiToko);
     dataToko.append("phone", phoneToko);
     dataToko.append("image", fotoToko);
-    dataToko.append("status", status);
-    setLoading(true);
+    dataToko.append("status", "Not Verified");
 
     try {
+      setLoading(true);
       let res = await axios.post(`${BASE_URL}/toko`, dataToko, config);
       console.log(res);
-      console.log(status);
       setLoading(false);
       Swal.fire("Berhasil!", "Silahkan Login Ulang", "success");
       deleteToken();
@@ -60,9 +49,21 @@ const DaftarToko = () => {
       setLoading(false);
     }
   };
+  useEffect(() => {
+    if (user.current == null) {
+      navigate("/login");
+    }
+  }, []);
 
   if (loading) {
-    return <LoadingPage />;
+    return (
+      <div className="d-flex justify-content-center align-items-center vh-100">
+        <div className="spinner-border" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </div>
+        <h1>Sedang memuat data...</h1>
+      </div>
+    );
   }
 
   return (
@@ -70,12 +71,6 @@ const DaftarToko = () => {
       <Header />
       <div className="container my-5 w-75">
         <form onSubmit={addToko}>
-          <div className="mb-3">
-            <label htmlFor="userToko" className="form-label">
-              Pemilik
-            </label>
-            <input disabled type="text" className="form-control" name="userToko" id="userToko" placeholder={pemilik.name} />
-          </div>
           <div className="mb-3">
             <label htmlFor="namaToko" className="form-label">
               Nama Toko

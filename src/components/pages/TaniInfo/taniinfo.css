@@ -1,5 +1,5 @@
 .info--bg {
-  background: url("../../asset/image/infoBg.jpg");
+  background: url("../../asset/image/infoBg.webp");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -22,7 +22,7 @@
   justify-content: center;
   background-color: rgb(255, 255, 255, 0.5);
   border-radius: 20px;
-  /* width: fit-content; */
+  width: fit-content;
   padding: 34px;
   margin: auto;
   margin-top: 100px;
@@ -54,7 +54,7 @@
 .jumlah--content {
   /* margin: 30px 0; */
   height: 350px;
-  background: url("../../asset/image/petanimuda.png");
+  background: url("../../asset/image/petanimuda.webp");
   background-size: cover;
   background-repeat: no-repeat;
   text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;

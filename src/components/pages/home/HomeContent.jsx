@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Card from "../../asset/image/card.png";
-import Card2 from "../../asset/image/card2.png";
-import Card3 from "../../asset/image/card4.png";
+import Card from "../../asset/image/card.webp";
+import Card2 from "../../asset/image/card2.webp";
+import Card3 from "../../asset/image/card4.webp";
 import { motion } from "framer-motion";
 import "./home.css";
 

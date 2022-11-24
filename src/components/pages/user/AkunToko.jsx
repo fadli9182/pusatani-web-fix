@@ -16,11 +16,12 @@ const AkunToko = () => {
   const [produks, setProduks] = useState([]);
   const [phone, setPhone] = useState("");
   const [loading, setLoading] = useState(false);
-  const idToko = localStorage.getItem("id_toko");
+  const idToko = JSON.parse(localStorage.getItem("id_toko"));
 
   const navigate = useNavigate();
 
   const getaAkunToko = async () => {
+    if (idToko == null) return;
     let res = await axios.get(`${BASE_URL}/tokoWith/${idToko}`, config);
     setAkunToko(res.data.data.data);
     setProduks(res.data.data.data.toko_to_produk);
@@ -55,7 +56,7 @@ const AkunToko = () => {
       try {
         setLoading(true);
         let res = await axios.post(`${BASE_URL}/produk`, dataProduk, config);
-        console.log(res);
+        console.log(res.status);
         setLoading(false);
         Swal.fire("Berhasil", "Produk Berhasil Ditambahkan", "success");
         getaAkunToko();
@@ -131,30 +132,26 @@ const AkunToko = () => {
       <Header />
       <div className="container mt-0 pt-0">
         <h1 className="text-center fw-bold text--green">Toko Anda</h1>
-        {idToko ? (
-          <>
-            <div className="card mb-5 card--pabrik" style={{ maxWidth: "100%" }}>
-              <div className="row g-0">
-                <div className="col-md-4 d-flex justify-content-center ">
-                  <img src={akunToko.image} className="img-fluid p-3" alt="Foto Toko" style={{ height: "200px", width: "300px", borderRadius: "20px" }} />
-                </div>
-                <div className="col-md-8">
-                  <div className="card-body">
-                    <h5 className="card-title fw-bold" style={{ textTransform: "capitalize" }}>
-                      {akunToko.name}
-                    </h5>
-                    <p>Pemilik: {akunToko.user_name}</p>
-                    <hr />
-                    <p className="card-text">Alamat: {akunToko.address}</p>
-                  </div>
+        {!idToko ? (
+          <h1>Belum ada Toko</h1>
+        ) : (
+          <div className="card mb-5 card--pabrik" style={{ maxWidth: "100%" }}>
+            <div className="row g-0">
+              <div className="col-md-4 d-flex justify-content-center ">
+                <img src={akunToko.image} className="img-fluid p-3" alt="Foto Toko" style={{ height: "200px", width: "300px", borderRadius: "20px" }} />
+              </div>
+              <div className="col-md-8">
+                <div className="card-body">
+                  <h5 className="card-title fw-bold" style={{ textTransform: "capitalize" }}>
+                    {akunToko.name}
+                  </h5>
+                  <p>Pemilik: {akunToko.user_name}</p>
+                  <hr />
+                  <p className="card-text">Alamat: {akunToko.address}</p>
                 </div>
               </div>
             </div>
-          </>
-        ) : (
-          <>
-            <h1>Anda Belum Mempunyai Toko</h1>
-          </>
+          </div>
         )}
         <section>
           <h1 className="fw-bold text-center">Produk / Permintaan Anda</h1>
@@ -162,8 +159,10 @@ const AkunToko = () => {
             Tambahkan
           </button>
           <div className="row">
-            {!idToko ? (
-              <h1>Belum Ada produk</h1>
+            {produks.length <= 0 ? (
+              <>
+                <h1>Belum Ada produk</h1>
+              </>
             ) : (
               <>
                 {produks.map((produk) => {

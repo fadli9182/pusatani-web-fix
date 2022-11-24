@@ -87,6 +87,7 @@ function Register() {
       // alert();
     }
   };
+  console.log(role);
 
   if (loading) {
     return (
@@ -94,6 +95,7 @@ function Register() {
         <div className="spinner-border" role="status">
           <span className="visually-hidden">Loading...</span>
         </div>
+        <h1>Sedang memuat data...</h1>
       </div>
     );
   }
@@ -141,7 +143,9 @@ function Register() {
                     Jenis Akun
                   </label>
                   <select onChange={(e) => setRole(e.target.value)} className="form-select form-control h-50" name="role" id="role" defaultValue={"default"}>
-                    <option disabled>Pilih Jenis Akun</option>
+                    <option disabled value="default">
+                      Pilih Jenis Akun
+                    </option>
                     <option value="2">Pabrik</option>
                     <option value="3">Toko</option>
                   </select>

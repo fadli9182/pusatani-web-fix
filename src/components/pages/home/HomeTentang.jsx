@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import TypewriterComponent from "typewriter-effect";
-import Main from "../../asset/image/main.png";
+import Main from "../../asset/image/main.webp";
 import { motion } from "framer-motion";
 
 const HomeTentang = () => {

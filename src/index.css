@@ -136,7 +136,7 @@ section {
 }
 
 .login--page-left {
-  background: url("./components/asset/image/bg1.jpg");
+  background: url("./components/asset/image/bg1.webp");
   background-size: cover;
   background-position: top left;
 }

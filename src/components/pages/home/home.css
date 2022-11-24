@@ -27,6 +27,11 @@
   margin-top: 100px;
   color: #2c774b;
 }
+
+.tujuan--left img {
+  border-radius: 20px !important;
+}
+
 .carousel-root {
   width: 64% !important;
   margin: auto !important;

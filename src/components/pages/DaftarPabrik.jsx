@@ -1,19 +1,20 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 import Footer from "../partials/footer/Footer";
 import Header from "../partials/header/Header";
-import { BASE_URL, getAccessToken } from "../utils/api";
+import { BASE_URL, deleteToken, getAccessToken, getUser } from "../utils/api";
 
 const DaftarPabrik = () => {
   const [namaPabrik, setNamaPabrik] = useState("");
-  const [user, setUser] = useState();
+  const user = useRef(getUser());
+  const [loading, setLoading] = useState(false);
   const [addressPabrik, setAddressPabrik] = useState("");
   const [deskripsiPabrik, setDeskripsiPabrik] = useState("");
   const [phonePabrik, setPhonePabrik] = useState();
   const [fotoPabrik, setFotoPabrik] = useState();
-  const [status, setStatus] = useState();
-
-  const pemilik = JSON.parse(localStorage.getItem("user"));
+  const navigate = useNavigate();
 
   const config = {
     headers: {
@@ -23,34 +24,46 @@ const DaftarPabrik = () => {
     },
   };
 
-  useEffect(() => {
-    setUser(pemilik.id);
-    setStatus("Not Verified");
-  }, [pemilik.id]);
-  console.log(user);
-
-  const navigate = useState();
   const addPabrik = async (e) => {
     e.preventDefault();
     const dataPabrik = new FormData();
-    dataPabrik.append("id_user", user);
+    dataPabrik.append("id_user", user.current.id);
     dataPabrik.append("name", namaPabrik);
     dataPabrik.append("address", addressPabrik);
     dataPabrik.append("deskripsi", deskripsiPabrik);
     dataPabrik.append("phone", phonePabrik);
     dataPabrik.append("image", fotoPabrik);
-    dataPabrik.append("status", status);
+    dataPabrik.append("status", "Not Verified");
 
     try {
+      setLoading(true);
       let res = await axios.post(`${BASE_URL}/pabrik`, dataPabrik, config);
       console.log(res);
-      console.log(status);
-      alert("daftar berhasil");
-      navigate("");
+      Swal.fire("Berhasil!", "Silahkan Login Ulang", "success");
+      setLoading(false);
+      deleteToken();
+      navigate("/login");
     } catch (err) {
       console.log(err);
     }
   };
+
+  useEffect(() => {
+    if (user.current == null) {
+      navigate("/login");
+    }
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="d-flex justify-content-center align-items-center vh-100">
+        <div className="spinner-border" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </div>
+        <h1>Sedang memuat data...</h1>
+      </div>
+    );
+  }
 
   return (
     <>
@@ -58,28 +71,22 @@ const DaftarPabrik = () => {
       <div className="container my-5 w-75">
         <form onSubmit={addPabrik}>
           <div className="mb-3">
-            <label htmlFor="userToko" className="form-label">
-              Pemilik
-            </label>
-            <input disabled type="text" className="form-control" name="userToko" id="userToko" placeholder={pemilik.name} />
-          </div>
-          <div className="mb-3">
-            <label htmlFor="namaToko" className="form-label">
+            <label htmlFor="namaPabrik" className="form-label">
               Nama Pabrik
             </label>
-            <input onChange={(e) => setNamaPabrik(e.target.value)} type="text" className="form-control" name="namaToko" id="namaToko" placeholder="Masukan Nama Toko" />
+            <input onChange={(e) => setNamaPabrik(e.target.value)} type="text" className="form-control" name="namaPabrik" id="namaPabrik" placeholder="Masukan Nama Pabrik" />
           </div>
           <div className="mb-3">
             <label htmlFor="alamat" className="form-label">
               Alamat
             </label>
-            <textarea onChange={(e) => setAddressPabrik(e.target.value)} type="text" className="form-control" name="alamat" id="alamat" placeholder="Masukan Alamat Toko" />
+            <textarea onChange={(e) => setAddressPabrik(e.target.value)} type="text" className="form-control" name="alamat" id="alamat" placeholder="Masukan Alamat Pabrik" />
           </div>
           <div className="mb-3">
             <label htmlFor="alamat" className="form-label">
               Deskripsi
             </label>
-            <textarea onChange={(e) => setDeskripsiPabrik(e.target.value)} type="text" className="form-control" name="deskripsi" id="deskripsi" placeholder="Masukan Deskripsi Toko" />
+            <textarea onChange={(e) => setDeskripsiPabrik(e.target.value)} type="text" className="form-control" name="deskripsi" id="deskripsi" placeholder="Masukan Deskripsi Pabrik" />
           </div>
           <div className="mb-3">
             <label htmlFor="telp" className="form-label">

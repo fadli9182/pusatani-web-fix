@@ -79,7 +79,7 @@ function Header() {
               {isLogin ? (
                 <div className="">
                   <Link onClick={userLogout}>
-                    <motion.button initial={{ scale: 1 }} whileHover={{ scale: 1.5 }} className="btn btn-danger" style={{ fontSize: "12px" }}>
+                    <motion.button initial={{ scale: 1 }} whileHover={{ scale: 1.1 }} className="btn btn-danger" style={{ fontSize: "12px" }}>
                       Logout
                     </motion.button>
                   </Link>
@@ -87,7 +87,7 @@ function Header() {
               ) : (
                 <div className="">
                   <Link to={"/login"}>
-                    <motion.button initial={{ scale: 1 }} whileHover={{ scale: 1.5 }} className="btn btn-success" style={{ fontSize: "12px" }}>
+                    <motion.button initial={{ scale: 1 }} whileHover={{ scale: 1.1 }} className="btn btn-success" style={{ fontSize: "12px" }}>
                       Login
                     </motion.button>
                   </Link>

@@ -1,8 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
-import G1 from "../../asset/image/g1.png";
-import G2 from "../../asset/image/g2.png";
-import G3 from "../../asset/image/g3.png";
+import G1 from "../../asset/image/g1.jpg";
+import G2 from "../../asset/image/g2.webp";
+import G3 from "../../asset/image/g3.webp";
 import I1 from "../../asset/image/cepat1.png";
 import I2 from "../../asset/image/cepat2.png";
 import I3 from "../../asset/image/cepat3.png";
@@ -36,14 +36,14 @@ const Tujuan = () => {
               </div>
             </div>
           </div>
-          <div className="col-md-5 ">
+          <div className="col-md-5 tujuan--left ">
             <div className="row">
               <div className="col-md-12">
                 <motion.img
                   whileHover={{
                     scale: 1.1,
                   }}
-                  className="img-fluid w-100"
+                  className="img-fluid w-100 border-rounded"
                   src={G1}
                   alt=""
                 />

@@ -12,6 +12,7 @@ const EditProfil = () => {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [idAkun, setIdAkun] = useState("");
+  const [profile, setProfile] = useState("");
   const navigate = useNavigate();
 
   const getAkun = async () => {
@@ -22,6 +23,7 @@ const EditProfil = () => {
       setNama(res.name);
       setEmail(res.email);
       setPhone(res.user_details.phone);
+      setProfile(res.user_details.photo_profile);
       setIdAkun(res.id);
       console.log(idAkun);
     } catch (error) {
@@ -48,19 +50,19 @@ const EditProfil = () => {
         <div className="row">
           <div className="col-md-3">
             <div className="text-center mb-5">
-              <img src="" className="avatar img-circle img-thumbnail mb-3" alt="avatar" />
+              <img src={`https://pusatani.masuk.web.id/images/profile/${profile}`} className="avatar img-circle img-thumbnail mb-3" height={"200px"} width={"200px"} alt="avatar" />
               <h6>Upload Foto...</h6>
 
               <input type="file" className="form-control h-50" />
             </div>
             <div className="list">
               <Link style={{ textDecoration: "none" }} to={"/profilToko"}>
-                <motion.button initial={{ scale: 1 }} whileHover={{ scale: 1.5 }} className="btn--login mb-5 me-3">
+                <motion.button initial={{ scale: 1 }} whileHover={{ scale: 1.1 }} className="btn--login mb-5 me-3">
                   Lihat Toko Anda
                 </motion.button>
               </Link>
               <Link style={{ textDecoration: "none" }} to={"/profilPabrik"}>
-                <motion.button initial={{ scale: 1 }} whileHover={{ scale: 1.5 }} className="btn--login">
+                <motion.button initial={{ scale: 1 }} whileHover={{ scale: 1.1 }} className="btn--login">
                   Lihat Pabrik Anda
                 </motion.button>
               </Link>
@@ -92,7 +94,7 @@ const EditProfil = () => {
               </div>
             </form>
           </div>
-          <motion.button initial={{ scale: 1 }} whileHover={{ scale: 1.5 }} className="btn--login my-3">
+          <motion.button initial={{ scale: 1 }} whileHover={{ scale: 1.1 }} className="btn--login my-3">
             Update
           </motion.button>
         </div>

@@ -90,7 +90,7 @@ const DetailShop = () => {
                           <p className="fw-bold">Stok: {produk.stok} </p>
                         </div>
                         <div className="d-flex justify-content-center m-2">
-                          <a href={`https://wa.me/+62${phoneToko}`}>
+                          <a href={`https://wa.me/${phoneToko}`}>
                             <motion.button className="btn--login" initial={{ scale: 1 }} whileHover={{ scale: 1.5 }}>
                               Hubungi Kami
                             </motion.button>

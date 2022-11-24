@@ -1,6 +1,6 @@
 import React from "react";
 import mobile3 from "../../asset/image/mobile3.png";
-import { AiOutlineAmazon, AiOutlineCloud, AiOutlineSmile, AiOutlineThunderbolt } from "react-icons/ai";
+import { AiOutlineAmazon, AiOutlineCloud, AiOutlineMessage, AiOutlineSmile, AiOutlineThunderbolt } from "react-icons/ai";
 import { motion } from "framer-motion";
 
 const PromoTentang = () => {
@@ -8,7 +8,7 @@ const PromoTentang = () => {
     <>
       <div className="row mb-5">
         <div className="col-md-6">
-          <h1 className="fw-bold text--green">Memangnya ada fitur apa aja sih di aplikasi yang katanya keren ini? Jadi penasaran nich~</h1>
+          <h1 className="fw-bold text--green">Memangnya ada fitur apa aja sih di aplikasi yang katanya keren ini?</h1>
           <p>Aplikasi sekeren ini akan membuat kamu tidak perlu menghafal harga padi dan pupuk yang ada di Indramayu</p>
           <div className="row">
             <div className="col-6">
@@ -27,10 +27,10 @@ const PromoTentang = () => {
             </div>
             <div className="col-6">
               <div className="icons" style={{ fontSize: "40px" }}>
-                <AiOutlineAmazon />
+                <AiOutlineMessage />
               </div>
-              <h4 className="fw-bold">Amazon Cupu</h4>
-              <p>Amazon mah ga ada apa apanya</p>
+              <h4 className="fw-bold">Berikirim Pesan</h4>
+              <p>Anda bisa berkirim pesan lewat whatsapp langsung dengan pemilik toko</p>
             </div>
             <div className="col-6">
               <div className="icons" style={{ fontSize: "40px" }}>
