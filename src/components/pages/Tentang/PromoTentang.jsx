@@ -1,6 +1,6 @@
 import React from "react";
 import mobile3 from "../../asset/image/mobile3.png";
-import { AiOutlineAmazon, AiOutlineCloud, AiOutlineMessage, AiOutlineSmile, AiOutlineThunderbolt } from "react-icons/ai";
+import { AiOutlineCloud, AiOutlineMessage, AiOutlineSmile, AiOutlineThunderbolt } from "react-icons/ai";
 import { motion } from "framer-motion";
 
 const PromoTentang = () => {

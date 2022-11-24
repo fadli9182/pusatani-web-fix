@@ -1,8 +1,8 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-import LoadingPage from "../LoadingPage";
 import Footer from "../partials/footer/Footer";
 import Header from "../partials/header/Header";
 import { BASE_URL, deleteToken, getAccessToken, getUser } from "../utils/api";
