@@ -84,6 +84,7 @@ function Register() {
     } catch (err) {
       // const resJson = JSON.stringify(response.response.data.errors);
       console.log(err.response.data.errors);
+      setLoading(false)
       // alert();
     }
   };

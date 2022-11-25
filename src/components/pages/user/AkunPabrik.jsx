@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 import LoadingPage from "../../LoadingPage";
 import Footer from "../../partials/footer/Footer";
 import Header from "../../partials/header/Header";
-import { BASE_URL, config } from "../../utils/api";
+import { BASE_URL, getAccessToken } from "../../utils/api";
 import "./akun.css";
 
 const AkunPabrik = () => {
@@ -19,6 +19,14 @@ const AkunPabrik = () => {
   const idPabrik = JSON.parse(localStorage.getItem("id_pabrik"));
 
   const navigate = useNavigate();
+
+  const config = {
+    headers: {
+      Authorization: `Bearer ${getAccessToken()}`,
+      "Content-Type": "multipart/form-data",
+      Accept: "application/json",
+    },
+  };
 
   const getaAkunToko = async () => {
     if (idPabrik == null) return;
