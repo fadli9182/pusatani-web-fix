@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 import LoadingPage from "../../LoadingPage";
 import Footer from "../../partials/footer/Footer";
 import Header from "../../partials/header/Header";
-import { BASE_URL, config } from "../../utils/api";
+import { BASE_URL, getAccessToken } from "../../utils/api";
 import "./akun.css";
 
 const AkunToko = () => {
@@ -19,6 +19,14 @@ const AkunToko = () => {
   const idToko = JSON.parse(localStorage.getItem("id_toko"));
 
   const navigate = useNavigate();
+
+  const config = {
+    headers: {
+      Authorization: `Bearer ${getAccessToken()}`,
+      "Content-Type": "multipart/form-data",
+      Accept: "application/json",
+    },
+  };
 
   const getaAkunToko = async () => {
     if (idToko == null) return;
@@ -174,6 +182,7 @@ const AkunToko = () => {
                           </div>
                           <h5 className="card-title fw-bold">Detail Produk</h5>
                           <p style={{ textAlign: "justify" }}>{produk.detail}</p>
+                          <p style={{ textAlign: "justify" }} className="fw-bold">{produk.stok}</p>
                           <p className="card-text fw-bold">Rp: {produk.price}</p>
                         </div>
                         {/* <div className="d-flex justify-content-center m-2">
