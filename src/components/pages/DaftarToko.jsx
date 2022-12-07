@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
+import { Form, InputGroup } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import Footer from "../partials/footer/Footer";
@@ -16,6 +17,8 @@ const DaftarToko = () => {
   const [fotoToko, setFotoToko] = useState();
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+
+  const idToko = localStorage.getItem("id_toko");
 
   const config = {
     headers: {
@@ -51,6 +54,12 @@ const DaftarToko = () => {
   useEffect(() => {
     if (user.current == null) {
       navigate("/login");
+    } else if (idToko !== "null") {
+      Swal.fire("Anda Sudah Punya Toko", "", "error");
+      navigate("/");
+    } else if (user.current.roles[0].name !== "Toko") {
+      Swal.fire("Akun anda bukan Toko", "", "error");
+      navigate("/");
     }
   }, []);
 
@@ -92,13 +101,20 @@ const DaftarToko = () => {
             <label htmlFor="telp" className="form-label">
               Nomer Telepon
             </label>
-            <input onChange={(e) => setPhoneToko(e.target.value)} type="number" className="form-control" name="telp" id="telp" placeholder="+62" />
+            <InputGroup>
+              <InputGroup.Text>
+                <p className="d-flex align-items-center justify-content-center m-0" style={{ fontSize: "12px" }}>
+                  +62
+                </p>
+              </InputGroup.Text>
+              <Form.Control type="number" onChange={(e) => setPhoneToko(e.target.value)} name="phone" id="phone" />
+            </InputGroup>
           </div>
           <div className="mb-3">
             <label htmlFor="file" className="form-label">
               Foto Toko
             </label>
-            <input onChange={(e) => setFotoToko(e.target.files[0])} accept=".jpg, .png, .jpeg" type="file" className="form-control" name="file" id="file" />
+            <input onChange={(e) => setFotoToko(e.target.files[0])} accept=".jpg, .png, .jpeg" type="file" className="form-control h-100" name="file" id="file" />
           </div>
           <button className="btn--login w-100">Daftar</button>
         </form>

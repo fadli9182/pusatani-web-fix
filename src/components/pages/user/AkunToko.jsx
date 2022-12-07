@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { Button, Modal } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-import LoadingPage from "../../LoadingPage";
+import LoadingFetch from "../LoadingFetch";
 import Footer from "../../partials/footer/Footer";
 import Header from "../../partials/header/Header";
 import { BASE_URL, getAccessToken } from "../../utils/api";
@@ -14,7 +14,6 @@ const AkunToko = () => {
   const [modalShow, setModalShow] = React.useState(false);
   const [akunToko, setAkunToko] = useState([]);
   const [produks, setProduks] = useState([]);
-  const [setPhone] = useState("");
   const [loading, setLoading] = useState(false);
   const idToko = JSON.parse(localStorage.getItem("id_toko"));
 
@@ -30,15 +29,19 @@ const AkunToko = () => {
 
   const getaAkunToko = async () => {
     if (idToko == null) return;
+    setLoading(true);
     let res = await axios.get(`${BASE_URL}/tokoWith/${idToko}`, config);
     setAkunToko(res.data.data.data);
     setProduks(res.data.data.data.toko_to_produk);
-    setPhone(res.data.data.phone);
+    setLoading(false);
   };
-  console.log(idToko);
   useEffect(() => {
     getaAkunToko();
   }, []);
+
+  if (loading) {
+    return <LoadingFetch />;
+  }
 
   function FormModal(props) {
     const [name, setName] = useState("");
@@ -75,10 +78,6 @@ const AkunToko = () => {
         navigate("/login");
       }
     }, [akunToko, navigate]);
-
-    if (loading) {
-      return <LoadingPage />;
-    }
 
     return (
       <Modal {...props} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
@@ -137,7 +136,9 @@ const AkunToko = () => {
       <div className="container mt-0 pt-0">
         <h1 className="text-center fw-bold text--green">Toko Anda</h1>
         {!idToko ? (
-          <h1>Belum ada Toko</h1>
+          <div className="d-flex justify-content-center p-5">
+            <h1>Belum Ada produk</h1>
+          </div>
         ) : (
           <div className="card mb-5 card--pabrik" style={{ maxWidth: "100%" }}>
             <div className="row g-0">
@@ -158,20 +159,22 @@ const AkunToko = () => {
           </div>
         )}
         <section>
-          <h1 className="fw-bold text-center">Produk / Permintaan Anda</h1>
+          <h1 className="fw-bold text-center text--green">Produk Anda</h1>
           <button className="btn--login my-3" onClick={() => setModalShow(true)}>
             Tambahkan
           </button>
           <div className="row">
             {produks.length <= 0 ? (
               <>
-                <h1>Belum Ada produk</h1>
+                <div className="d-flex justify-content-center p-5">
+                  <h1>Belum Ada produk</h1>
+                </div>
               </>
             ) : (
               <>
                 {produks.map((produk) => {
                   return (
-                    <div key={produk.map} className="col-xl-4 col-md-6 col-sm-12 mb-3">
+                    <div key={produk.id} className="col-xl-4 col-md-6 col-sm-12 mb-3">
                       <div className="card mb-3 h-100">
                         <div className="card-header fw-bold" style={{ textTransform: "capitalize" }}>
                           {produk.name}
@@ -182,7 +185,9 @@ const AkunToko = () => {
                           </div>
                           <h5 className="card-title fw-bold">Detail Produk</h5>
                           <p style={{ textAlign: "justify" }}>{produk.detail}</p>
-                          <p style={{ textAlign: "justify" }} className="fw-bold">{produk.stok}</p>
+                          <p style={{ textAlign: "justify" }} className="fw-bold">
+                            {produk.stok}
+                          </p>
                           <p className="card-text fw-bold">Rp: {produk.price}</p>
                         </div>
                         {/* <div className="d-flex justify-content-center m-2">

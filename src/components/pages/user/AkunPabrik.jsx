@@ -4,17 +4,16 @@ import React, { useEffect, useState } from "react";
 import { Button, Modal } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-import LoadingPage from "../../LoadingPage";
 import Footer from "../../partials/footer/Footer";
 import Header from "../../partials/header/Header";
 import { BASE_URL, getAccessToken } from "../../utils/api";
+import LoadingFetch from "../LoadingFetch";
 import "./akun.css";
 
 const AkunPabrik = () => {
   const [modalShow, setModalShow] = React.useState(false);
   const [akunPabrik, setAkunPabrik] = useState([]);
   const [produks, setProduks] = useState([]);
-  const [setPhone] = useState("");
   const [loading, setLoading] = useState(false);
   const idPabrik = JSON.parse(localStorage.getItem("id_pabrik"));
 
@@ -30,12 +29,12 @@ const AkunPabrik = () => {
 
   const getaAkunToko = async () => {
     if (idPabrik == null) return;
+    setLoading(true);
     let res = await axios.get(`${BASE_URL}/pabrikWith/${idPabrik}`, config);
     setAkunPabrik(res.data.data.data);
     setProduks(res.data.data.data.pabrik_to_gabah);
-    setPhone(res.data.data.phone);
+    setLoading(false);
   };
-  console.log(idPabrik);
   useEffect(() => {
     getaAkunToko();
   }, []);
@@ -75,7 +74,7 @@ const AkunPabrik = () => {
     }, [akunPabrik, navigate]);
 
     if (loading) {
-      return <LoadingPage />;
+      return <LoadingFetch />;
     }
 
     return (
@@ -125,7 +124,9 @@ const AkunPabrik = () => {
       <div className="container mt-0 pt-0">
         <h1 className="text-center fw-bold text--green">Toko Anda</h1>
         {!idPabrik ? (
-          <h1>Belum ada Toko</h1>
+          <div className="d-flex justify-content-center p-5">
+            <h1>Belum Ada Pabrik</h1>
+          </div>
         ) : (
           <div className="card mb-5 card--pabrik" style={{ maxWidth: "100%" }}>
             <div className="row g-0">
@@ -146,20 +147,22 @@ const AkunPabrik = () => {
           </div>
         )}
         <section>
-          <h1 className="fw-bold text-center">Produk / Permintaan Anda</h1>
+          <h1 className="fw-bold text-center text--green">Permintaan Anda</h1>
           <button className="btn--login my-3" onClick={() => setModalShow(true)}>
             Tambahkan
           </button>
           <div className="row">
             {produks.length <= 0 ? (
               <>
-                <h1>Belum Ada produk</h1>
+                <div className="d-flex justify-content-center p-5">
+                  <h1>Belum Ada produk</h1>
+                </div>
               </>
             ) : (
               <>
                 {produks.map((produk) => {
                   return (
-                    <div key={produk.map} className="col-xl-4 col-md-6 col-sm-12 mb-3">
+                    <div key={produk.id} className="col-xl-4 col-md-6 col-sm-12 mb-3">
                       <div className="card mb-3 h-100">
                         <div className="card-header fw-bold" style={{ textTransform: "capitalize" }}>
                           {produk.name}
