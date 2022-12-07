@@ -76,18 +76,15 @@ function Register() {
     try {
       setLoading(true);
       formValidation();
-      let res = await axios.post(`${BASE_URL}/auth/signup`, data, config);
-      console.log(res);
+      await axios.post(`${BASE_URL}/auth/signup`, data, config);
       setLoading(false);
       Swal.fire("Berhasil!", "Akun berhasil dibuat", "success");
       navigate("/login");
     } catch (err) {
-      // const resJson = JSON.stringify(response.response.data.errors);
+      setLoading(false);
       console.log(err.response.data.errors);
-      // alert();
     }
   };
-  console.log(role);
 
   if (loading) {
     return (
@@ -136,7 +133,7 @@ function Register() {
                   <label htmlFor="address" className="form-label d-flex">
                     Alamat
                   </label>
-                  <textarea onChange={(e) => setAddress(e.target.value)} className="form-control" name="address" id="address" rows="3"></textarea>
+                  <textarea onChange={(e) => setAddress(e.target.value)} className="form-control" name="address" id="address" rows="3" placeholder="Masukan Alamat" />
                 </div>
                 <div className="form-outline mb-2">
                   <label className="form-label d-flex" htmlFor="role">
@@ -196,7 +193,6 @@ function Register() {
               <h5>Pusat Informasi Petani</h5>
               <p>Dengan Teknologi memberi solusi untuk Petani</p>
             </div>
-            {/* <div className="col-lg-12 login--page-left " style={{ width: "100%", height: "500px" }}></div> */}
           </div>
         </div>
       </div>

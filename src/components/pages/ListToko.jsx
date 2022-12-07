@@ -12,7 +12,6 @@ const ListToko = () => {
     try {
       let res = await axios.get(`${BASE_URL}/toko`);
       setTokos(res.data.data.data);
-      console.log(res.data.data.data);
     } catch (e) {
       console.log(e);
     }

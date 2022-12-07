@@ -30,16 +30,7 @@ const Tentang = () => {
       </div>
       <div className="container my-5 card--about">
         <section className="story--about text-center">
-          <img
-            whileHover={{ scale: 1.2, rotate: 360 }}
-            whileTap={{
-              scale: 0.8,
-              rotate: 360,
-            }}
-            src={Logo}
-            alt=""
-            className="my-4"
-          />
+          <img src={Logo} alt="" className="my-4" />
 
           <motion.p initial={{ opacity: 0, x: -100 }} whileInView={{ opacity: 1, x: 0 }} transition={{ type: "tween", stiffness: 100, duration: 2 }} className="text-start">
             Indonesia adalah negara agraris yang mayoritas penduduknya bermata pencaharian sebagai <strong>petani</strong>. khususnya di daerah <strong>Indramayu</strong> dimana banyaknya hasil pertanian dan harga yang tidak pasti dengan

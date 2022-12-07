@@ -38,8 +38,7 @@ const DaftarToko = () => {
 
     try {
       setLoading(true);
-      let res = await axios.post(`${BASE_URL}/toko`, dataToko, config);
-      console.log(res);
+      await axios.post(`${BASE_URL}/toko`, dataToko, config);
       setLoading(false);
       Swal.fire("Berhasil!", "Silahkan Login Ulang", "success");
       deleteToken();

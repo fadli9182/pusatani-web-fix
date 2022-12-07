@@ -6,8 +6,8 @@ import Header from "../../partials/header/Header";
 import { motion } from "framer-motion";
 import { BASE_URL } from "../../utils/api";
 import axios from "axios";
-import LoadingPage from "../../LoadingPage";
 import LoadingFetch from "../LoadingFetch";
+import("./taniinfo.css");
 
 const ArticleById = () => {
   const [articles, setArticles] = useState([]);
@@ -21,7 +21,6 @@ const ArticleById = () => {
       let res = await axios.get(url);
       setLoading(false);
       setArticles(res.data.data);
-      console.log(res.data.data);
     } catch (e) {
       console.log(e);
     }
@@ -31,26 +30,21 @@ const ArticleById = () => {
     getArticles();
   }, [url]);
 
-  if (loading) {
-    return <LoadingFetch />;
-  }
-
   return (
     <>
       <Header />
-
       <div className="container">
-        <div class="btn-group" role="group" aria-label="Basic example">
-          <button onClick={() => setUrl(`${BASE_URL}/category/12`)} type="button" class="btn btn-primary">
+        <div class="btn-group mb-3 d-flex justify-items-center" role="group" aria-label="Basic example">
+          <button onClick={() => setUrl(`${BASE_URL}/category/12`)} type="button" class="p-4 btn btn--login color__white">
             Berita Baru
           </button>
-          <button onClick={() => setUrl(`${BASE_URL}/category/13`)} type="button" class="btn btn-primary">
+          <button onClick={() => setUrl(`${BASE_URL}/category/13`)} type="button" class="btn btn--login color__white">
             Teknologi
           </button>
-          <button onClick={() => setUrl(`${BASE_URL}/category/14`)} type="button" class="btn btn-primary">
+          <button onClick={() => setUrl(`${BASE_URL}/category/14`)} type="button" class="btn btn--login color__white">
             Bertani
           </button>
-          <button onClick={() => setUrl(`${BASE_URL}/category/15`)} type="button" class="btn btn-primary">
+          <button onClick={() => setUrl(`${BASE_URL}/category/15`)} type="button" class="btn btn--login color__white">
             Hama & Penyakit
           </button>
         </div>
@@ -60,7 +54,7 @@ const ArticleById = () => {
               Tidak Ada Berita
             </h1>
           ) : loading ? (
-            <LoadingPage />
+            <LoadingFetch />
           ) : (
             <>
               {articles.map((article) => (

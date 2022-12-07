@@ -23,7 +23,7 @@ const ListArticle = ({ articles, loading }) => {
                   {article.body}
                 </p>
                 <Link to={`/post/${article.id}`}>
-                  <motion.button initial={{ scale: 1 }} whileHover={{ scale: 1.1 }} className="btn--login">
+                  <motion.button initial={{ scale: 1 }} whileHover={{ scale: 0.9 }} className="btn--login">
                     Lihat Selengkapnya
                   </motion.button>
                 </Link>

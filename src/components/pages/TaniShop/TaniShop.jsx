@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./tanishop.css";
 import Header from "../../partials/header/Header";
 import Footer from "../../partials/footer/Footer";
@@ -8,6 +8,7 @@ import Toko from "./Toko";
 import TypewriterComponent from "typewriter-effect";
 
 const TaniShop = () => {
+  const [status, setStatus] = useState("toko");
   return (
     <>
       <div className="shop--bg">
@@ -33,15 +34,25 @@ const TaniShop = () => {
             <p>Yang Sudah Menjadi Partner Kami</p>
           </div>
         </section>
-        <section>
-          <h2 className="fw-bold mb-4">Daftar Nama Toko</h2>
-          <Toko />
-        </section>
-
-        <section>
-          <h2 className="fw-bold mb-4">Daftar Nama Pabrik</h2>
-          <Pabrik />
-        </section>
+        <div className="btn-group d-flex justify-items-center" role="group" aria-label="Button group name">
+          <button type="button" className="btn btn-success p-3" onClick={() => setStatus("toko")}>
+            Daftar Toko
+          </button>
+          <button type="button" className="btn btn-success p-3" onClick={() => setStatus("pabrik")}>
+            Daftar Pabrik
+          </button>
+        </div>
+        {status === "toko" ? (
+          <section>
+            <h2 className="fw-bold mb-4">Daftar Nama Toko</h2>
+            <Toko />
+          </section>
+        ) : (
+          <section>
+            <h2 className="fw-bold mb-4">Daftar Nama Pabrik</h2>
+            <Pabrik />
+          </section>
+        )}
 
         <section>
           <HargaKomoditas />

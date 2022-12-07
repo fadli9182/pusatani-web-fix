@@ -32,8 +32,6 @@ const DetailShop = () => {
       setImage(res.data.data.data.image);
       setPemilik(res.data.data.data.user_name);
       setLoading(false);
-      console.log(res.data.data);
-      console.log(produkToko);
     } catch (error) {
       console.log(error);
       setLoading(false);

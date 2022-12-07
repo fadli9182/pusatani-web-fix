@@ -11,21 +11,19 @@ const EditProfil = () => {
   const [nama, setNama] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const [idAkun, setIdAkun] = useState("");
+  const [setIdAkun] = useState("");
   const [profile, setProfile] = useState("");
   const navigate = useNavigate();
 
   const getAkun = async () => {
     try {
       const res = await getUser();
-      // console.log(res);
       setAkun(res);
       setNama(res.name);
       setEmail(res.email);
       setPhone(res.user_details.phone);
       setProfile(res.user_details.photo_profile);
       setIdAkun(res.id);
-      console.log(idAkun);
     } catch (error) {
       console.log(error);
     }
@@ -52,7 +50,6 @@ const EditProfil = () => {
             <div className="text-center mb-5">
               <img src={`https://pusatani.masuk.web.id/images/profile/${profile}`} className="avatar img-circle img-thumbnail mb-3" height={"200px"} width={"200px"} alt="avatar" />
               <h6>Upload Foto...</h6>
-
               <input type="file" className="form-control h-50" />
             </div>
             <div className="list">

@@ -12,11 +12,9 @@ const AdminLogin = () => {
 
   function emailChange(e) {
     setEmail(e.target.value);
-    console.log(email);
   }
   function passwordChange(e) {
     setPassword(e.target.value);
-    console.log(password);
   }
 
   async function loginAdmin(e) {
@@ -40,7 +38,6 @@ const AdminLogin = () => {
       navigate("/admdashboard");
     } catch (err) {
       console.log(err.response.data.meta.message);
-
       alert(e.response.data.meta.message);
     }
   }

@@ -1,6 +1,5 @@
 import React, { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
-import "./App.css";
 
 // import Contact from "./components/pages/Kontak/Contact";
 import Login from "./components/pages/Login";
@@ -30,7 +29,7 @@ const AdminLogin = lazy(() => import("./components/pages/AdminLogin"));
 
 function App() {
   return (
-    <>
+    <div className="bg-utama">
       <Routes>
         <Route
           path="/"
@@ -95,7 +94,7 @@ function App() {
 
         <Route path="*" element={<Page404 />} />
       </Routes>
-    </>
+    </div>
   );
 }
 

@@ -16,14 +16,14 @@ const PromoTentang = () => {
                 <AiOutlineCloud />
               </div>
               <h4 className="fw-bold">Tersimpan Otomatis</h4>
-              <p>Data anda akan tersimpan otomatis (kayanya)</p>
+              <p>Data anda akan tersimpan otomatis</p>
             </div>
             <div className="col-6">
               <div className="icons" style={{ fontSize: "40px" }}>
                 <AiOutlineThunderbolt />
               </div>
               <h4 className="fw-bold">Akses Cepat</h4>
-              <p>Anda dapat mengakses aplikasi secepat Agus berlari</p>
+              <p>Anda dapat mengakses aplikasi dengan cepat</p>
             </div>
             <div className="col-6">
               <div className="icons" style={{ fontSize: "40px" }}>
@@ -36,8 +36,8 @@ const PromoTentang = () => {
               <div className="icons" style={{ fontSize: "40px" }}>
                 <AiOutlineSmile />
               </div>
-              <h4 className="fw-bold">Pelanggan Puas</h4>
-              <p>Pelanggan puas, om Agus senang</p>
+              <h4 className="fw-bold">Pelayanan Terbaik</h4>
+              <p>Kami akan memberikan pelayanan terbaik untuk anda!</p>
             </div>
           </div>
         </div>

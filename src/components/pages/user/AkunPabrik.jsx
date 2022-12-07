@@ -14,7 +14,7 @@ const AkunPabrik = () => {
   const [modalShow, setModalShow] = React.useState(false);
   const [akunPabrik, setAkunPabrik] = useState([]);
   const [produks, setProduks] = useState([]);
-  const [phone, setPhone] = useState("");
+  const [setPhone] = useState("");
   const [loading, setLoading] = useState(false);
   const idPabrik = JSON.parse(localStorage.getItem("id_pabrik"));
 
@@ -26,9 +26,6 @@ const AkunPabrik = () => {
     setAkunPabrik(res.data.data.data);
     setProduks(res.data.data.data.pabrik_to_gabah);
     setPhone(res.data.data.phone);
-    console.log(res.data.data.data);
-    console.log(produks);
-    console.log(phone);
   };
   console.log(idPabrik);
   useEffect(() => {
@@ -40,7 +37,6 @@ const AkunPabrik = () => {
     const [deskripsi, setDeskripsi] = useState("");
     const [price, setPrice] = useState("");
     const [image, setImage] = useState(null);
-    // const [stok, setStok] = useState("");
 
     const addPabrik = async (e) => {
       e.preventDefault();
@@ -50,13 +46,11 @@ const AkunPabrik = () => {
       dataProduk.append("name", name);
       dataProduk.append("detail", deskripsi);
       dataProduk.append("price", price);
-      // dataProduk.append("stok", stok);
       dataProduk.append("image", image);
 
       try {
         setLoading(true);
-        let res = await axios.post(`${BASE_URL}/gabah`, dataProduk, config);
-        console.log(res.status);
+        await axios.post(`${BASE_URL}/gabah`, dataProduk, config);
         setLoading(false);
         Swal.fire("Berhasil", "Gabah Berhasil Ditambahkan", "success");
         getaAkunToko();
@@ -101,16 +95,6 @@ const AkunPabrik = () => {
               </label>
               <input value={price} onChange={(e) => setPrice(e.target.value)} type="text" id="harga-produk" className="form-control form-control-lg" placeholder="500000" />
             </div>
-            {/* <div className="form-outline mb-2">
-              <label className="form-label d-flex" htmlFor="stok">
-                Stok Produk
-              </label>
-              <select onChange={(e) => setStok(e.target.value)} className="form-select form-control h-50" name="stok" id="stok" defaultValue={"default"}>
-                <option value="default">Pilih Stok Produk</option>
-                <option value="Tersedia">Tersedia</option>
-                <option value="Tidak Tersedia">Tidak Tersedia</option>
-              </select>
-            </div> */}
             <div className="mb-3">
               <label for="formFile" className="form-label">
                 Foto Produk

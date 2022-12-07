@@ -18,21 +18,15 @@ const Taniinfo = () => {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(false);
   const [url] = useState(`${BASE_URL}/article`);
-  // const [prevUrl, setPrevUrl] = useState("");
-  // const [nextUrl, setNextUrl] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [articlesPerPage] = useState(6);
-  // const [totalPage, setTotalPage] = useState(0);
 
   async function getArticles() {
     setLoading(true);
     try {
       let res = await axios.get(url);
       setArticles(res.data.data);
-      // setPrevUrl(res.data.data.prev_page_url);
-      // setNextUrl(res.data.data.next_page_url);
       setLoading(false);
-      console.log(res.data.data);
     } catch (e) {
       console.log(e);
     }
@@ -75,7 +69,7 @@ const Taniinfo = () => {
           </div>
           <div className="sort">
             <Link to={"/category"}>
-              <motion.button initial={{ scale: 1 }} whileHover={{ scale: 1.1 }} className="btn--login">
+              <motion.button initial={{ scale: 1 }} whileHover={{ scale: 0.9 }} className="btn--login">
                 Cari berita berdasar Kategori
               </motion.button>
             </Link>

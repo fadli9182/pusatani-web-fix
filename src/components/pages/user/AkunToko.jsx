@@ -14,7 +14,7 @@ const AkunToko = () => {
   const [modalShow, setModalShow] = React.useState(false);
   const [akunToko, setAkunToko] = useState([]);
   const [produks, setProduks] = useState([]);
-  const [phone, setPhone] = useState("");
+  const [setPhone] = useState("");
   const [loading, setLoading] = useState(false);
   const idToko = JSON.parse(localStorage.getItem("id_toko"));
 
@@ -26,9 +26,6 @@ const AkunToko = () => {
     setAkunToko(res.data.data.data);
     setProduks(res.data.data.data.toko_to_produk);
     setPhone(res.data.data.phone);
-    console.log(res.data.data.data);
-    console.log(produks);
-    console.log(phone);
   };
   console.log(idToko);
   useEffect(() => {
@@ -55,8 +52,7 @@ const AkunToko = () => {
 
       try {
         setLoading(true);
-        let res = await axios.post(`${BASE_URL}/produk`, dataProduk, config);
-        console.log(res.status);
+        await axios.post(`${BASE_URL}/produk`, dataProduk, config);
         setLoading(false);
         Swal.fire("Berhasil", "Produk Berhasil Ditambahkan", "success");
         getaAkunToko();

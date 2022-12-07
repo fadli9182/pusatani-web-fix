@@ -10,7 +10,6 @@ const ListPabrik = () => {
     try {
       let res = await axios.get(`${BASE_URL}/pabrik`);
       setPabriks(res.data.data.data);
-      console.log(res.data.data.data);
     } catch (e) {
       console.log(e);
     }

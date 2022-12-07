@@ -8,10 +8,8 @@ import LoadingPage from "../LoadingPage";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
-  // const [isLogin, setIsLogin] = useState(false);
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
-  const [userName, setUserName] = useState("");
   const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
@@ -37,24 +35,18 @@ const Login = () => {
         { email, password },
         {
           headers: {
-            // "Content-Type": "application/json",
             Accept: "application/json",
           },
         }
       );
-      console.log(res.data);
       putAccessToken(res.data.data.token);
       putIdPabrik(res.data.data.id_pabrik);
       putIdToko(res.data.data.id_toko);
       putUser(res.data.data.user);
-      setUserName(res.data.data.user.name);
       isLogin();
       setEmail("");
       setPassword("");
       setLoading(false);
-      console.log(userName);
-      console.log(res.data.data);
-      console.log(res.data.data.user);
       navigate("/");
       Swal.fire("Berhasil Login!", "Selamat datang di PusaTani", "success");
     } catch (e) {
@@ -68,14 +60,7 @@ const Login = () => {
   };
 
   if (loading) {
-    return (
-      // <div className="d-flex justify-content-center align-items-center vh-100">
-      //   <div className="spinner-border text-primary" role="status">
-      //     <span className="visually-hidden">Loading...</span>
-      //   </div>
-      // </div>
-      <LoadingPage />
-    );
+    return <LoadingPage />;
   }
 
   return (
@@ -92,7 +77,6 @@ const Login = () => {
               <h5>Pusat Informasi Petani</h5>
               <p>Dengan Teknologi memberi solusi untuk Petani</p>
             </div>
-            {/* <div className="col-lg-12 login--page-left " style={{ width: "100%", height: "500px" }}></div> */}
           </div>
         </div>
 
@@ -119,7 +103,6 @@ const Login = () => {
                     </label>
                   </div>
                 </div>
-                {/* <!-- Checkbox --> */}
                 <div className="form-check d-flex justify-content-start mb-4">
                   <input className="form-check-input me-2" type="checkbox" value="" id="checkbox-login" />
                   <label className="form-check-label" htmlFor="checkbox-login">

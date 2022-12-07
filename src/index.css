@@ -35,6 +35,10 @@ body {
   background-attachment: fixed; */
 }
 
+.bg-utama {
+  background-color: rgb(243, 245, 151);
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
@@ -156,6 +160,10 @@ section {
   margin: 20px !important;
 }
 
+.color__white {
+  color: white !important;
+}
+
 .btn--login {
   background: var(--primary-linear);
   box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.5);
@@ -171,12 +179,17 @@ section {
 .card {
   border: none !important;
   border-radius: 20px !important;
-  /* box-shadow: rgba(50, 50, 93, 0.25) -20px -20px 20px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset !important; */
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
 }
 
 .card img {
   border-radius: 20px 20px 0 0 !important;
+}
+
+.card--toko {
+  border: none !important;
+  border-radius: 20px !important;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
 }
 
 .btn--login:hover {
@@ -205,7 +218,7 @@ section {
 
 #myBtn:hover {
   background-color: #555;
-  scale: 1.4;
+  scale: 0.9;
 }
 
 .right--login {
@@ -226,4 +239,29 @@ section {
 
 .card--login {
   padding-top: 150px !important;
+}
+
+.loading__animate {
+  animation: loading 1s infinite;
+}
+
+@keyframes loading {
+  0% {
+    transform: translateY(30px);
+  }
+  50% {
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+  }
+  60% {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+  }
+  70% {
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }

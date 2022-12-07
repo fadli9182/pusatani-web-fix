@@ -27,7 +27,6 @@ const DetailPabrik = () => {
       setDeskripsi(res.data.data.data.deskripsi);
       setImage(res.data.data.data.image);
       setPemilik(res.data.data.data.user_name);
-      console.log(res.data.data);
     } catch (error) {
       console.log(error);
     }

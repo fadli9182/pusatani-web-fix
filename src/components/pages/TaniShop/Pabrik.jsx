@@ -2,22 +2,29 @@
 import React, { useEffect, useState } from "react";
 import { BASE_URL } from "../../utils/api";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { motion } from "framer-motion";
+import SearchBarPabrik from "./SearchBarPabrik";
+import LoadingFetch from "../LoadingFetch";
 
 const Pabrik = () => {
-  const [listPabriks, setListPabriks] = useState();
+  const [loading, setLoading] = useState(false);
+  const [listPabriks, setListPabriks] = useState([]);
   const [url, setUrl] = useState(`${BASE_URL}/pabrik?page=1`);
   const [nextUrl, setNextUrl] = useState();
   const [prevUrl, setPrevUrl] = useState();
+  const [searchParam, setSearchParam] = useSearchParams();
+
+  const keyword = searchParam.get("keyword") || "";
 
   async function getPabrik() {
     try {
+      setLoading(true);
       let res = await axios.get(url);
       setListPabriks(res.data.data.data);
       setNextUrl(res.data.data.next_page_url);
       setPrevUrl(res.data.data.prev_page_url);
-      console.log(res.data.data.data);
+      setLoading(false);
     } catch (e) {
       console.log(e);
     }
@@ -26,14 +33,28 @@ const Pabrik = () => {
     getPabrik();
   }, [url]);
 
+  function handleSearch(keyword) {
+    setSearchParam({ keyword });
+  }
+  function onKeywordChange(keyword) {
+    handleSearch(keyword);
+  }
+
+  const filteredPabriks = listPabriks.filter((pabrik) => {
+    return pabrik.address.toLowerCase().includes(keyword.toLowerCase());
+  });
+
+  if (loading) return <LoadingFetch />;
+
   return (
     <>
+      <SearchBarPabrik pabrik={listPabriks} keyword={keyword} keywordChange={onKeywordChange} />
       <div className="row">
-        {listPabriks &&
-          listPabriks.map((pabrik) => {
+        {filteredPabriks &&
+          filteredPabriks.map((pabrik) => {
             return (
-              <div key={pabrik.id} className="col-lg-6 col-md-12 mb-4">
-                <div className="card mb-5 card--toko" style={{ maxWidth: "100%" }}>
+              <div key={pabrik.id} className="col-lg-6 col-md-12 mb-5">
+                <div className="card mb-5 h-100 card--toko" style={{ maxWidth: "100%" }}>
                   <div className="row">
                     <div className="col-md-5 d-flex justify-content-center">
                       <img src={pabrik.image} className="img-fluid p-3" alt="Foto toko" style={{ height: "200px", width: "300px", borderRadius: "20px" }} />
@@ -48,7 +69,7 @@ const Pabrik = () => {
                         <p className="card-text">Alamat: {pabrik.address}</p>
                         <p className="d-flex ">
                           <Link to={`/pabrik/${pabrik.id}`}>
-                            <motion.button initial={{ scale: 1 }} whileHover={{ scale: 1.5 }} className=" btn btn-success">
+                            <motion.button initial={{ scale: 1 }} whileHover={{ scale: 1.1 }} className=" btn btn-success">
                               Selengkapnya
                             </motion.button>
                           </Link>
@@ -64,7 +85,7 @@ const Pabrik = () => {
           {prevUrl && (
             <motion.button
               initial={{ scale: 1 }}
-              whileHover={{ scale: 1.5 }}
+              whileHover={{ scale: 1.1 }}
               className="btn--login"
               onClick={() => {
                 setListPabriks([]);
@@ -77,7 +98,7 @@ const Pabrik = () => {
           {nextUrl && (
             <motion.button
               initial={{ scale: 1 }}
-              whileHover={{ scale: 1.5 }}
+              whileHover={{ scale: 1.1 }}
               className="btn--login"
               onClick={() => {
                 setListPabriks([]);
