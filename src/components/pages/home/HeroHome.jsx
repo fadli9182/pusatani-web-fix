@@ -28,9 +28,11 @@ const HeroHome = () => {
             Dengan <strong className="text--green">Teknologi</strong> Memberi <strong className="text--green">Solusi</strong> Untuk Petani
           </p>
         </div>
-        <motion.button initial={{ scale: 1 }} whileHover={{ scale: 1.1 }} className="btn--login btn--home">
-          Unduh Aplikasi
-        </motion.button>
+        <a href={"https://play.google.com/store/apps/details?id=com.drydev.pusatani"} target="_blank" rel="noopener noreferrer">
+          <motion.button initial={{ scale: 1 }} whileHover={{ scale: 1.1 }} className="btn--login btn--home">
+            Unduh Aplikasi
+          </motion.button>
+        </a>
       </div>
     </>
   );

@@ -3,10 +3,14 @@ import { Link, useNavigate } from "react-router-dom";
 import Logo from "../asset/image/Logo.png";
 import { BASE_URL, putAccessToken } from "../utils/api";
 import axios from "axios";
+import Swal from "sweetalert2";
+import LoadingFetch from "./LoadingFetch";
 
 const AdminLogin = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const [loading, setLoading] = useState(false);
+  const [errMsg, setErrMsg] = useState("");
 
   const navigate = useNavigate();
 
@@ -19,14 +23,13 @@ const AdminLogin = () => {
 
   async function loginAdmin(e) {
     e.preventDefault();
-
+    setLoading(true);
     try {
       const res = await axios.post(
         `${BASE_URL}/auth/login`,
         { email, password },
         {
           headers: {
-            // "Content-Type": "application/json",
             Accept: "application/json",
           },
         }
@@ -34,16 +37,21 @@ const AdminLogin = () => {
       putAccessToken(res.data.data.token);
       setEmail("");
       setPassword("");
-      alert("berhasil login");
+      setLoading(false);
+      Swal.fire("Berhasil", "Login Berhasil", "success");
       navigate("/admdashboard");
     } catch (err) {
-      console.log(err.response.data.meta.message);
-      alert(e.response.data.meta.message);
+      setErrMsg(err.response.data.meta.message);
+      setLoading(false);
     }
   }
 
+  if (loading) {
+    return <LoadingFetch />;
+  }
+
   return (
-    <>
+    <div style={{ height: "100vh" }}>
       <form onSubmit={loginAdmin}>
         <Link to={"/"}>
           <img src={Logo} alt="logo" width={"90px"} style={{ marginTop: "20px", marginLeft: "50px" }} />
@@ -51,7 +59,8 @@ const AdminLogin = () => {
         <div className="container d-flex justify-content-center my-2">
           <div className="card shadow justify-content-center align-content-center" style={{ borderRadius: "1rem", width: "500px" }}>
             <div className="card-body p-5 text-center align-item-center card--login">
-              <h3 className="mb-5">Admin</h3>
+              <h3 className="mb-5 text--green fs-2">Admin</h3>
+              <p style={{ color: "red", padding: "10px" }}>{errMsg}</p>
               <div className="form-outline mb-4">
                 <label className="form-label" htmlFor="email-login">
                   Email
@@ -70,7 +79,7 @@ const AdminLogin = () => {
           </div>
         </div>
       </form>
-    </>
+    </div>
   );
 };
 

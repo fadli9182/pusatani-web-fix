@@ -21,10 +21,6 @@ const config = {
 
 const Admin = () => {
   const [articles, setArticles] = useState([]);
-
-  // const [editorState, setEditorState] = useState(() => EditorState.createEmpty());
-  // const [convertedText, setConvertedText] = useState("Some default content");
-
   const navigate = useNavigate();
 
   async function getArticles() {
@@ -101,10 +97,7 @@ const Admin = () => {
                 Isi Artikel
               </label>
               <textarea rows="3" value={body} onChange={(e) => setBody(e.target.value)} type="text" id="isi-artikel" className="form-control form-control-lg" placeholder="Masukan isi Artikel" />
-              {/* <Editor editorState={editorState} toolbarClassName="toolbarClassName" wrapperClassName="wrapperClassName" editorClassName="editorClassName" onEditorStateChange={setEditorState} /> */}
-
-              {/* <ReactQuill value={body} onChange={(e) => setBody(e.target.value)} /> */}
-              {/* <Editor editorState={editorState} toolbarClassName="toolbarClassName" wrapperClassName="wrapperClassName" editorClassName="editorClassName" onEditorStateChange={setEditorState} /> */}
+              {/* <Editor editorState={body} onChange={setBody} /> */}
             </div>
             <div className="form-outline mb-4">
               <label className="form-label d-flex" htmlFor="password-login">
@@ -134,7 +127,7 @@ const Admin = () => {
     );
   }
   return (
-    <div>
+    <div className="h-100">
       <header className="navbar navbar-light sticky-top bg-light flex-md-nowrap p-0 shadow">
         <Link to={"/"}>
           <img className="m-2 ms-4" src={Logo} alt="logo" width={"50px"} />
@@ -154,7 +147,7 @@ const Admin = () => {
       <div className="container-fluid">
         <div className="row">
           <nav id="sidebarMenu" className="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-            <div className="position-sticky pt-3 sidebar-sticky">
+            <div className="position-sticky pt-3 mb-3 sidebar-sticky">
               <ul className="nav flex-column">
                 <li className="nav-item mt-3">
                   <a className="nav-link active" aria-current="page" href="/">
@@ -233,9 +226,6 @@ const Admin = () => {
             <ListToko />
             <ListPabrik />
           </main>
-          <Modal>
-            <h1>Hello</h1>
-          </Modal>
           <FormModal backdrop="static" show={modalShow} onHide={() => setModalShow(false)} />
         </div>
       </div>

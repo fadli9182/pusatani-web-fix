@@ -13,13 +13,14 @@ import LoadingFetch from "../LoadingFetch";
 const DetailPost = () => {
   const [judul, setJudul] = useState("");
   const [body, setBody] = useState("");
-  const { loading, setLoading } = useState(false);
+  const [loading, setLoading] = useState(false);
   const [image, setImage] = useState(null);
   const [author, setAuthor] = useState();
   const [date, setDate] = useState();
   const { id } = useParams();
 
   const getSinglePost = async (e) => {
+    setLoading(true);
     try {
       let res = await axios.get(`${BASE_URL}/article/${id}`);
       setJudul(res.data.data.title);
@@ -32,15 +33,19 @@ const DetailPost = () => {
       console.log(error);
     }
   };
-  const newDate = new Date(date);
-  console.log(newDate);
+  const newDate = new Date(date).toLocaleDateString("id-ID", {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
   useEffect(() => {
     getSinglePost();
   }, []);
 
   function Breadcrumbs() {
     return (
-      <Breadcrumb>
+      <Breadcrumb className="text-success">
         <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
         <Breadcrumb.Item href="/info">Tani Info</Breadcrumb.Item>
         <Breadcrumb.Item active>{judul}</Breadcrumb.Item>
@@ -48,6 +53,21 @@ const DetailPost = () => {
     );
   }
   Breadcrumbs();
+
+  if (loading) {
+    return (
+      <>
+        <Header />
+        <div className="container">
+          <div className="bread">
+            <Breadcrumbs />
+          </div>
+          <LoadingFetch />
+        </div>
+        <Footer />
+      </>
+    );
+  }
 
   return (
     <>
@@ -67,7 +87,7 @@ const DetailPost = () => {
                   <img className="singlePostImg py-3 img-fluid" src={`http://pusatani.masuk.web.id/images/Article/${image}`} alt="foto article" />
                   <div className="singlePostInfo">
                     <h5 className="fw-bold">Author: {author}</h5>
-                    <h5 className="fw-bold">Dibuat: {newDate.toDateString()}</h5>
+                    <h5 className="fw-bold">Dibuat: {newDate}</h5>
                   </div>
                   {/* <article id="biji"></article> */}
                   <article className="artikel">{body}</article>

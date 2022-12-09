@@ -40,9 +40,9 @@ const ListToko = () => {
   }
 
   return (
-    <div>
+    <div id="tabel-toko">
       <h2>List Toko</h2>
-      <div className="table-responsive" id="tabel-toko">
+      <div className="table-responsive">
         <table className="table table-striped table-sm">
           <thead>
             <tr>

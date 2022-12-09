@@ -7,10 +7,12 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "jquery/dist/jquery.min.js";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
+import ScrollToTop from "./components/utils/ScrollToTop";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
+    <ScrollToTop />
     <App />
   </BrowserRouter>
 );

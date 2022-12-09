@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import Logo from "../../asset/image/Logo.png";
 import { motion } from "framer-motion";
 
@@ -19,11 +18,11 @@ const HomeUnduh = () => {
           </p>
         </div>
         <div className="col-md-3 d-flex align-items-center">
-          <Link to={"/"}>
+          <a href={"https://play.google.com/store/apps/details?id=com.drydev.pusatani"} target="_blank" rel="noopener noreferrer">
             <motion.button initial={{ scale: 1 }} whileHover={{ scale: 1.1 }} className="btn--login" style={{ fontSize: "12px" }}>
               Unduh Aplikasi
             </motion.button>
-          </Link>
+          </a>
         </div>
       </motion.div>
     </div>

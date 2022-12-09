@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import LoadingFetch from "../LoadingFetch";
+import parse from "html-react-parser";
 
 const ListArticle = ({ articles, loading }) => {
   if (loading) {
@@ -20,7 +21,7 @@ const ListArticle = ({ articles, loading }) => {
                 </h5>
                 <p className="text--shadow">Author: {article.author}</p>
                 <p className="article--text" style={{ color: "rgba(0,0,0,0.8)", fontSize: "16px" }}>
-                  {article.body}
+                  {parse(article.body)}
                 </p>
                 <Link to={`/post/${article.id}`}>
                   <motion.button initial={{ scale: 1 }} whileHover={{ scale: 0.9 }} className="btn--login">

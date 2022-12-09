@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import { BASE_URL } from "../../utils/api";
 import axios from "axios";
 import LoadingFetch from "../LoadingFetch";
+import ScrollToTop from "../../utils/ScrollToTop";
 import("./taniinfo.css");
 
 const ArticleById = () => {
@@ -17,7 +18,6 @@ const ArticleById = () => {
   async function getArticles() {
     setLoading(true);
     try {
-      // setLoading
       let res = await axios.get(url);
       setLoading(false);
       setArticles(res.data.data);
@@ -32,6 +32,7 @@ const ArticleById = () => {
 
   return (
     <>
+      <ScrollToTop />
       <Header />
       <div className="container">
         <div class="btn-group mb-3 d-flex justify-items-center" role="group" aria-label="Basic example">
@@ -70,7 +71,7 @@ const ArticleById = () => {
                         {article.body}
                       </p>
                       <Link to={`/post/${article.id}`}>
-                        <motion.button initial={{ scale: 1 }} whileHover={{ scale: 1.5 }} className="btn--login">
+                        <motion.button initial={{ scale: 1 }} whileHover={{ scale: 1.1 }} className="btn--login">
                           Lihat Selengkapnya
                         </motion.button>
                       </Link>
