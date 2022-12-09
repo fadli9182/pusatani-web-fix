@@ -8,6 +8,7 @@ PusaTani Project
 </h1>
 
 <p align="center">Project gabut untuk tugas Final Project yang beranggotakan 5 orang</p>
+<a href='http://pusatani.my.id/' target='_blank'>Project PusaTani<a/>
 <ul>
   <li>Asef</li>
   <li>Adri</li>
