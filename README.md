@@ -15,6 +15,19 @@ PusaTani Project
   <li>Wanda</li>
   <li>Fiqri</li>
   <li>Fadli</li>
-</ul>  
+</ul> 
+  
+```
+├── public/
+├── src/
+│   ├── components/
+│   ├── content/
+│   ├── layouts/
+│   └── pages/
+├── astro.config.mjs
+├── README.md
+├── package.json
+└── tsconfig.json
+```
 
 
